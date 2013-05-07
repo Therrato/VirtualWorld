@@ -18,7 +18,7 @@ function Update ()
 
 }
 
-private function playOnString(string:String):void
+public function playOnString(string:String):void
 {
 	//search what you need to play and apply it
 	m_audioClip = searchAudio(string);

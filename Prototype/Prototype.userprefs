@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SoundProcessor.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SoundCubeScript.js">
     <Files>
-      <File FileName="Assets\Scripts\SoundProcessor.js" Line="43" Column="26" />
+      <File FileName="Assets\Scripts\SoundCubeScript.js" Line="4" Column="1" />
+      <File FileName="Assets\Scripts\SoundProcessor.js" Line="20" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
