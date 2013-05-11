@@ -9,8 +9,8 @@ public var pianoArray:AudioClip[];
 
 function Start ()
 {
-	//play p11 (piano, octaaf set 1, first key)
-	playOnString("p11");
+	//play p11 (piano, octaaf set 1, second key)
+	//playOnString("p11"); //test sound @ start
 }
 
 function Update () 
@@ -32,8 +32,7 @@ private function searchAudio(string:String):AudioClip
 	//result variable
 	var result:AudioClip;
 	
-	var thisString:String = string;
-	//searh in array
+	//if string starts with a p it means piano -> continue executing piano things
 	if(string.StartsWith("p"))
 	{
 		//remove the p cause we know its the piano
@@ -50,12 +49,14 @@ private function searchAudio(string:String):AudioClip
 		
 		//calculate index number
 		var index:int;
+		//8 keys in 1 octave set so a * 7 (0 included)
+		//+b will assign which key in the octave set (0 included == first key)
 		index = (a * 7) + b;
 		
 		//apply the result
 		result = pianoArray[index];
 	}
 	
-	//return result
+	//return the result
 	return result;
 }

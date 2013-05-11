@@ -1,9 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SoundCubeScript.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Scripts\SoundCubeScript.js">
     <Files>
-      <File FileName="Assets\Scripts\SoundCubeScript.js" Line="4" Column="1" />
-      <File FileName="Assets\Scripts\SoundProcessor.js" Line="20" Column="1" />
+      <File FileName="Assets\Menu\Scripts\Menu.js" Line="20" Column="1" />
+      <File FileName="Assets\Game\Scripts\MenuScript.js" Line="15" Column="15" />
+      <File FileName="Assets\Game\Scripts\SoundProcessor.js" Line="16" Column="20" />
+      <File FileName="Assets\Game\Scripts\SoundCubeScript.js" Line="23" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
