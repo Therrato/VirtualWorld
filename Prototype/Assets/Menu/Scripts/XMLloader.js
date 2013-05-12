@@ -48,10 +48,13 @@ function loadXML():void
 							code = cubeProperty.InnerText.ToString();
 							//should send code to the loader so the LevelLoader can put it into an array
 							GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).PushCube(code);
+							
 						}
 					}
 				}
 			}
+			//after reading cubes
+			GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).LoadCubes();
 		}
 		
 	}
