@@ -1,11 +1,9 @@
 <root>
 	<row1>
 		<cube>
-			<number>0</number>
 			<code>"p01"</code>
 		</cube>
 		<cube>
-			<number>1</number>
 			<code>"p04"</code>
 		</cube>
 	</row1>

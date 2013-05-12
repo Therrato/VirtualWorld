@@ -1,17 +1,19 @@
 #pragma strict
 
-function Start () {
+function Start ()
+{
+}
+
+function Update ()
+{
+}
+
+function PushCube(soundCode:String)
+{
 
 }
 
-function Update () {
-
-}
-
-function PushLevel(soundCode:String){
-
-}
-
-function LoadLevel(){
+function LoadLevel()
+{
 
 }

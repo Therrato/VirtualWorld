@@ -20,13 +20,11 @@ function FillCube()
 	cubeArray.Push("p02");
 	cubeArray.Push("p07");
 	FillCube("p04");
-	//random assign algorithm
-	//tbi
 }
 
 function FillCube(soundCode:String){
 
-
+//assigns the correct sound to a random face of the cube (but not on 0 else it would be instant correct)
 cubeArray[Mathf.FloorToInt(Random.value*5 + 1)] = soundCode;
 
 }

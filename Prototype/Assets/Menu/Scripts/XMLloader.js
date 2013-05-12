@@ -17,8 +17,11 @@ function loadXML():void
 {
 	var xmlDoc:XmlDocument = new XmlDocument();
 	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\XMLdocument.xml";
+	
+	//if the file exists then execute
 	if(File.Exists(filePath))
 	{
+		//load the xml document
 		xmlDoc.Load(filePath);
 		
 		//load cubes
@@ -30,35 +33,29 @@ function loadXML():void
 		
 		for each (var row1Info:XmlNode in row1)
 		{
-			//read out 
+			//read out nodes of row1
 			var cubes:XmlNodeList = row1Info.ChildNodes;
 			
 			for each (var cubeItem:XmlNode in cubes)
 			{
+				//if the node in the list is called cube execute
 				if(cubeItem.Name == "cube")
 				{
+					//for every property within the cube execute
 					for each(var cubeProperty:XmlNode in cubeItem)
-					{
-
-						if(cubeProperty.Name == "number")
+					{	
+						//if the property name is code then execute
+						if(cubeProperty.Name == "code")
 						{
-							number = float.Parse(cubeProperty.InnerText);	
+							code = cubeProperty.ToString();
+							//should send code to the loader so the LevelLoader can put it into an array
+							//LoadLevel.pushLevel(code);
 						}
-						
-						else if(cubeProperty.Name == "code")
-						{
-							code = "code";
-						}
-						
-					
-						Debug.Log("Numbers: " + number);
-						//Debug.Log("Code: " + code);
-						//Debug.Log("instantiating cube");
 					}
 				}
 			}
 		}
 		
 	}
-	else Debug.Log("not found");
+	else Debug.Log("XML file not found");
 }
