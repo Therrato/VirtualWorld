@@ -17,7 +17,6 @@ function loadXML():void
 {
 	var xmlDoc:XmlDocument = new XmlDocument();
 	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\XMLdocument.xml";
-	
 	//if the file exists then execute
 	if(File.Exists(filePath))
 	{
@@ -28,7 +27,6 @@ function loadXML():void
 		
 		//begin read row1
 		var row1:XmlNodeList = xmlDoc.GetElementsByTagName("row1");
-		var number:float = 0;
 		var code:String = "";
 		
 		for each (var row1Info:XmlNode in row1)
@@ -49,7 +47,7 @@ function loadXML():void
 						{
 							code = cubeProperty.InnerText.ToString();
 							//should send code to the loader so the LevelLoader can put it into an array
-							//LoadLevel.pushLevel(code);
+							GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).PushCube(code);
 						}
 					}
 				}
