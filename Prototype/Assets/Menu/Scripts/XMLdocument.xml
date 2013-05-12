@@ -1,36 +1,36 @@
 <root>
 	<row1>
 		<cube>
-			<code>"p01"</code>
+			<code>p01</code>
 		</cube>
 		
 		<cube>
-			<code>"p03"</code>
+			<code>p03</code>
 		</cube>
 		
 		<cube>
-			<code>"p07"</code>
+			<code>p07</code>
 		</cube>
 		
 		<cube>
-			<code>"p05"</code>
+			<code>p05</code>
 		
 		</cube>
 		
 		<cube>
-			<code>"p02"</code>
+			<code>p02</code>
 		</cube>
 		
 		<cube>
-			<code>"p06"</code>
+			<code>p06</code>
 		</cube>
 		
 		<cube>
-			<code>"p00"</code>
+			<code>p00</code>
 		</cube>
 		
 		<cube>
-			<code>"p04"</code>
+			<code>p04</code>
 		</cube>
 	</row1>
 </root>

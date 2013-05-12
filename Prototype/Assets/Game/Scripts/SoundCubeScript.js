@@ -8,21 +8,23 @@ private var IMy:int;
 
 function Start ()
 {
+	soundboard = GameObject.Find("SequencerBoard");
 	FillCube();
 }
 
 function FillCube()
 {
 	cubeArray.Push("p01");
-	cubeArray.Push("p12");
-	cubeArray.Push("p10");
-	cubeArray.Push("p03");
-	cubeArray.Push("p02");
-	cubeArray.Push("p07");
-	FillCube("p04");
+	cubeArray.Push("p01");
+	cubeArray.Push("p01");
+	cubeArray.Push("p01");
+	cubeArray.Push("p01");
+	cubeArray.Push("p01");
+	
 }
 
 function FillCube(soundCode:String){
+Debug.Log(soundCode);
 
 //assigns the correct sound to a random face of the cube (but not on 0 else it would be instant correct)
 cubeArray[Mathf.FloorToInt(Random.value*5 + 1)] = soundCode;
@@ -36,13 +38,13 @@ function Update ()
 
 function OnMouseDown()
 {
-	Debug.Log("now");
+	//Debug.Log("now");
 	
 	if(Input.GetMouseButtonDown(0))
 	{
 		IMx = Input.mousePosition.x;
 		IMy = Input.mousePosition.y;
-		Debug.Log("now: pos x"+ IMx +" pos y"+ IMy);
+		//Debug.Log("now: pos x"+ IMx +" pos y"+ IMy);
 	}
 }
 
@@ -53,7 +55,7 @@ function OnMouseUp(){
 		var movedx = IMx-Input.mousePosition.x;
 		var movedy = IMy-Input.mousePosition.y;
 		
-		Debug.Log("movedx = "+ movedx+" movedy = "+movedy); 
+		//Debug.Log("movedx = "+ movedx+" movedy = "+movedy); 
 		
 		//check left or right
 		if (movedx >= 0 ){//left
@@ -96,6 +98,7 @@ function OnMouseUp(){
 
 function PlayMe(){
 //play sound
+Debug.Log(cubeArray[0]);
 soundboard.GetComponent(SoundProcessor).playOnString(cubeArray[0]);
 }
 
@@ -142,3 +145,4 @@ cubeArray[2] = cubeArray[5];
 cubeArray[5] = bubble;
 PlayMe();
 }
+

@@ -45,7 +45,7 @@ function loadXML():void
 						//if the property name is code then execute
 						if(cubeProperty.Name == "code")
 						{
-							code = cubeProperty.InnerText.ToString();
+							code = cubeProperty.InnerText;
 							//should send code to the loader so the LevelLoader can put it into an array
 							GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).PushCube(code);
 							
