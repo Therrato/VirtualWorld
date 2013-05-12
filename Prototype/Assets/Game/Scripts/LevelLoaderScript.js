@@ -15,8 +15,11 @@ songArray.Push(soundCode);
 TestArray();
 }
 
-function LoadLevel()
+function LoadCubes()
 {
+for (var code:String in songArray){
+Debug.Log("I load the level " );
+}
 
 }
 
