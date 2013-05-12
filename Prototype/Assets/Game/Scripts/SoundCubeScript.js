@@ -13,15 +13,22 @@ function Start ()
 
 function FillCube()
 {
-	cubeArray.Push("p02");
 	cubeArray.Push("p01");
-	cubeArray.Push("p02");
-	cubeArray.Push("p03");
-	cubeArray.Push("p04");
+	cubeArray.Push("p12");
 	cubeArray.Push("p10");
-	
+	cubeArray.Push("p03");
+	cubeArray.Push("p02");
+	cubeArray.Push("p07");
+	FillCube("p04");
 	//random assign algorithm
 	//tbi
+}
+
+function FillCube(soundCode:String){
+
+
+cubeArray[Mathf.FloorToInt(Random.value*5 + 1)] = soundCode;
+
 }
 
 function Update () 

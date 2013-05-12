@@ -1,0 +1,93 @@
+Initialize engine version: 4.0.1f2
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dum.dll 8.16.11.8974]
+    Renderer: NVIDIA NVS 3100M
+    Vendor:   NVIDIA
+    VRAM:     1175 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 DF24=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Roy Schröder\Documents\GitHub\VirtualWorld\Prototype\Prototype screen size_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Roy Schröder\Documents\GitHub\VirtualWorld\Prototype\Prototype screen size_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Roy Schröder\Documents\GitHub\VirtualWorld\Prototype\Prototype screen size_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Roy Schröder\Documents\GitHub\VirtualWorld\Prototype\Prototype screen size_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+- Completed reload, in  0.085 seconds
+desktop: 1280x800 60Hz; virtual: 2640x800 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\Roy Schröder\Documents\GitHub\VirtualWorld\Prototype\Prototype screen size_Data\Managed\UnityScript.Lang.dll (this message is harmless)
+Platform assembly: C:\Users\Roy Schröder\Documents\GitHub\VirtualWorld\Prototype\Prototype screen size_Data\Managed\Boo.Lang.dll (this message is harmless)
+starting game
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 128. Operation took 3.111581 ms.
+now
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+now: pos x148 pos y587
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+movedx = -1 movedy = -58
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+now
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+now: pos x133 pos y600
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+movedx = 0 movedy = 135
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+now
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+now: pos x138 pos y593
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+movedx = -135 movedy = 3
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+now
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+now: pos x173 pos y586
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+movedx = 169 movedy = 1
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
+
+Skipped rendering frame because GfxDevice is in invalid state (device lost)
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/Misc/Player.cpp Line: 1336)
+
+HandleD3DDeviceLost
+  HandleD3DDeviceLost: still lost
+Skipped rendering frame because GfxDevice is in invalid state (device lost)
+ 
+(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/Misc/Player.cpp Line: 1336)
+
+HandleD3DDeviceLost
+  HandleD3DDeviceLost: needs reset, doing it
+FullResetD3DDevice
+ResetD3DDevice
+dev->Reset
+D3Dwindow device not lost anymore
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 98. Operation took 3.861472 ms.
