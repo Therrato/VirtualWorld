@@ -5,6 +5,7 @@ private var m_audioClip:AudioClip;
 
 //contains piano sounds
 public var pianoArray:AudioClip[];
+public var guitarArray:AudioClip[];
 
 
 function Start ()
