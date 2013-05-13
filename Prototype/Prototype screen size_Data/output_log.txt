@@ -11,8 +11,8 @@ Platform assembly: C:\Users\Roy Schröder\Documents\GitHub\VirtualWorld\Prototyp
 Loading C:\Users\Roy Schröder\Documents\GitHub\VirtualWorld\Prototype\Prototype screen size_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\Roy Schröder\Documents\GitHub\VirtualWorld\Prototype\Prototype screen size_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
 Loading C:\Users\Roy Schröder\Documents\GitHub\VirtualWorld\Prototype\Prototype screen size_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-- Completed reload, in  0.085 seconds
-desktop: 1280x800 60Hz; virtual: 2640x800 at 0,0
+- Completed reload, in  0.057 seconds
+desktop: 1280x800 60Hz; virtual: 1280x800 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Roy Schröder\Documents\GitHub\VirtualWorld\Prototype\Prototype screen size_Data\Managed\UnityScript.Lang.dll (this message is harmless)
@@ -23,71 +23,13 @@ starting game
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 128. Operation took 3.111581 ms.
-now
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 126. Operation took 46.613880 ms.
+Platform assembly: C:\Users\Roy Schröder\Documents\GitHub\VirtualWorld\Prototype\Prototype screen size_Data\Managed\System.Xml.dll (this message is harmless)
+Platform assembly: C:\Users\Roy Schröder\Documents\GitHub\VirtualWorld\Prototype\Prototype screen size_Data\Managed\System.dll (this message is harmless)
+XML file not found
  
 (Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
 
-now: pos x148 pos y587
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
-
-movedx = -1 movedy = -58
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
-
-now
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
-
-now: pos x133 pos y600
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
-
-movedx = 0 movedy = 135
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
-
-now
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
-
-now: pos x138 pos y593
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
-
-movedx = -135 movedy = 3
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
-
-now
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
-
-now: pos x173 pos y586
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
-
-movedx = 169 movedy = 1
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
-
-Skipped rendering frame because GfxDevice is in invalid state (device lost)
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/Misc/Player.cpp Line: 1336)
-
-HandleD3DDeviceLost
-  HandleD3DDeviceLost: still lost
-Skipped rendering frame because GfxDevice is in invalid state (device lost)
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/Misc/Player.cpp Line: 1336)
-
-HandleD3DDeviceLost
-  HandleD3DDeviceLost: needs reset, doing it
-FullResetD3DDevice
-ResetD3DDevice
-dev->Reset
-D3Dwindow device not lost anymore
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 98. Operation took 3.861472 ms.
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 99. Operation took 4.044694 ms.

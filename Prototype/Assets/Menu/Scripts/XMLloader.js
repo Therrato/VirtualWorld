@@ -64,10 +64,10 @@ function loadXML():void
 					}
 					
 				}
-				
+				GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).NextRow();
 			}
 			
-			//Debug.Log("next row");
+			
 		}
 		GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).LoadCubes();
 		

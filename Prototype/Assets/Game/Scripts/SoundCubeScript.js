@@ -5,11 +5,14 @@ private var IMx:int;
 private var IMy:int;
 
 
+function Awake(){
+FillCube();
+}
 
 function Start ()
 {
 	soundboard = GameObject.Find("SequencerBoard");
-	FillCube();
+	//FillCube();
 }
 
 function FillCube()

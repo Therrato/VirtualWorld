@@ -2,11 +2,14 @@
 public var rowArray:Array = new Array();
 private var rowCount = 0;
 
+function Awake(){
+var songArray:Array = new Array();
+rowArray.Push(songArray);
+}
 
 function Start ()
 {
-var songArray:Array = new Array();
-rowArray.Push(songArray);
+
 }
 
 function Update ()
@@ -15,8 +18,9 @@ function Update ()
 
 function PushCube(soundCode:String)
 {
+ Debug.Log(rowCount);
  var pushToMe:Array = rowArray[rowCount];
-
+ Debug.Log(rowCount);
  pushToMe.Push(soundCode);
 //songArray.Push(soundCode);
 
@@ -42,8 +46,10 @@ for (var i = 0; i<=rowCount;i++){
 }
 
 
-//function NextRow(){
-//rowCount++;
-//}
+function NextRow(){
+rowCount++;
+var songArray:Array = new Array();
+rowArray.Push(songArray);
+}
 
 

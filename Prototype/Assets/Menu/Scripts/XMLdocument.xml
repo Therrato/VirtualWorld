@@ -1,6 +1,5 @@
 <root>
-<bpm>100</bpm>
-<stage>1</stage>		
+
 	<row>
 		<cube>
 			<code>p01</code>
