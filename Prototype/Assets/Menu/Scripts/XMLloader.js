@@ -25,37 +25,51 @@ function loadXML():void
 		
 		//load cubes
 		
-		//begin read row1
-		var row1:XmlNodeList = xmlDoc.GetElementsByTagName("row1");
+		//get the root
+		var root:XmlNodeList = xmlDoc.GetElementsByTagName("root");
+		//code variable
 		var code:String = "";
 		
-		for each (var row1Info:XmlNode in row1)
+		//for every row node in the root element
+		for each (var row:XmlNode in root)
 		{
-			//read out nodes of row1
-			var cubes:XmlNodeList = row1Info.ChildNodes;
-			
-			for each (var cubeItem:XmlNode in cubes)
+			//for every cubenode in the row
+			for each (var cube:XmlNode in row)
 			{
-				//if the node in the list is called cube execute
-				if(cubeItem.Name == "cube")
-				{
-					//for every property within the cube execute
-					for each(var cubeProperty:XmlNode in cubeItem)
-					{	
-						//if the property name is code then execute
-						if(cubeProperty.Name == "code")
-						{
-							code = cubeProperty.InnerText;
-							//should send code to the loader so the LevelLoader can put it into an array
-							GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).PushCube(code);
-							
+				//cube list of the cubenodes (every cube within row)
+				var cubeslist:XmlNodeList = cube.ChildNodes;
+				
+				//for every cubeItem
+				for each (var cubeItem:XmlNode in cubeslist)
+				{ 
+					//if the node in the list is called cube execute
+					if(cubeItem.Name == "cube")
+					{
+						//for every property within the cube execute
+						for each(var cubeProperty:XmlNode in cubeItem)
+						{	
+							//if the property name is code then execute
+							if(cubeProperty.Name == "code")
+							{
+								code = cubeProperty.InnerText;
+								if(code.StartsWith("g"))
+								{
+									//Debug.Log(code);
+								}
+								//should send code to the loader so the LevelLoader can put it into an array
+								GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).PushCube(code);
+								
+							}
 						}
 					}
+					
 				}
+				
 			}
-			//after reading cubes
-			GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).LoadCubes();
+			GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).NextRow();
+			//Debug.Log("next row");
 		}
+		GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).LoadCubes();
 		
 	}
 	else Debug.Log("XML file not found");
