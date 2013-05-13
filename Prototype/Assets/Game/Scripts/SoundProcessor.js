@@ -36,12 +36,22 @@ private function searchAudio(string:String):AudioClip
 	//if string starts with a p it means piano -> continue executing piano things
 	if(string.StartsWith("p"))
 	{
+		result = pianoArray[calculatePos(string)];
+	}
+	else if(string.StartsWith("g"))
+	{
+		result = guitarArray[calculatePos(string)];
+	}
+	
+	//return the result
+	return result;
+}
+
+private function calculatePos(string:String):int
+{
 		//remove the p cause we know its the piano
-		var newString:String = string.Substring(1, 2);
-		
-		//example: p12   newstring = 12    we want A to be 1 and B to be 2
-		//convert string to int
-		var a:int;
+	    var newString:String = string.Substring(1, 2);
+	    var a:int;
 		a = int.Parse(newString.Substring(0,1));
 		
 		var b:int;
@@ -53,11 +63,5 @@ private function searchAudio(string:String):AudioClip
 		//8 keys in 1 octave set so a * 7 (0 included)
 		//+b will assign which key in the octave set (0 included == first key)
 		index = (a * 7) + b;
-		
-		//apply the result
-		result = pianoArray[index];
-	}
-	
-	//return the result
-	return result;
+		return index;
 }

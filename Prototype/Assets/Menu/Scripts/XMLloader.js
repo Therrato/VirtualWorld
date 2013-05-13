@@ -16,7 +16,10 @@ function Update ()
 function loadXML():void
 {
 	var xmlDoc:XmlDocument = new XmlDocument();
+	//unity
 	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\XMLdocument.xml";
+	//compiled
+	//var filePath:String = Application.dataPath + "XMLdocument.xml";
 	//if the file exists then execute
 	if(File.Exists(filePath))
 	{
