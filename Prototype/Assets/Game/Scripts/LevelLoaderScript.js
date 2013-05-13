@@ -1,8 +1,12 @@
 #pragma strict
-public var songArray = new Array();
+public var rowArray:Array = new Array();
+private var rowCount = 0;
+
 
 function Start ()
 {
+var songArray:Array = new Array();
+rowArray.Push(songArray);
 }
 
 function Update ()
@@ -11,26 +15,33 @@ function Update ()
 
 function PushCube(soundCode:String)
 {
-songArray.Push(soundCode);
+ var pushToMe:Array = rowArray[rowCount];
+ pushToMe.Push(soundCode);
+//songArray.Push(soundCode);
 
 }
 
 function LoadCubes()
 {
 var count = 0;
-for (var code:String in songArray){
-var clone:GameObject;
-clone = Instantiate(Resources.Load("Cube"),Vector3((count*0.5-2.5),0.5,0.6),Quaternion.identity);
-clone.GetComponent(SoundCubeScript).FillCube();
-clone.GetComponent(SoundCubeScript).FillCube(code);
-count++;
 
+for (var i = 0; i<=rowCount;i++){
+	var songArray:Array = rowArray[i];
+	for (var code:String in songArray){
+		var clone:GameObject;
+		clone = Instantiate(Resources.Load("Cube"),Vector3((count*0.5-2.5),0.5,0.6-(i*0.4)),Quaternion.identity);
+		clone.GetComponent(SoundCubeScript).FillCube();
+		clone.GetComponent(SoundCubeScript).FillCube(code);
+		count++;
+
+		}
 }
 
 }
 
-function TestArray(){
-for(var code:String in songArray)
-    Debug.Log(code);
-    
+
+function NextRow(){
+rowCount++;
 }
+
+
