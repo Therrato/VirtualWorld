@@ -1,5 +1,7 @@
 <root>
-	<row1>
+<bpm>100</bpm>
+<stage>1</stage>		
+	<row>
 		<cube>
 			<code>p01</code>
 		</cube>
@@ -14,7 +16,6 @@
 		
 		<cube>
 			<code>p05</code>
-		
 		</cube>
 		
 		<cube>
@@ -32,5 +33,40 @@
 		<cube>
 			<code>p04</code>
 		</cube>
-	</row1>
+	</row>
+	
+	<row>
+		<cube>
+			<code>g01</code>
+		</cube>
+		
+		<cube>
+			<code>g03</code>
+		</cube>
+		
+		<cube>
+			<code>g07</code>
+		</cube>
+		
+		<cube>
+			<code>g05</code>
+		</cube>
+		
+		<cube>
+			<code>g02</code>
+		</cube>
+		
+		<cube>
+			<code>g06</code>
+		</cube>
+		
+		<cube>
+			<code>g00</code>
+		</cube>
+		
+		<cube>
+			<code>g04</code>
+		</cube>
+	</row>
+	
 </root>
