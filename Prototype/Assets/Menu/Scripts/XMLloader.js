@@ -58,7 +58,7 @@ function loadXML():void
 								}
 								//should send code to the loader so the LevelLoader can put it into an array
 								GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).PushCube(code);
-								
+								//GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).NextRow();
 							}
 						}
 					}
@@ -66,7 +66,7 @@ function loadXML():void
 				}
 				
 			}
-			GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).NextRow();
+			
 			//Debug.Log("next row");
 		}
 		GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).LoadCubes();
