@@ -4,6 +4,11 @@ public var soundboard:GameObject;
 private var IMx:int;
 private var IMy:int;
 private var moveAble:boolean = true;
+private var hoverMin:float = -0.05;
+private var hoverMax:float = 0.05;
+private var hoverDirection:int = -1;
+private var hoverPosition:float;
+
 
 
 function Awake(){
@@ -13,7 +18,8 @@ FillCube();
 function Start ()
 {
 	soundboard = GameObject.Find("SequencerBoard");
-	//FillCube();
+	this.transform.position.y+= hoverPosition = Random.value/100;
+	if ( Random.value >= 0.5) hoverDirection =1;
 }
 
 function FillCube()
@@ -43,7 +49,12 @@ cubeArray[0] = soundCode;
 
 function Update () 
 {
+ var moveValue = 0.001;
+ if (hoverPosition<=hoverMin)hoverDirection = 1;
+ if (hoverPosition>=hoverMax)hoverDirection = -1;
+ hoverPosition += moveValue*=hoverDirection;
 
+  this.transform.position.y+=moveValue;
 }
 
 function OnMouseDown()
@@ -60,8 +71,8 @@ function OnMouseDown()
 
 function OnMouseUp(){
 
-	if(Input.mousePosition.x == IMx&&Input.mousePosition.y == IMy) PlayMe();
-	else if(moveAble){
+	if(Input.mousePosition.x == IMx&&Input.mousePosition.y == IMy||moveAble==false) PlayMe();
+	else {
 		var movedx = IMx-Input.mousePosition.x;
 		var movedy = IMy-Input.mousePosition.y;
 		

@@ -36,6 +36,14 @@ for (var i = 0; i<=rowCount;i++){
 		clone = Instantiate(Resources.Load("Cube"),Vector3((count*0.5-2.5),0.5,0.6-(i*0.4)),Quaternion.identity);
 		clone.GetComponent(SoundCubeScript).FillCube();
 		clone.GetComponent(SoundCubeScript).FillCube(code,true);
+		
+		
+		//
+		clone = Instantiate(Resources.Load("Cube"),Vector3((count*0.5-2.5),0.5,0.6-(i*0.4)-(0.4*rowCount)),Quaternion.identity);
+		clone.GetComponent(SoundCubeScript).FillCube();
+		clone.GetComponent(SoundCubeScript).FillCube(code);
+		
+		//
 		count++;
 
 		}

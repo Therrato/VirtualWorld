@@ -10,8 +10,7 @@ public var guitarArray:AudioClip[];
 
 function Start ()
 {
-	//play p11 (piano, octaaf set 1, second key)
-	//playOnString("p11"); //test sound @ start
+	
 }
 
 function Update () 
