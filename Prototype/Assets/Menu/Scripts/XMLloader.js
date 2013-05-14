@@ -26,15 +26,47 @@ function loadXML():void
 		//load the xml document
 		xmlDoc.Load(filePath);
 		
-		//load cubes
+
+		//
+		//read level info
+		//
 		
-		//get the root
-		var root:XmlNodeList = xmlDoc.GetElementsByTagName("root");
+		var levelInfo:XmlNodeList = xmlDoc.GetElementsByTagName("levelinfo");
+		var bpm:float;
+		var stage:float;
+		
+		for each (var node:XmlNode in levelInfo)
+		{
+			//get nodes of info
+			var levelInfoList:XmlNodeList = node.ChildNodes;
+
+			for each(var nodeItem:XmlNode in levelInfoList)
+			{
+				if(nodeItem.Name == "bpm")
+				{
+					bpm = float.Parse(node.InnerText);
+					//send to function
+					//tbi
+				}
+				else if(nodeItem.Name == "stage")
+				{
+					stage = float.Parse(node.InnerText);
+					//send to function
+					//tbi
+				}
+			}
+		}
+		
+		
+		//
+		//get the rows
+		//
+		var rows:XmlNodeList = xmlDoc.GetElementsByTagName("rows");
 		//code variable
 		var code:String = "";
 		
 		//for every row node in the root element
-		for each (var row:XmlNode in root)
+		for each (var row:XmlNode in rows)
 		{
 			//for every cubenode in the row
 			for each (var cube:XmlNode in row)
@@ -55,13 +87,9 @@ function loadXML():void
 							if(cubeProperty.Name == "code")
 							{
 								code = cubeProperty.InnerText;
-								if(code.StartsWith("g"))
-								{
-									//Debug.Log(code);
-								}
+								
 								//should send code to the loader so the LevelLoader can put it into an array
 								GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).PushCube(code);
-								//GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).NextRow();
 							}
 						}
 					}
