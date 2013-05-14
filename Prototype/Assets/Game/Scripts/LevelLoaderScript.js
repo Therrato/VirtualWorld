@@ -18,9 +18,7 @@ function Update ()
 
 function PushCube(soundCode:String)
 {
- Debug.Log(rowCount);
  var pushToMe:Array = rowArray[rowCount];
- Debug.Log(rowCount);
  pushToMe.Push(soundCode);
 //songArray.Push(soundCode);
 
