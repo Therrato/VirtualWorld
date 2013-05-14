@@ -3,6 +3,7 @@ public var cubeArray = new Array();
 public var soundboard:GameObject;
 private var IMx:int;
 private var IMy:int;
+private var moveAble:boolean = true;
 
 
 function Awake(){
@@ -27,10 +28,16 @@ function FillCube()
 }
 
 function FillCube(soundCode:String){
-Debug.Log(soundCode);
+//Debug.Log(soundCode);
 
 //assigns the correct sound to a random face of the cube (but not on 0 else it would be instant correct)
 cubeArray[Mathf.FloorToInt(Random.value*5 + 1)] = soundCode;
+
+}
+
+function FillCube(soundCode:String,isCorrect:boolean){
+if(isCorrect)moveAble=false;
+cubeArray[0] = soundCode;
 
 }
 
@@ -54,7 +61,7 @@ function OnMouseDown()
 function OnMouseUp(){
 
 	if(Input.mousePosition.x == IMx&&Input.mousePosition.y == IMy) PlayMe();
-	else{
+	else if(moveAble){
 		var movedx = IMx-Input.mousePosition.x;
 		var movedy = IMy-Input.mousePosition.y;
 		

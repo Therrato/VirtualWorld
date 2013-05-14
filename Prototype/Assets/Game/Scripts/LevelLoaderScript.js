@@ -35,7 +35,7 @@ for (var i = 0; i<=rowCount;i++){
 		var clone:GameObject;
 		clone = Instantiate(Resources.Load("Cube"),Vector3((count*0.5-2.5),0.5,0.6-(i*0.4)),Quaternion.identity);
 		clone.GetComponent(SoundCubeScript).FillCube();
-		clone.GetComponent(SoundCubeScript).FillCube(code);
+		clone.GetComponent(SoundCubeScript).FillCube(code,true);
 		count++;
 
 		}
