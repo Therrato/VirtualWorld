@@ -5,7 +5,7 @@ import System.IO;
 
 function Start ()
 {
-	loadXML();
+
 }
 
 function Update ()
@@ -13,13 +13,14 @@ function Update ()
 
 }
 
-function loadXML():void
+function loadXML(level:String):void
 {
 	var xmlDoc:XmlDocument = new XmlDocument();
 	//unity
-	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\XMLdocument.xml";
+	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + level;
 	//compiled
 	//var filePath:String = Application.dataPath + "XMLdocument.xml";
+	
 	//if the file exists then execute
 	if(File.Exists(filePath))
 	{
@@ -97,8 +98,6 @@ function loadXML():void
 				}
 				GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).NextRow();
 			}
-			
-			
 		}
 		GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).LoadCubes();
 		

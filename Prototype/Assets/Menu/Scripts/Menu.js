@@ -1,5 +1,10 @@
 #pragma strict
 
+//
+private var ingame:boolean = false;
+private var interval:float = 0;
+private var level:String;
+
 //button width / height
 private var buttonWidth:float = 100;
 private var buttonHeight:float = 50;
@@ -21,6 +26,11 @@ private var AboutText:String = "Made By: \n \nTechnical \nRoy Schröder \nKevin 
 //overall menu state
 private var State:String = "MainMenu";
 
+function Awake()
+{
+	DontDestroyOnLoad (transform.gameObject);
+}
+
 function Start ()
 {
 
@@ -28,6 +38,12 @@ function Start ()
 
 function Update ()
 {
+	if(State == "ingame")
+	{
+		interval++;
+		//Debug.Log(interval);
+		loadLevel(level);
+	}
 
 }
 
@@ -36,14 +52,19 @@ function OnGUI()
 	//
 	//		Main Menu
 	//
-
+	
 	if(State == "MainMenu")
 	{
 		//Start game
 		if(GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, Screen.height / 2 - 150, buttonWidth, buttonHeight), StartGame))
 		{
 			Debug.Log("starting game");
+			State = "ingame";
 			Application.LoadLevel("mainGame");
+			level = "XMLdocument.xml";
+			
+			
+			
 		}
 		
 		//Options
@@ -93,5 +114,14 @@ function OnGUI()
 		{
 			State = "MainMenu";
 		}
+	}
+}
+
+function loadLevel(level)
+{
+	if(interval > 1 && State == "ingame")
+	{
+		GameObject.Find("LevelLoader").GetComponent(XMLloader).loadXML(level);
+		State = "loaded";
 	}
 }
