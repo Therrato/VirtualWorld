@@ -3,9 +3,9 @@
 import System.Xml;
 import System.IO;
 
+
 function Start ()
 {
-
 }
 
 function Update ()
@@ -52,6 +52,11 @@ function loadXML(level:String):void
 				else if(nodeItem.Name == "stage")
 				{
 					stage = float.Parse(node.InnerText);
+					//send to function
+					//tbi
+				}
+				else if(nodeItem.Name == "baseline")
+				{
 					//send to function
 					//tbi
 				}
