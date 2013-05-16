@@ -1,4 +1,7 @@
 #pragma strict
+
+import System.Collections.Generic;
+
 public var cubeArray = new Array();
 public var soundboard:GameObject;
 private var IMx:int;
@@ -117,10 +120,18 @@ function OnMouseUp(){
 
 }
 
-function PlayMe(){
-//play sound
-Debug.Log(cubeArray[0]);
-soundboard.GetComponent(SoundProcessor).playOnString(cubeArray[0]);
+function playCube(number:int)
+{
+	var cubeList:Array = GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getCubeList();
+	var cube:GameObject = cubeList[number];
+	cube.gameObject.GetComponent(SoundCubeScript).PlayMe();
+}
+
+
+function PlayMe()
+{
+	//play sound
+	soundboard.GetComponent(SoundProcessor).playOnString(cubeArray[0]);
 }
 
 function RollForward()
