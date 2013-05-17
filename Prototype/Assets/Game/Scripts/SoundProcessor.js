@@ -18,13 +18,18 @@ function Update ()
 
 }
 
-public function playOnString(string:String):void
+public function playOnString(string:String, moveAble:boolean):void
 {
 	//search what you need to play and apply it
 	m_audioClip = searchAudio(string);
-	
 	//play the sound
+	//if badcube moveAble = true
+	if(moveAble == true) audio.pan = -0.7;
+	//if goodcube moveAble = false
+	if(moveAble == false) audio.pan = 0.7;
+	
 	audio.PlayOneShot(m_audioClip);
+	
 }
 
 private function searchAudio(string:String):AudioClip
@@ -63,4 +68,9 @@ private function calculatePos(string:String):int
 		//+b will assign which key in the octave set (0 included == first key)
 		index = (a * 7) + b;
 		return index;
+}
+
+private function volume(value:float)
+{
+	audio.volume = value;
 }

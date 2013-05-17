@@ -41,7 +41,7 @@ function LoadCubes()
 			//put the cube(clone) on stage
 			clone = Instantiate(Resources.Load("Cube"),Vector3((count*0.5-2.5),0.5,0.6-(i*0.4)),Quaternion.identity);
 			//assign "p01" x6
-			clone.GetComponent(SoundCubeScript).FillCube();
+
 			//assign soundCode
 			clone.GetComponent(SoundCubeScript).FillCube(code,true);
 			//push it to the array
@@ -49,7 +49,6 @@ function LoadCubes()
 			
 			//copy of the good cubes turned into bad cubes
 			clone = Instantiate(Resources.Load("Cube"),Vector3((count*0.5-2.5),0.5,0.6-(i*0.4)-(0.4*rowCount)),Quaternion.identity);
-			clone.GetComponent(SoundCubeScript).FillCube();
 			clone.GetComponent(SoundCubeScript).FillCube(code);
 			
 			//increase count

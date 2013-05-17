@@ -30,7 +30,7 @@ private var SaveSettings:String = "Save Settings";
 private var aboutWidth:float = 100;
 private var aboutHeight:float = 400;
 private var Back:String = "Back";
-private var AboutText:String = "Made By: \n \nTechnical \nRoy Schröder \nKevin Mettes \n \nCreative \nShanna Zwart \nDaniel Visser";
+private var AboutText:String = "Made By: \n \nTechnical \nRoy Schröder \nKevin Mettes \nRaphael Youssef \nVadim Krupenin \n \nCreative \nShanna Zwart \nDaniel Visser";
 
 //overall menu state
 private var State:String = "MainMenu";
@@ -155,7 +155,7 @@ function OnGUI()
 				//if you can play it then execute else
 				else
 				{
-					level = "Level"+levelCount+".xml";
+					level = "Level"+levelCount+".sbs";
 					currentLevel = levelCount;
 					Debug.Log(level);
 					State = "ingame";
@@ -179,7 +179,7 @@ function fileCount()
 	//get the directory where the levels are stored
 	var dir:DirectoryInfo = new DirectoryInfo(levelPath);
 	//variable to store the info, GetFiles will read all files Level*.xml and store them into the array
-    var info:FileInfo[] = dir.GetFiles("Level*.xml");
+    var info:FileInfo[] = dir.GetFiles("Level*.sbs");
     //count the amount of files
     count = info.Length;
 }

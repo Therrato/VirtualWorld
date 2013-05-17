@@ -53,9 +53,6 @@
      <Compile Include="Assets\Menu\Scripts\XMLloader.js" />
      <Compile Include="Assets\Menu\Scripts\XMLprogressLoader.js" />
      <None Include="Assets\Menu\Scripts\Progress.xml" />
-     <None Include="Assets\Menu\Scripts\Level3.xml" />
-     <None Include="Assets\Menu\Scripts\Level2.xml" />
-     <None Include="Assets\Menu\Scripts\Level1.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

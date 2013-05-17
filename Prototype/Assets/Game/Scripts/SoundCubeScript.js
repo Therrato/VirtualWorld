@@ -14,15 +14,16 @@ private var hoverPosition:float;
 
 
 
-function Awake(){
-FillCube();
+function Awake()
+{
+	FillCube();
 }
 
 function Start ()
 {
 	soundboard = GameObject.Find("SequencerBoard");
-	this.transform.position.y+= hoverPosition = Random.value/100;
-	if ( Random.value >= 0.5) hoverDirection =1;
+	this.transform.position.y+= hoverPosition = Random.value/10 - .05;
+	//if ( Random.value >= 0.5) hoverDirection =1;
 }
 
 function FillCube()
@@ -131,7 +132,7 @@ function playCube(number:int)
 function PlayMe()
 {
 	//play sound
-	soundboard.GetComponent(SoundProcessor).playOnString(cubeArray[0]);
+	soundboard.GetComponent(SoundProcessor).playOnString(cubeArray[0], moveAble);
 }
 
 function RollForward()

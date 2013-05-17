@@ -1,11 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Menu\Scripts\XMLloader.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Scripts\SoundProcessor.js">
     <Files>
-      <File FileName="Assets\Menu\Scripts\XMLloader.js" Line="5" Column="1" />
-      <File FileName="Assets\Menu\Scripts\Menu.js" Line="1" Column="1" />
-      <File FileName="Assets\Menu\Scripts\XMLprogressLoader.js" Line="113" Column="3" />
-      <File FileName="Assets\Game\Scripts\Terminate.js" Line="17" Column="1" />
+      <File FileName="Assets\Game\Scripts\SoundCubeScript.js" Line="135" Column="69" />
+      <File FileName="Assets\Game\Scripts\SoundProcessor.js" Line="29" Column="39" />
+      <File FileName="Assets\Game\Scripts\LevelLoaderScript.js" Line="27" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
