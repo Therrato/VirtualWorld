@@ -121,13 +121,6 @@ function OnMouseUp(){
 
 }
 
-function playCube(number:int)
-{
-	var cubeList:Array = GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getBadCubeList();
-	var cube:GameObject = cubeList[number];
-	cube.gameObject.GetComponent(SoundCubeScript).PlayMe();
-}
-
 
 function PlayMe()
 {

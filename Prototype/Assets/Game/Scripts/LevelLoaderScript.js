@@ -37,6 +37,11 @@ function LoadCubes()
 		var count = 0;
 		for (var code:String in songArray)
 		{
+		
+			//
+			//instantiate good cubes
+			//
+		
 			//cube clone variable
 			var clone:GameObject;
 			//put the cube(clone) on stage
@@ -47,6 +52,11 @@ function LoadCubes()
 			clone.GetComponent(SoundCubeScript).FillCube(code,true);
 			//push it to the array
 			goodCubeList.push(clone);
+			
+			
+			//
+			//instantiate bad cubes
+			//
 			
 			var clone2:GameObject;
 			
@@ -63,12 +73,10 @@ function LoadCubes()
 
 function getGoodCubeList()
 {
-	Debug.Log("good: " + goodCubeList.length);
 	return goodCubeList;
 }
 
 function getBadCubeList(){
-	Debug.Log("bad: " + badCubeList.length);
 	return badCubeList;
 }
 
@@ -77,6 +85,12 @@ function NextRow()
 	rowCount++;
 	var songArray:Array = new Array();
 	rowArray.Push(songArray);
+}
+
+function allCubes()
+{
+	var concatList = goodCubeList.concat(badCubeList);
+	return concatList;
 }
 
 

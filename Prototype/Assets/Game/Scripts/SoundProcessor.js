@@ -29,8 +29,62 @@ public function playOnString(string:String, moveAble:boolean):void
 	if(moveAble == false) audio.pan = 0.7;
 	
 	audio.PlayOneShot(m_audioClip);
+	Debug.Log(m_audioClip);
 	
 }
+
+
+//function overload playGoodCubes() && playGoodCubes(number)
+function playGoodCubes(number:int)
+{
+	var cubeList:Array = GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getGoodCubeList();
+	var cube:GameObject = cubeList[number];
+	cube.gameObject.GetComponent(SoundCubeScript).PlayMe();
+}
+
+function playBadCubes(number:int)
+{
+	var cubeList:Array = GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getBadCubeList();
+	var cube:GameObject = cubeList[number];
+	cube.gameObject.GetComponent(SoundCubeScript).PlayMe();
+}
+
+
+
+
+function playGoodCubes()
+{
+	//
+	var waitTime:float = 1;
+	var listLength:float = GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getGoodCubeList().length;
+	for(var i=0; i<listLength; i++)
+	{
+		yield WaitForSeconds(1.0);
+		playGoodCubes(i);
+	}
+}
+
+function playBadCubes()
+{
+	var waitTime:float = 1;
+	var listLength:float = GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getBadCubeList().length;
+	for(var i=0; i<listLength; i++)
+	{
+		yield WaitForSeconds(1.0);
+		playBadCubes(i);
+	}
+}
+
+
+
+
+function playAll()
+{
+		//play both lines at once
+		playBadCubes();
+		playGoodCubes();
+}
+
 
 private function searchAudio(string:String):AudioClip
 {

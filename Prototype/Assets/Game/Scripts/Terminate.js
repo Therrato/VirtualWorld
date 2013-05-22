@@ -24,8 +24,8 @@ function Update ()
 	if(Input.GetKeyUp("space"))
 	{
 		//test -> play third cube when pressing space
-		//GameObject.Find("Cube(Clone)").GetComponent(SoundCubeScript).playCube(3);
-		GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getBadCubeList();
+		GameObject.Find("SequencerBoard").GetComponent(SoundProcessor).playAll();
+		//GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getBadCubeList();
 	}
 
 }
