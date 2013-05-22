@@ -4,7 +4,8 @@ import System.Collections.Generic;
 
 public var rowArray:Array = new Array();
 private var rowCount = 0;
-private var cubeList:Array = new Array();
+private var goodCubeList:Array = new Array();
+private var badCubeList:Array = new Array();
 
 function Awake()
 {
@@ -45,21 +46,30 @@ function LoadCubes()
 			//assign soundCode
 			clone.GetComponent(SoundCubeScript).FillCube(code,true);
 			//push it to the array
-			cubeList.push(clone);
+			goodCubeList.push(clone);
+			
+			var clone2:GameObject;
 			
 			//copy of the good cubes turned into bad cubes
-			clone = Instantiate(Resources.Load("Cube"),Vector3((count*0.5-2.5),0.5,0.6-(i*0.4)-(0.4*rowCount)),Quaternion.identity);
-			clone.GetComponent(SoundCubeScript).FillCube(code);
+			clone2 = Instantiate(Resources.Load("Cube"),Vector3((count*0.5-2.5),0.5,0.6-(i*0.4)-(0.4*rowCount)),Quaternion.identity);
+			clone2.GetComponent(SoundCubeScript).FillCube(code);
 			
+			badCubeList.push(clone2);
 			//increase count
 			count++;
 		}
 	}
 }
 
-function getCubeList(){
-	return cubeList;
-	Debug.Log(cubeList);
+function getGoodCubeList()
+{
+	Debug.Log("good: " + goodCubeList.length);
+	return goodCubeList;
+}
+
+function getBadCubeList(){
+	Debug.Log("bad: " + badCubeList.length);
+	return badCubeList;
 }
 
 function NextRow()
