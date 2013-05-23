@@ -125,7 +125,7 @@ function OnMouseUp(){
 function PlayMe()
 {
 	//play sound
-	soundboard.GetComponent(SoundProcessor).playOnString(cubeArray[0], moveAble);
+	//soundboard.GetComponent(SoundProcessor).playOnString(cubeArray[0], moveAble);
 }
 
 function RollForward()

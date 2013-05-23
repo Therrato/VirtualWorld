@@ -1,12 +1,6 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Scripts\SoundProcessor.js">
-    <Files>
-      <File FileName="Assets\Game\Scripts\SoundCubeScript.js" Line="135" Column="69" />
-      <File FileName="Assets\Game\Scripts\SoundProcessor.js" Line="29" Column="39" />
-      <File FileName="Assets\Game\Scripts\LevelLoaderScript.js" Line="27" Column="28" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

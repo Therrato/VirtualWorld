@@ -1,0 +1,77 @@
+<root>
+	<levelinfo>
+		<bpm>100</bpm>
+		<stage>1</stage>
+		<baseline>1</baseline>
+	</levelinfo>	
+	
+	<rows>
+		<row>
+			<cube>
+				<code>p01</code>
+			</cube>
+			
+			<cube>
+				<code>p03</code>
+			</cube>
+			
+			<cube>
+				<code>p07</code>
+			</cube>
+			
+			<cube>
+				<code>p05</code>
+			</cube>
+			
+			<cube>
+				<code>p02</code>
+			</cube>
+			
+			<cube>
+				<code>p06</code>
+			</cube>
+			
+			<cube>
+				<code>p00</code>
+			</cube>
+			
+			<cube>
+				<code>p04</code>
+			</cube>
+		</row>
+		
+		<row>
+			<cube>
+				<code>g01</code>
+			</cube>
+			
+			<cube>
+				<code>g03</code>
+			</cube>
+			
+			<cube>
+				<code>g05</code>
+			</cube>
+			
+			<cube>
+				<code>g05</code>
+			</cube>
+			
+			<cube>
+				<code>g02</code>
+			</cube>
+			
+			<cube>
+				<code>g02</code>
+			</cube>
+			
+			<cube>
+				<code>g00</code>
+			</cube>
+			
+			<cube>
+				<code>g04</code>
+			</cube>
+		</row>
+	</rows>
+</root>
