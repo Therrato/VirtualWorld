@@ -69,7 +69,7 @@ function loadXML(level:String):void
 		//
 		var rows:XmlNodeList = xmlDoc.GetElementsByTagName("rows");
 		//code variable
-		var code:String = "";
+		var code:int;
 		
 		//for every row node in the root element
 		for each (var row:XmlNode in rows)
@@ -92,19 +92,19 @@ function loadXML(level:String):void
 							//if the property name is code then execute
 							if(cubeProperty.Name == "code")
 							{
-								code = cubeProperty.InnerText;
+								code = int.Parse(cubeProperty.InnerText);
 								
-								//should send code to the loader so the LevelLoader can put it into an array
-								//GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).PushCube(code);
+								//send code to the loader
+								GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).PushCube(code);
 							}
 						}
 					}
 					
 				}
-				//GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).NextRow();
+				GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).NextRow();
 			}
 		}
-		//GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).LoadCubes();
+		GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).LoadCubes();
 		
 	}
 	else Debug.Log("XML file not found");

@@ -16,7 +16,7 @@ private var hoverPosition:float;
 
 
 public var isChecked:boolean = false;
-public var needsToBeChecked:boolean = false;
+public var needsToBeChecked:boolean;
 
 
 
@@ -32,9 +32,10 @@ function Start ()
 	//if ( Random.value >= 0.5) hoverDirection =1;
 }
 
-function FillCube()
+function checkOn(code:int)
 {
- needsToBeChecked = true;
+ 	if(code == 1) this.needsToBeChecked = true;
+ 	else this.needsToBeChecked = false;
 }
 
 function Update () 
@@ -47,17 +48,33 @@ function Update ()
   this.transform.position.y+=moveValue;
 }
 
-function OnMouseDown()
+function OnMouseUp()
 {
-	isChecked = true;
+	if(isChecked == false) isChecked = true;	//should be visually changed!
+	else isChecked = false;						//should be visually changed!
 }
 
-public function TestCube(){
-if (isChecked == needsToBeChecked){
- FeedbackGood();
-}
-else{
- FeedbackBad();
+public function TestCube()
+{
+	if (isChecked == needsToBeChecked)
+	{
+ 		FeedbackGood();
+	}
+	else
+	{
+ 		FeedbackBad();
+	}
+
 }
 
+private function FeedbackGood()
+{
+	//should be visual!
+	Debug.Log("good");
+}
+
+private function FeedbackBad()
+{
+	//should be visual!
+	Debug.Log("wrong");
 }
