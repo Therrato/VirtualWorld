@@ -22,10 +22,10 @@ function Update ()
 {
 }
 
-function PushCube(soundCode:String)
+function PushCube(code:int)
 {
 	 var pushToMe:Array = rowArray[rowCount];
-	 pushToMe.Push(soundCode);
+	 pushToMe.Push(code);
 }
 
 
@@ -35,24 +35,23 @@ function LoadCubes()
 	{
 		var songArray:Array = rowArray[i];
 		var count = 0;
-		for (var code:String in songArray)
+		for (var code:int in songArray)
 		{
 		
 			//
-			//instantiate good cubes
+			//instantiate cubes
 			//
 		
-			//cube clone variable
-			var clone:GameObject;
+			//cube variable of the type gameobject
+			var cube:GameObject;
 			//put the cube(clone) on stage
-			clone = Instantiate(Resources.Load("Cube"),Vector3((count*0.5-2.5),0.5,0.6-(i*0.4)),Quaternion.identity);
-			//assign "p01" x6
+			cube = Instantiate(Resources.Load("Cube"),Vector3((count*0.5-2.5),0.5,0.6-(i*0.4)),Quaternion.identity);
 
-			//assign soundCode
-			clone.GetComponent(SoundCubeScript).FillCube(code,true);
-			//push it to the array
-			CubeList.push(clone);
-			count++;
+			//assign Code active / inactive
+			
+			cube.GetComponent(SoundCubeScript).checkOn(code);
+			CubeList.push(cube); //push cube to array
+			count++;	//increase count by 1
 			
 		}
 	}
