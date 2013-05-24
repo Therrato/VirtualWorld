@@ -47,6 +47,7 @@
      <Compile Include="Assets\Game\Scripts\LevelLoaderScript.js" />
      <Compile Include="Assets\Game\Scripts\MenuScript.js" />
      <Compile Include="Assets\Game\Scripts\SoundCubeScript.js" />
+     <Compile Include="Assets\Game\Scripts\Terminate.js" />
      <Compile Include="Assets\Menu\Scripts\Menu.js" />
      <Compile Include="Assets\Menu\Scripts\XMLloader.js" />
      <Compile Include="Assets\Menu\Scripts\XMLprogressLoader.js" />
