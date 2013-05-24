@@ -22,9 +22,14 @@ function Update ()
 	
 	if(Input.GetKeyUp("space"))
 	{
-		//test -> play third cube when pressing space
-		//GameObject.Find("LevelLoader").GetComponent().
-		//GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getBadCubeList();
+		var array:Array = GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getCubeList();
+		
+	
+		for (var i:int = 0; i < array.length; i++){
+		var cube:GameObject = array[i];
+		cube.GetComponent(SoundCubeScript).playDelayed(i % 8);
+		
+		}
 	}
 
 }
