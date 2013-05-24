@@ -13,6 +13,8 @@ private var hoverDirection:int = -1;
 private var hoverPosition:float;
 // till this part also change function
 
+private var soundCode:int;
+
 
 
 public var isChecked:boolean = false;
@@ -34,8 +36,18 @@ function Start ()
 
 function checkOn(code:int)
 {
- 	if(code == 1) this.needsToBeChecked = true;
+ 	if(code != 0) this.needsToBeChecked = true;
  	else this.needsToBeChecked = false;
+ 	soundCode = code;
+ 	
+}
+
+function playDelayed(delay:int)
+{
+	var delayEnd:int = delay / 1000;	//converts miliseconds to seconds
+	
+	yield WaitForSeconds(delayEnd);
+	if(needsToBeChecked == true) soundboard.GetComponent(SoundProcessor).playOnInt(soundCode);
 }
 
 function Update () 
@@ -70,7 +82,10 @@ public function TestCube()
 private function FeedbackGood()
 {
 	//should be visual!
-	Debug.Log("good");
+	//should turn blue and red off
+	this.gameObject.Find("Blue").GetComponent("Halo").active = false;
+	this.gameObject.Find("Red").GetComponent("Halo").active = false;
+	Debug.Log("turning off blue and red halo");
 }
 
 private function FeedbackBad()
