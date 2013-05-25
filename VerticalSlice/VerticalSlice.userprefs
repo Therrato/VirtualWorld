@@ -1,11 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Scripts\SoundProcessor.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Scripts\Terminate.js">
     <Files>
-      <File FileName="Assets\Game\Scripts\Terminate.js" Line="1" Column="1" />
+      <File FileName="Assets\Game\Scripts\SoundCubeScript.js" Line="72" Column="61" />
+      <File FileName="Assets\Game\Scripts\Terminate.js" Line="8" Column="2" />
       <File FileName="Assets\Game\Scripts\SoundProcessor.js" Line="27" Column="40" />
-      <File FileName="Assets\Game\Scripts\LevelLoaderScript.js" Line="1" Column="1" />
-      <File FileName="Assets\Game\Scripts\SoundCubeScript.js" Line="1" Column="1" />
+      <File FileName="Assets\Game\Scripts\LevelLoaderScript.js" Line="38" Column="34" />
       <File FileName="Assets\Game\Scripts\MenuScript.js" Line="1" Column="1" />
       <File FileName="Assets\Menu\Scripts\XMLloader.js" Line="1" Column="1" />
     </Files>

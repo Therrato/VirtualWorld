@@ -28,8 +28,10 @@ function Update ()
 		for (var i:int = 0; i < array.length; i++){
 		var cube:GameObject = array[i];
 		cube.GetComponent(SoundCubeScript).playDelayed(i % 8);
+		//cube.GetComponent(SoundCubeScript).resetDelayed();
 		
 		}
+		
 	}
 
 }

@@ -46,8 +46,9 @@ function playDelayed(delay:int)
 {
 	var delayEnd:int = delay / 1000;	//converts miliseconds to seconds
 	
-	yield WaitForSeconds(delayEnd);
-	if(needsToBeChecked == true) soundboard.GetComponent(SoundProcessor).playOnInt(soundCode);
+	yield WaitForSeconds(delay);
+	if(needsToBeChecked == true && soundCode!=0) soundboard.GetComponent(SoundProcessor).playOnInt(soundCode);
+	this.TestCube();
 }
 
 function Update () 
@@ -68,13 +69,13 @@ function OnMouseUp()
 
 public function TestCube()
 {
-	if (isChecked == needsToBeChecked)
+	if (this.isChecked == true && this.needsToBeChecked == true)
 	{
- 		FeedbackGood();
+ 			this.FeedbackGood();
 	}
 	else
 	{
- 		FeedbackBad();
+ 		this.FeedbackBad();
 	}
 
 }
@@ -83,13 +84,16 @@ private function FeedbackGood()
 {
 	//should be visual!
 	//should turn blue and red off
-	this.gameObject.Find("Blue").GetComponent("Halo").active = false;
-	this.gameObject.Find("Red").GetComponent("Halo").active = false;
+	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
+	this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
+
+	//this.gameObject.Find("Red").GetComponent("Halo").active = false;
 	Debug.Log("turning off blue and red halo");
 }
 
 private function FeedbackBad()
 {
 	//should be visual!
-	Debug.Log("wrong");
+	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
+	this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
 }

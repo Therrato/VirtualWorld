@@ -24,7 +24,7 @@ public function playOnInt(audioNumber:int):void
 	
 	//search what you need to play and apply it
 	//m_audioClip = searchAudio(string);
-	m_audioClip = pianoArray[audioNumber];
+	m_audioClip = pianoArray[audioNumber-1];
 	audio.PlayOneShot(m_audioClip);
 	Debug.Log(m_audioClip);
 	
