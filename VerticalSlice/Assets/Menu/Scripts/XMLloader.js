@@ -46,7 +46,8 @@ function loadXML(level:String):void
 				if(nodeItem.Name == "bpm")
 				{
 					bpm = float.Parse(node.InnerText);
-					//send to function
+					print(bpm);
+					GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).setBPM(bpm);
 					//tbi
 				}
 				else if(nodeItem.Name == "stage")
