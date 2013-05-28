@@ -14,7 +14,7 @@ private var hoverPosition:float;
 // till this part also change function
 
 private var soundCode:int;
-private var BPM:int;
+private var BPM:float;
 
 
 
@@ -51,7 +51,8 @@ function playDelayed(delay:int)
 	//var delayValue:float = 60/BPM;	//converts miliseconds to seconds
 	//var string = delayValue.ToString();
 	
-	Debug.Log(60/BPM);
+	//print(60/BPM);
+	
 	yield WaitForSeconds((60/BPM)*delay);
 	if(needsToBeChecked == true && soundCode!=0) soundboard.GetComponent(SoundProcessor).playOnInt(soundCode);
 	this.TestCube();
