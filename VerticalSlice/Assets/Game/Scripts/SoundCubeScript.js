@@ -14,6 +14,7 @@ private var hoverPosition:float;
 // till this part also change function
 
 private var soundCode:int;
+private var BPM:int;
 
 
 
@@ -24,7 +25,7 @@ public var needsToBeChecked:boolean;
 
 function Awake()
 {
-
+	resetFeedback();
 }
 
 function Start ()
@@ -41,15 +42,20 @@ function checkOn(code:int)
  	soundCode = code;
  	
 }
+function setBPM(bpm:int){
+BPM = bpm;
+}
 
 function playDelayed(delay:int)
 {
-	var delayEnd:int = delay / 1000;	//converts miliseconds to seconds
+	//var delayValue:float = 60/BPM;	//converts miliseconds to seconds
+	//var string = delayValue.ToString();
 	
-	yield WaitForSeconds(delay);
+	Debug.Log(60/BPM);
+	yield WaitForSeconds((60/BPM)*delay);
 	if(needsToBeChecked == true && soundCode!=0) soundboard.GetComponent(SoundProcessor).playOnInt(soundCode);
 	this.TestCube();
-	yield WaitForSeconds(1);
+	yield WaitForSeconds(0.3);
 	resetFeedback();
 }
 
