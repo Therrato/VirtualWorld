@@ -49,8 +49,20 @@ function playDelayed(delay:int)
 	yield WaitForSeconds(delay);
 	if(needsToBeChecked == true && soundCode!=0) soundboard.GetComponent(SoundProcessor).playOnInt(soundCode);
 	this.TestCube();
+	yield WaitForSeconds(1);
+	resetFeedback();
 }
 
+function resetFeedback() {
+		this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
+		this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
+		this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
+}
+function lightUp() {
+		this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = true;
+		this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = true;
+		this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = true;
+}
 function Update () 
 {
  var moveValue = 0.001;
@@ -63,8 +75,15 @@ function Update ()
 
 function OnMouseUp()
 {
-	if(isChecked == false) isChecked = true;	//should be visually changed!
-	else isChecked = false;						//should be visually changed!
+	if(isChecked == false) {
+	isChecked = true;
+	lightUp();
+	}
+		//should be visually changed!
+	else{
+	 isChecked = false;	
+	 resetFeedback();					//should be visually changed!
+	}
 }
 
 public function TestCube()
@@ -82,10 +101,9 @@ public function TestCube()
 
 private function FeedbackGood()
 {
-	//should be visual!
-	//should turn blue and red off
-	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
-	this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
+		this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
+		this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
+		this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = true;
 
 	//this.gameObject.Find("Red").GetComponent("Halo").active = false;
 	Debug.Log("turning off blue and red halo");
@@ -94,6 +112,8 @@ private function FeedbackGood()
 private function FeedbackBad()
 {
 	//should be visual!
+	this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = true;
 	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
 	this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
+	
 }
