@@ -1,7 +1,9 @@
 #pragma strict
 
+import System.IO;
+
 var randomNumber:float = 0; //starts inactive
-//var colour:GameObject
+public var texture:Texture[];
 
 function Start ()
 {
@@ -10,7 +12,11 @@ function Start ()
 
 function Update ()
 {
-	randomize();
+	if(Input.GetKeyUp("space"))
+	{
+		randomize();
+	}
+	
 }
 
 private function randomize()
@@ -22,22 +28,16 @@ private function randomize()
 
 private function colour()
 {
-	if(randomNumber == 0) colour("inactive");
-	if(randomNumber == 1) colour("blue");
-	if(randomNumber == 2) colour("green");
-	if(randomNumber == 3) colour("red");
-	if(randomNumber == 4) colour("yellow");
-	if(randomNumber == 5) colour("purple");
+	if(randomNumber == 0) colour(0);
+	if(randomNumber == 1) colour(1);
+	if(randomNumber == 2) colour(2);
+	if(randomNumber == 3) colour(3);
+	if(randomNumber == 4) colour(4);
+	if(randomNumber == 5) colour(5);
 }
 
-private function colour(colour:String)
+private function colour(colour:int)
 {
-	//change shader to colour
-	// Create a material from code
-        // Create a material with transparent diffuse shader
-        var material = new Material (Shader.Find ("Transparent/Diffuse"));
-        material.mainTexture = 
-        // assign the material to the renderer
-        renderer.material = material;
-        Debug.Log("changing colour");
+		Debug.Log(colour);
+		renderer.material.mainTexture = texture[colour];
 }
