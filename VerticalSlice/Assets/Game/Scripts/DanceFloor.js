@@ -1,7 +1,7 @@
 #pragma strict
 
-//public var spaceX:float = 0.295;		//uncomment if need tweaks
-//public var spaceZ:float = 0.308;		//uncomment if need tweaks
+//public var spaceX:float = 0.295;		//uncomment if need tweaks and replace in Vector3
+//public var spaceZ:float = 0.308;		//uncomment if need tweaks and replce in Vector3
 private var TileList:Array = new Array();
 
 function Start ()
@@ -34,5 +34,16 @@ function createFloor(width:float, height:float)
 			//add tile to the array
 			TileList.push(Tile);
 		}
+	}
+}
+
+public function colourByArray(array:Array)
+{
+	for(var i=0; i<array.length; i++)
+	{
+		//store the tile as gameobject
+		var Tile:GameObject = TileList[i];	
+		//assign the colour
+		Tile.gameObject.GetComponent(FloorScript).colour(array[i]);
 	}
 }
