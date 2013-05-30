@@ -12,10 +12,10 @@ function Start ()
 
 function Update ()
 {
-	if(Input.GetKeyUp("space"))
+	/*if(Input.GetKeyUp("space"))
 	{
 		randomize();
-	}
+	}*/
 	
 }
 
@@ -45,5 +45,5 @@ public function colour(colour:int)
 }
 
 public function nextStep(){
-randomize();
+	randomize();
 }
