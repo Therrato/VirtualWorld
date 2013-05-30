@@ -55,6 +55,8 @@ function LoadCubes()
 			cube.GetComponent(SoundCubeScript).checkOn(code);
 			cube.GetComponent(SoundCubeScript).setBPM(BPM);
 			CubeList.push(cube); //push cube to array
+			
+			cube.transform.parent = GameObject.Find("CubeContainer").transform;
 			count++;	//increase count by 1
 			
 		}
