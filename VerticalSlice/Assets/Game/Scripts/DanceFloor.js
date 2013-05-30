@@ -1,7 +1,7 @@
 #pragma strict
 
-//public var spaceX:float = 0.295;		//uncomment if need tweaks and replace in Vector3
-//public var spaceZ:float = 0.308;		//uncomment if need tweaks and replce in Vector3
+public var spaceX:float = 0.59;				//comment these before publish
+public var spaceZ:float = 0.615;			
 private var TileList:Array = new Array();
 
 function Start ()
@@ -18,7 +18,7 @@ function Awake()
 {
 	Debug.Log("LET THE FLOOR BE MADE!");
 	//creates a floor 10 x 10 tiles
-	createFloor(10,10);
+	createFloor(4,4);
 }
 
 function createFloor(width:float, height:float)
@@ -28,7 +28,7 @@ function createFloor(width:float, height:float)
 		for(var j = 0; j < height; j++)
 		{
 			//Instantiate tile												/		x   /	y	/		z   	/
-			var Tile:GameObject = Instantiate(Resources.Load("Tile"),Vector3(i * 0.295 , 	0	, 	 j * 0.308), Quaternion.identity);
+			var Tile:GameObject = Instantiate(Resources.Load("Tile"),Vector3(i * spaceX , 	0	, 	 j * spaceZ), Quaternion.identity);
 			//add child to Dancefloor
 			Tile.transform.parent = GameObject.Find("Dancefloor").transform;
 			//add tile to the array
