@@ -44,6 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Game\Scripts\Dancefloor.js" />
      <Compile Include="Assets\Game\Scripts\FloorScript.js" />
      <Compile Include="Assets\Game\Scripts\LevelLoaderScript.js" />
      <Compile Include="Assets\Game\Scripts\MenuScript.js" />
