@@ -22,7 +22,6 @@ public function playOnInt(audioNumber:int):void
 {
 	m_audioClip = pianoArray[audioNumber-1];
 	audio.PlayOneShot(m_audioClip);
-	Debug.Log(m_audioClip);
 }
 
 private function volume(value:float)

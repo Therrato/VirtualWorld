@@ -2,7 +2,6 @@
 
 import System.Collections.Generic;
 
-public var cubeArray = new Array();
 public var soundboard:GameObject;
 
 // change into a move to target by % function, 
@@ -32,7 +31,6 @@ function Start ()
 {
 	soundboard = GameObject.Find("SequencerBoard");
 	this.transform.position.y+= hoverPosition = Random.value/10 - .05;
-	//if ( Random.value >= 0.5) hoverDirection =1;
 }
 
 function checkOn(code:int)
@@ -40,10 +38,10 @@ function checkOn(code:int)
  	if(code != 0) this.needsToBeChecked = true;
  	else this.needsToBeChecked = false;
  	soundCode = code;
- 	
 }
-function setBPM(bpm:int){
-BPM = bpm;
+function setBPM(bpm:int)
+{
+	BPM = bpm;
 }
 
 function playDelayed(delay:int)
@@ -60,37 +58,43 @@ function playDelayed(delay:int)
 	resetFeedback();
 }
 
-function resetFeedback() {
-		this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
-		this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
-		this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
+function resetFeedback()
+{
+	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
+	this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
+	this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
 }
-function lightUp() {
-		this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = true;
-		this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = true;
-		this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = true;
+
+function lightUp()
+{
+	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = true;
+	this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = true;
+	this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = true;
 }
+
 function Update () 
 {
- var moveValue = 0.001;
- if (hoverPosition<=hoverMin)hoverDirection = 1;
- if (hoverPosition>=hoverMax)hoverDirection = -1;
- hoverPosition += moveValue*=hoverDirection;
+	var moveValue = 0.001;
+	if (hoverPosition<=hoverMin)hoverDirection = 1;
+	if (hoverPosition>=hoverMax)hoverDirection = -1;
+	hoverPosition += moveValue*=hoverDirection;
 
-  this.transform.position.y+=moveValue;
+	this.transform.position.y+=moveValue;
 }
 
 function OnMouseUp()
 {
 	
-	if(isChecked == false) {
-	isChecked = true;
-	lightUp();
+	if(isChecked == false)
+	{
+		isChecked = true;
+		lightUp();
 	}
-		//should be visually changed!
-	else{
+
+	else
+	{
 	 isChecked = false;	
-	 resetFeedback();					//should be visually changed!
+	 resetFeedback();
 	}
 }
 
@@ -98,7 +102,7 @@ public function TestCube()
 {
 	if (this.isChecked == true && this.needsToBeChecked == true)
 	{
- 			this.FeedbackGood();
+ 		this.FeedbackGood();
 	}
 	else
 	{
@@ -109,24 +113,19 @@ public function TestCube()
 
 private function FeedbackGood()
 {
-		this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
-		this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
-		this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = true;
-
-	//this.gameObject.Find("Red").GetComponent("Halo").active = false;
-	Debug.Log("turning off blue and red halo");
+	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
+	this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
+	this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = true;
 }
 
 private function FeedbackBad()
 {
-	//should be visual!
 	this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = true;
 	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
 	this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
-	
 }
 
-public function DestroyMe(){
-
-Destroy(this.gameObject);
+public function DestroyMe()
+{
+	Destroy(this.gameObject);
 }

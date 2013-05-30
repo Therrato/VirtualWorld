@@ -23,7 +23,7 @@ function Start ()
 
 function Update ()
 {
-//Debug.Log(CubeList.length);
+
 }
 
 function PushCube(code:int)
@@ -79,14 +79,24 @@ function NextRow()
 	var songArray:Array = new Array();
 	rowArray.Push(songArray);
 }
-function unLoad():void{
-	print("destroy");
-	while( CubeList.length > 0){
-	var cube:GameObject = CubeList[CubeList.length-1];
-	CubeList.splice(CubeList.length-1,1);
-	cube.GetComponent(SoundCubeScript).DestroyMe();
+
+function unLoad():void
+{
+	while(CubeList.length > 0)
+	{
+		var cube:GameObject = CubeList[CubeList.length-1];
+		CubeList.splice(CubeList.length-1,1);
+		cube.GetComponent(SoundCubeScript).DestroyMe();
 	}
-	
+		
+}
+
+function clearRowArray()
+{
+	rowArray.Clear();
+	var songArray:Array = new Array();
+	rowArray.Push(songArray);
+	rowCount = 0;
 }
 
 

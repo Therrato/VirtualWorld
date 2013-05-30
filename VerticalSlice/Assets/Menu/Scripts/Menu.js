@@ -9,6 +9,7 @@ private var level:String;
 private var levelPath:String;
 private var count:float;
 private var currentLevel:float;
+private var maxLevel:float;
 
 //button width / height
 private var buttonWidth:float = 100;
@@ -50,7 +51,6 @@ function Update ()
 	if(State == "ingame")
 	{
 		interval++;
-		//Debug.Log(interval);
 		loadLevel(level);
 	}
 
@@ -186,6 +186,7 @@ function fileCount()
     
     //count the amount of files
     count = info.Length;
+    maxLevel = count;
 }
 
 function loadLevel(level)
@@ -203,6 +204,20 @@ function loadLevel(level)
 function GetLevel():float
 {
 	return currentLevel;
+}
+
+function nextLevel():String
+{
+	if(currentLevel == maxLevel)
+	{
+		return null;
+	}
+	else
+	{
+		currentLevel += 1;
+		var nextLevel = currentLevel;
+		return "Level"+nextLevel+".sbs";
+	}
 }
 
 function destroyMainMenu()
