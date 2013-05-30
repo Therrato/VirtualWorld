@@ -43,3 +43,7 @@ public function colour(colour:int)
 {
 		renderer.material.mainTexture = texture[colour];	//assigns the texture from the array
 }
+
+public function nextStep(){
+randomize();
+}
