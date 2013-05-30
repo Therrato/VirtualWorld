@@ -58,27 +58,6 @@ function playDelayed(delay:int)
 	resetFeedback();
 }
 
-function resetFeedback()
-{
-	if (isChecked){
-		this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = true;
-		this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = true;
-		this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = true;
-	}
-	else{
-		this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
-		this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
-		this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
-	
-	}
-}
-
-function lightUp()
-{
-	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = true;
-	this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = true;
-	this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = true;
-}
 
 function Update () 
 {
@@ -143,6 +122,27 @@ private function FeedbackNeutral()
 	this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
 	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = true;
 	this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
+}
+function resetFeedback()
+{
+	if (isChecked){
+		this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = true;
+		this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = true;
+		this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = true;
+	}
+	else{
+		this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
+		this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
+		this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
+	
+	}
+}
+
+function lightUp()
+{
+	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = true;
+	this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = true;
+	this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = true;
 }
 
 public function DestroyMe()

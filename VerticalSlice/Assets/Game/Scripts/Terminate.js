@@ -29,6 +29,7 @@ function OnGUI()
 
 public function playSequence()
 {
+	GameObject.Find("Score").GetComponent(ScoreScript).addTry();
 	//set the boolean on false
 	playFirstTime = false;
 	//get the array of cubes	
@@ -41,6 +42,11 @@ public function playSequence()
 		//play the sound of the cube if it contains any
 		cube.GetComponent(SoundCubeScript).playDelayed(i % 8);
 	}
+}
+
+public function resetFirstTime(){
+	timer = 250;
+	playFirstTime = true;
 }
 
 
@@ -82,7 +88,7 @@ function Update ()
 	
 	if(Input.GetKeyUp("space"))
 	{
-		//get the array with cubes
+		/*get the array with cubes
 		var array:Array = GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getCubeList();
 	
 		for (var i:int = 0; i < array.length; i++)
@@ -94,7 +100,8 @@ function Update ()
 			
 			//call increase try function
 		}
-		
+		*/
+		playSequence();
 	}
 	if(Input.GetKeyUp("n"))
 	{

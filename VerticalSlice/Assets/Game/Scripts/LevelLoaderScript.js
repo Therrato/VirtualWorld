@@ -82,6 +82,8 @@ function NextRow()
 
 function unLoad():void
 {
+	GameObject.Find("TerminateGame").GetComponent(Terminate).resetFirstTime();
+	GameObject.Find("Score").GetComponent(ScoreScript).resetScore();
 	while(CubeList.length > 0)
 	{
 		var cube:GameObject = CubeList[CubeList.length-1];
@@ -98,5 +100,6 @@ function clearRowArray()
 	rowArray.Push(songArray);
 	rowCount = 0;
 }
+
 
 
