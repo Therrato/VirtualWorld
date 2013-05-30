@@ -33,5 +33,14 @@ function Update ()
 		}
 		
 	}
-
+	if(Input.GetKeyUp("n"))
+	{
+		//get current level
+		var currentLevel1 = GameObject.Find("MainMenu").GetComponent(Menu).GetLevel();
+		//save progress(next level)
+		//GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).saveGameProgress(currentLevel);
+		//tell level loader to unload the level.
+		GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).unLoad();
+		
+	}
 }

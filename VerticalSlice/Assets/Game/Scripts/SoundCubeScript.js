@@ -82,6 +82,7 @@ function Update ()
 
 function OnMouseUp()
 {
+	
 	if(isChecked == false) {
 	isChecked = true;
 	lightUp();
@@ -123,4 +124,9 @@ private function FeedbackBad()
 	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
 	this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
 	
+}
+
+public function DestroyMe(){
+
+Destroy(this.gameObject);
 }
