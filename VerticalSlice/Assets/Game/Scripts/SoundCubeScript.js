@@ -108,20 +108,21 @@ function OnMouseUp()
 
 public function TestCube()
 {
-	if (this.isChecked == this.needsToBeChecked)
+	//if the cube needs to be lighten up && is lighten up
+	if (this.isChecked == true && this.needsToBeChecked == true)
 	{	
-		if(isChecked){
  		this.FeedbackGood();
- 		}
- 		else{
- 		this.FeedbackNeutral();
- 		}
 	}
-	else
+	//if it is check but shouldn't be checked
+ 	if(this.isChecked == true && this.needsToBeChecked == false)
 	{
- 		this.FeedbackBad();
+		this.FeedbackBad();
 	}
-
+	//if it isn't light up && doesn't need to be then it should be neutral
+	if(this.isChecked == false && this.needsToBeChecked == false || this.isChecked == false && this.needsToBeChecked == true)
+	{
+		this.FeedbackNeutral();
+	}
 }
 
 private function FeedbackGood()
