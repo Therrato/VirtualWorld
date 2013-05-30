@@ -60,9 +60,17 @@ function playDelayed(delay:int)
 
 function resetFeedback()
 {
-	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
-	this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
-	this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
+	if (isChecked){
+		this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = true;
+		this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = true;
+		this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = true;
+	}
+	else{
+		this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
+		this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
+		this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
+	
+	}
 }
 
 function lightUp()
@@ -100,9 +108,14 @@ function OnMouseUp()
 
 public function TestCube()
 {
-	if (this.isChecked == true && this.needsToBeChecked == true)
-	{
+	if (this.isChecked == this.needsToBeChecked)
+	{	
+		if(isChecked){
  		this.FeedbackGood();
+ 		}
+ 		else{
+ 		this.FeedbackNeutral();
+ 		}
 	}
 	else
 	{
@@ -122,6 +135,12 @@ private function FeedbackBad()
 {
 	this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = true;
 	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = false;
+	this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
+}
+private function FeedbackNeutral()
+{
+	this.gameObject.transform.FindChild("Red").GetComponent("Halo").active = false;
+	this.gameObject.transform.FindChild("Blue").GetComponent("Halo").active = true;
 	this.gameObject.transform.FindChild("Green").GetComponent("Halo").active = false;
 }
 

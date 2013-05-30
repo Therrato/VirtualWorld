@@ -18,7 +18,7 @@ function Awake()
 {
 	Debug.Log("LET THE FLOOR BE MADE!");
 	//creates a floor 10 x 10 tiles
-	createFloor(4,4);
+	createFloor(10,10);
 }
 
 function createFloor(width:float, height:float)
