@@ -7,7 +7,7 @@ private var floorTimer:int = 0;
 
 function Start ()
 {
-this.transform.position.x = -3.5;
+	this.transform.position.x = -3.5;
 }
 
 function Update ()
@@ -59,39 +59,45 @@ public function colourByArray(array:Array)
 	}
 }
 
-public function floorToColour(colourNumber:int){
-	for (var i = 0; i<TileList.length; i++){
-	 var Tile:GameObject = TileList[i];
-	 Tile.gameObject.GetComponent(FloorScript).colour(colourNumber);
-	 
+public function floorToColour(colourNumber:int)
+{
+	for (var i = 0; i<TileList.length; i++)
+	{
+	 	var Tile:GameObject = TileList[i];
+	 	Tile.gameObject.GetComponent(FloorScript).colour(colourNumber);
 	}
-
 }
-public function floorToBlack(){
+
+public function floorToBlack()
+{
 	floorToColour(0);
-
 }
-public function floorToBlue(){
+public function floorToBlue()
+{
 	floorToColour(1);
-
 }
-public function floorToGreen(){
+public function floorToGreen()
+{
 	floorToColour(2);
-
 }
-public function floorToOrange(){
+public function floorToOrange()
+{
 	floorToColour(3);
 }
-public function floorToRed(){
+public function floorToRed()
+{
 	floorToColour(4);
 }
-public function floorToPurple(){
+public function floorToPurple()
+{
 	floorToColour(5);
 }
-public function colourByModulo(moduloValue:int,colourValue:int){
- 	for (var i = 0; i<TileList.length; i++){
+
+public function colourByModulo(moduloValue:int,colourValue:int)
+{
+ 	for (var i = 0; i<TileList.length; i++)
+ 	{
 	 	var Tile:GameObject = TileList[i];
-	 	if(i%moduloValue==0)Tile.gameObject.GetComponent(FloorScript).colour(colourValue);
-	 
+	 	if(i%moduloValue==0)Tile.gameObject.GetComponent(FloorScript).colour(colourValue); 
 	}
 }

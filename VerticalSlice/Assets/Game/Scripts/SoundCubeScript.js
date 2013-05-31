@@ -149,3 +149,12 @@ public function DestroyMe()
 {
 	Destroy(this.gameObject);
 }
+
+public function checkIfCorrect():boolean
+{
+	if(isChecked == needsToBeChecked)
+	{
+		return true;
+	}
+	else return false;
+}

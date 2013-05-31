@@ -42,6 +42,12 @@ public function playSequence()
 		//play the sound of the cube if it contains any
 		cube.GetComponent(SoundCubeScript).playDelayed(i % 8);
 	}
+	
+	yield WaitForSeconds(7);
+	if(GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).checkWin() == true)
+	{
+		nextLevel();
+	}
 }
 
 public function resetFirstTime(){
@@ -103,8 +109,11 @@ function Update ()
 		*/
 		playSequence();
 	}
-	if(Input.GetKeyUp("n"))
-	{
+	
+}
+
+function nextLevel()
+{
 		//get current level
 		var currentLevel1 = GameObject.Find("MainMenu").GetComponent(Menu).GetLevel();
 		//save progress(next level)
@@ -135,6 +144,4 @@ function Update ()
 			//load with xml loader
 			GameObject.Find("MainMenu").GetComponent(XMLloader).loadXML(nextLevel);
 		}
-		
-	}
 }

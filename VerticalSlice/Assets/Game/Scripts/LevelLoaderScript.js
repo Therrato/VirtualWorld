@@ -101,5 +101,19 @@ function clearRowArray()
 	rowCount = 0;
 }
 
+function checkWin():boolean
+{
+	//go through the array
+	for(var i=0; i<CubeList.length; i++)
+	{
+		var cube:GameObject = CubeList[i];
+		if(cube.GetComponent(SoundCubeScript).checkIfCorrect() == false)
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
 
 
