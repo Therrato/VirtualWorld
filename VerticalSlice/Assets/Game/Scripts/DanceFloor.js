@@ -5,12 +5,54 @@ public var spaceZ:float = 0.615;
 private var TileList:Array = new Array();
 private var floorTimer:int = 0;
 
+// letter arrays.
+
+
+// number arrays.
+private var n1:Array = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+						 0, 2, 2, 0, 0, 0, 0, 2, 0, 0,
+						 0, 2, 2, 0, 0, 0, 0, 2, 2, 0,
+						 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 
+						 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 
+						 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 
+						 0, 2, 2, 0, 0, 0, 0, 0, 0, 0,
+						 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+						 
+private var n2:Array = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+						 0, 1, 1, 0, 0, 0, 1, 1, 0, 0,
+						 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 
+						 0, 1, 1, 1, 1, 0, 0, 0, 1, 1,
+						 0, 1, 1, 0, 1, 1, 0, 0, 1, 1,
+						 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 
+						 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 
+						 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 
+						 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+						 
+private var n3:Array = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+						 0, 0, 3, 3, 0, 0, 0, 3, 3, 0,
+						 0, 3, 3, 0, 0, 3, 0, 0, 3, 3,
+						 0, 3, 3, 0, 3, 3, 3, 0, 3, 3, 
+						 0, 3, 3, 0, 3, 3, 3, 0, 3, 3, 
+						 0, 0, 3, 3, 3, 0, 3, 3, 3, 0, 
+						 0, 0, 0, 3, 0, 0, 0, 3, 0, 0,
+						 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
 function Start ()
 {
 	this.transform.position.x = -3.5;
 }
 
 function Update ()
+{
+
+
+}
+
+function moduloByTimer()
 {
 	floorTimer++;
 	if(floorTimer % 10 == 0)
@@ -22,8 +64,8 @@ function Update ()
 		floorToBlack();
 		floorTimer = 0;
 	}
-
 }
+
 
 function Awake()
 {
@@ -93,6 +135,17 @@ public function floorToPurple()
 	floorToColour(5);
 }
 
+// call letters
+public function play3(){
+colourByArray(n3);
+}
+public function play2(){
+colourByArray(n2);
+}
+public function play1(){
+colourByArray(n1);
+}
+
 public function colourByModulo(moduloValue:int,colourValue:int)
 {
  	for (var i = 0; i<TileList.length; i++)
@@ -101,3 +154,4 @@ public function colourByModulo(moduloValue:int,colourValue:int)
 	 	if(i%moduloValue==0)Tile.gameObject.GetComponent(FloorScript).colour(colourValue); 
 	}
 }
+

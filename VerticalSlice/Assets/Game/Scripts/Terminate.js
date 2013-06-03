@@ -65,9 +65,15 @@ function Update ()
 		//decrease timer by 1
 		timer--;
 		//Countdown show
+		// label wise 
+		/*
 		if(timer == 240) countDown = "3";
 		if(timer == 160) countDown = "2";
 		if(timer == 80) countDown = "1";
+		*/
+		if(timer == 240) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play3();
+		if(timer == 160) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play2();
+		if(timer == 80) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play1();
 		//if time is up
 		if(timer == 0)
 		{

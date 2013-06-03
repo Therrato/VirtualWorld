@@ -52,10 +52,14 @@ function playDelayed(delay:int)
 	//print(60/BPM);
 	
 	yield WaitForSeconds((60/BPM)*delay);
-	if(needsToBeChecked == true && soundCode!=0) soundboard.GetComponent(SoundProcessor).playOnInt(soundCode);
+	if(needsToBeChecked == true && soundCode!=0) playMe();
 	this.TestCube();
 	yield WaitForSeconds(0.3);
 	resetFeedback();
+}
+
+function playMe(){
+	soundboard.GetComponent(SoundProcessor).playOnInt(soundCode);
 }
 
 
@@ -75,6 +79,7 @@ function OnMouseUp()
 	if(isChecked == false)
 	{
 		isChecked = true;
+		if (soundCode!=0) playMe();
 		lightUp();
 	}
 
