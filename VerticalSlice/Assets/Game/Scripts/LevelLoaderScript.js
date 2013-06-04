@@ -3,7 +3,9 @@
 import System.Collections.Generic;
 
 public var rowArray:Array = new Array();
-private var rowCount = 0;
+private var rowCountArray = new Array();
+private var arrayCount:int = 0;
+private var rowCount:int = 0;
 private var CubeList:Array = new Array();
 
 //level info
@@ -30,6 +32,7 @@ function PushCube(code:int)
 {
 	 var pushToMe:Array = rowArray[rowCount];
 	 pushToMe.Push(code);
+	 rowCountArray.push(rowCount);
 }
 
 
@@ -38,7 +41,7 @@ function LoadCubes()
 	for (var i = 0; i<=rowCount;i++)
 	{
 		var songArray:Array = rowArray[i];
-		var count = 0;
+		var count:int = 0;
 		for (var code:int in songArray)
 		{
 		
@@ -50,15 +53,18 @@ function LoadCubes()
 			var cube:GameObject;
 			//put the cube(clone) on stage
 			cube = Instantiate(Resources.Load("Cube"),Vector3((count*0.5-2.5),0.5,0.6-(i*0.4)),Quaternion.identity);
-
-			//assign Code active / inactive
 			
-			cube.GetComponent(SoundCubeScript).checkOn(code);
+			
+
+			
+			//assign Code active / inactive
+			cube.GetComponent(SoundCubeScript).checkOn(code, arrayCount);
 			cube.GetComponent(SoundCubeScript).setBPM(BPM);
 			CubeList.push(cube); //push cube to array
 			
 			cube.transform.parent = GameObject.Find("CubeContainer").transform;
 			count++;	//increase count by 1
+			arrayCount ++;
 			
 		}
 	}
@@ -78,6 +84,11 @@ function NextRow()
 	rowCount++;
 	var songArray:Array = new Array();
 	rowArray.Push(songArray);
+}
+
+public function getRow()
+{
+	return rowCountArray;
 }
 
 function unLoad():void

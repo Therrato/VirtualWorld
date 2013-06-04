@@ -44,6 +44,7 @@ private var n3:Array = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 function Start ()
 {
 	this.transform.position.x = -3.5;
+	this.transform.position.z = 1.7;
 }
 
 function Update ()
@@ -136,14 +137,19 @@ public function floorToPurple()
 }
 
 // call letters
-public function play3(){
-colourByArray(n3);
+public function play3()
+{
+	colourByArray(n3);
 }
-public function play2(){
-colourByArray(n2);
+
+public function play2()
+{
+	colourByArray(n2);
 }
-public function play1(){
-colourByArray(n1);
+
+public function play1()
+{
+	colourByArray(n1);
 }
 
 public function colourByModulo(moduloValue:int,colourValue:int)

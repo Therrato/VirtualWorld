@@ -33,12 +33,28 @@ function Start ()
 	this.transform.position.y+= hoverPosition = Random.value/10 - .05;
 }
 
-function checkOn(code:int)
+function checkOn(code:int, arrayCount:int)
 {
+	//if the code is not 0 it needs to be checked
  	if(code != 0) this.needsToBeChecked = true;
+ 	//else it should be false
  	else this.needsToBeChecked = false;
+ 	//assign the sound to the cube
  	soundCode = code;
+ 	
+ 	//if the code is 0 then execute
+ 	if(code == 0)
+ 	{
+ 		var rowCountArray:Array = GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getRow();
+ 		var row = rowCountArray[arrayCount];
+ 		
+ 		if(row == 0) soundCode = 1;
+ 		else if(row == 1) soundCode = 2;
+ 		else if(row == 2) soundCode = 3;
+ 		this.needsToBeChecked = false;
+ 	}
 }
+
 function setBPM(bpm:int)
 {
 	BPM = bpm;
@@ -58,7 +74,8 @@ function playDelayed(delay:int)
 	resetFeedback();
 }
 
-function playMe(){
+function playMe()
+{
 	soundboard.GetComponent(SoundProcessor).playOnInt(soundCode);
 }
 
@@ -78,15 +95,20 @@ function OnMouseUp()
 	
 	if(isChecked == false)
 	{
+		//set the check to true
 		isChecked = true;
-		if (soundCode!=0) playMe();
+		//play the sound of the cube
+		playMe();
+		//light it up
 		lightUp();
 	}
 
 	else
 	{
-	 isChecked = false;	
-	 resetFeedback();
+		//uncheck the cube
+		isChecked = false;
+		//reset the light
+		resetFeedback();
 	}
 }
 
