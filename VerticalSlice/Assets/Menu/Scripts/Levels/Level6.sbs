@@ -1,6 +1,6 @@
 <root>
 	<levelinfo>
-		<bpm>120</bpm>
+		<bpm>110</bpm>
 		<!--<stage>1</stage>
 		<baseline>1</baseline>-->
 	</levelinfo>	
@@ -16,6 +16,10 @@
 			</cube>
 			
 			<cube>
+				<code>0</code>
+			</cube>
+			
+			<cube>
 				<code>1</code>
 			</cube>
 			
@@ -28,15 +32,11 @@
 			</cube>
 			
 			<cube>
+				<code>0</code>
+			</cube>
+			
+			<cube>
 				<code>1</code>
-			</cube>
-			
-			<cube>
-				<code>0</code>
-			</cube>
-			
-			<cube>
-				<code>0</code>
 			</cube>
 		</row>
 		
@@ -50,6 +50,10 @@
 			</cube>
 			
 			<cube>
+				<code>2</code>
+			</cube>
+			
+			<cube>
 				<code>0</code>
 			</cube>
 			
@@ -62,15 +66,46 @@
 			</cube>
 			
 			<cube>
+				<code>2</code>
+			</cube>
+			
+			<cube>
+				<code>0</code>
+			</cube>
+			
+		</row>
+			
+		<row>
+			<cube>
 				<code>0</code>
 			</cube>
 			
 			<cube>
-				<code>2</code>
+				<code>0</code>
 			</cube>
 			
 			<cube>
-				<code>2</code>
+				<code>3</code>
+			</cube>
+			
+			<cube>
+				<code>0</code>
+			</cube>
+			
+			<cube>
+				<code>0</code>
+			</cube>
+			
+			<cube>
+				<code>0</code>
+			</cube>
+			
+			<cube>
+				<code>3</code>
+			</cube>
+			
+			<cube>
+				<code>0</code>
 			</cube>
 		</row>
 	</rows>

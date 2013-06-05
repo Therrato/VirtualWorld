@@ -8,7 +8,7 @@
 	<rows>
 		<row>
 			<cube>
-				<code>0</code>
+				<code>1</code>
 			</cube>
 			
 			<cube>
@@ -24,7 +24,7 @@
 			</cube>
 			
 			<cube>
-				<code>0</code>
+				<code>1</code>
 			</cube>
 			
 			<cube>
@@ -46,7 +46,11 @@
 			</cube>
 			
 			<cube>
-				<code>0</code>
+				<code>2</code>
+			</cube>
+			
+			<cube>
+				<code>2</code>
 			</cube>
 			
 			<cube>
@@ -58,48 +62,11 @@
 			</cube>
 			
 			<cube>
-				<code>0</code>
+				<code>2</code>
 			</cube>
 			
 			<cube>
-				<code>0</code>
-			</cube>
-			
-			<cube>
-				<code>0</code>
-			</cube>
-			
-			<cube>
-				<code>0</code>
-			</cube>
-		</row>
-		<row>
-			<cube>
-				<code>0</code>
-			</cube>
-			
-			<cube>
-				<code>0</code>
-			</cube>
-			
-			<cube>
-				<code>0</code>
-			</cube>
-			
-			<cube>
-				<code>0</code>
-			</cube>
-			
-			<cube>
-				<code>0</code>
-			</cube>
-			
-			<cube>
-				<code>0</code>
-			</cube>
-			
-			<cube>
-				<code>0</code>
+				<code>2</code>
 			</cube>
 			
 			<cube>
