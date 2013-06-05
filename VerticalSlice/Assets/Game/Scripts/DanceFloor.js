@@ -41,6 +41,18 @@ private var n3:Array = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						 0, 0, 0, 3, 0, 0, 0, 3, 0, 0,
 						 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+						 
+private var n0:Array = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 
+						 0, 0, 4, 0, 0, 0, 0, 4, 0, 0,
+						 0, 0, 4, 0, 4, 0, 0, 4, 0, 0,
+						 0, 0, 4, 4, 4, 0, 0, 4, 0, 0, 
+						 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+						 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 
+						 0, 0, 4, 0, 0, 0, 0, 4, 0, 0,
+						 0, 0, 4, 4, 4, 4, 4, 4, 0, 0,
+						 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];						 
+						 
 function Start ()
 {
 	this.transform.position.x = -3.5;
@@ -150,6 +162,10 @@ public function play2()
 public function play1()
 {
 	colourByArray(n1);
+}
+public function play0()
+{
+	colourByArray(n0);
 }
 
 public function colourByModulo(moduloValue:int,colourValue:int)

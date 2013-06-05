@@ -152,13 +152,14 @@ function nextLevel()
 }
 
 function playOnStart() {
+	playingRow = true;
 	if(timer == 0)
-		{
+		{	
+			GameObject.Find("Dancefloor").GetComponent(DanceFloor).play0();
 			//show nothing in the countdown
 			countDown = "";
 			//play the sequence
 			playSequence();
-			playingRow = true;
 			yield WaitForSeconds(5);
 			playingRow = false;
 			
