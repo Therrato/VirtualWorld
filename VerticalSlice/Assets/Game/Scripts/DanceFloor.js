@@ -4,6 +4,8 @@ public var spaceX:float = 0.59;				//comment these before publish
 public var spaceZ:float = 0.615;			
 private var TileList:Array = new Array();
 private var floorTimer:int = 0;
+private var Animate = false;
+private var refreshRate:float = 0;
 
 // letter arrays.
 
@@ -61,6 +63,9 @@ function Start ()
 
 function Update ()
 {
+	if(Animate){
+		moduloByTimer();
+	}
 
 
 }
@@ -82,7 +87,6 @@ function moduloByTimer()
 
 function Awake()
 {
-	Debug.Log("LET THE FLOOR BE MADE!");
 	//creates a floor 10 x 10 tiles
 	createFloor(10,10);
 }
@@ -121,6 +125,14 @@ public function floorToColour(colourNumber:int)
 	 	var Tile:GameObject = TileList[i];
 	 	Tile.gameObject.GetComponent(FloorScript).colour(colourNumber);
 	}
+}
+
+public function startAnimateFloor(){
+	Animate = true;
+}
+
+public function stopAnimateFloor(){
+	Animate = false;
 }
 
 public function floorToBlack()
