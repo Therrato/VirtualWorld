@@ -67,13 +67,7 @@ function OnGUI()
 		//Start game
 		if(GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, Screen.height / 2 - 150, buttonWidth, buttonHeight), StartGame))
 		{
-			Debug.Log("level selector");
 			State = "Level Select";
-			//State = "ingame";
-			
-			
-			//level
-
 		}
 		
 		//Options
@@ -159,7 +153,7 @@ function OnGUI()
 				{
 					level = "Level"+levelCount+".sbs"; //level is a string that the level loader needs
 					currentLevel = levelCount;	//set current level to the level you've chosen.
-					Debug.Log(level);	//show in console which level you open
+
 					State = "ingame";	//set state to "ingame" so the menu disappears but the functionality can still be accessed
 					Application.LoadLevel("MainGame");	//load the MainGame scene which loads the rest
 					
