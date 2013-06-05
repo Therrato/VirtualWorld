@@ -12,6 +12,8 @@ private var hoverDirection:int = -1;
 private var hoverPosition:float;
 // till this part also change function
 
+private var rowCheck:GameObject;
+
 private var soundCode:int;
 private var BPM:float;
 
@@ -25,6 +27,11 @@ public var needsToBeChecked:boolean;
 function Awake()
 {
 	resetFeedback();
+}
+
+function pushRowCheck(obj:GameObject)
+{
+	rowCheck = obj;
 }
 
 function Start ()
@@ -188,4 +195,9 @@ public function checkIfCorrect():boolean
 		return true;
 	}
 	else return false;
+}
+
+public function getSoundCode()
+{
+	return soundCode;
 }
