@@ -73,12 +73,14 @@ function playDelayed(delay:int)
 	//var string = delayValue.ToString();
 	
 	//print(60/BPM);
-	
-	yield WaitForSeconds((60/BPM)*delay);
-	if(needsToBeChecked == true && soundCode!=0) playMe();
-	this.TestCube();
-	yield WaitForSeconds(0.3);
-	resetFeedback();
+	if(rowCheck.GetComponent(RowCheckScript).getCheckRow())
+	{
+		yield WaitForSeconds((60/BPM)*delay);
+		if(needsToBeChecked == true && soundCode!=0) playMe();
+		this.TestCube();
+		yield WaitForSeconds(0.3);
+		resetFeedback();
+	}
 }
 
 function playMe()
