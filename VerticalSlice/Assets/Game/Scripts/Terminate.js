@@ -159,7 +159,9 @@ function playOnStart() {
 			countDown = "";
 			//play the sequence
 			playSequence();
-			yield WaitForSeconds(5);
+			yield WaitForSeconds(1);
+			GameObject.Find("Dancefloor").GetComponent(DanceFloor).startAnimateFloor();
+			yield WaitForSeconds(4);
 			playingRow = false;
 			
 			
