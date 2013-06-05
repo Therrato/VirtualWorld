@@ -1,5 +1,7 @@
 #pragma strict
 
+private var playingRow:boolean = false;
+
 var playFirstTime:boolean = true;
 var timer:float = 250;
 var countDown:String;
@@ -7,7 +9,7 @@ var TextStyle:GUIStyle;
 
 function Start ()
 {
-
+	
 }
 
 function Awake()
@@ -29,9 +31,10 @@ function OnGUI()
 
 public function playSequence()
 {
+	
 	GameObject.Find("Score").GetComponent(ScoreScript).addTry();
 	//set the boolean on false
-	playFirstTime = false;
+	
 	//get the array of cubes	
 	var array:Array = GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getCubeList();
 	
@@ -42,12 +45,15 @@ public function playSequence()
 		//play the sound of the cube if it contains any
 		cube.GetComponent(SoundCubeScript).playDelayed(i % 8);
 	}
+	playFirstTime = false;
 	
 	yield WaitForSeconds(7);
+	
 	if(GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).checkWin() == true)
 	{
 		nextLevel();
 	}
+	
 }
 
 public function resetFirstTime(){
@@ -59,6 +65,7 @@ public function resetFirstTime(){
 
 function Update ()
 {
+	CheckSeq();
 	//if it has to play the first time
 	if(playFirstTime == true)
 	{
@@ -75,13 +82,7 @@ function Update ()
 		if(timer == 160) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play2();
 		if(timer == 80) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play1();
 		//if time is up
-		if(timer == 0)
-		{
-			//show nothing in the countdown
-			countDown = "";
-			//play the sequence
-			playSequence();
-		}
+		playOnStart();
 	}
 	
 	
@@ -98,8 +99,7 @@ function Update ()
 		Application.LoadLevel("MainMenu");
 	}
 	
-	if(Input.GetKeyUp("space"))
-	{
+	
 		/*get the array with cubes
 		var array:Array = GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getCubeList();
 	
@@ -113,8 +113,7 @@ function Update ()
 			//call increase try function
 		}
 		*/
-		playSequence();
-	}
+		
 	
 }
 
@@ -151,3 +150,38 @@ function nextLevel()
 			GameObject.Find("MainMenu").GetComponent(XMLloader).loadXML(nextLevel);
 		}
 }
+
+function playOnStart() {
+	if(timer == 0)
+		{
+			//show nothing in the countdown
+			countDown = "";
+			//play the sequence
+			playSequence();
+			playingRow = true;
+			yield WaitForSeconds(5);
+			playingRow = false;
+			
+			
+		}
+}
+
+
+function CheckSeq() {
+	if(Input.GetKeyUp("space"))
+	{
+	
+		if (playingRow == false) {
+			playSequence();
+			playingRow = true;
+			yield WaitForSeconds(5);
+			playingRow = false;
+		}
+
+	}	
+}
+
+function getplayingRow():boolean
+{
+	return playingRow;	
+}		

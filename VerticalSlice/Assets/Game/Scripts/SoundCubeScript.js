@@ -92,24 +92,28 @@ function Update ()
 
 function OnMouseUp()
 {
+	var playingRow = GameObject.Find("TerminateGame").GetComponent(Terminate).getplayingRow();
 	
-	if(isChecked == false)
-	{
-		//set the check to true
-		isChecked = true;
-		//play the sound of the cube
-		playMe();
-		//light it up
-		lightUp();
-	}
-
-	else
-	{
-		//uncheck the cube
-		isChecked = false;
-		//reset the light
-		resetFeedback();
-	}
+	if(playingRow == false) {
+		if(isChecked == false)
+		{
+			//set the check to true
+			isChecked = true;
+			//play the sound of the cube
+			playMe();
+			//light it up
+			lightUp();
+		}
+	
+		else
+		{
+			//uncheck the cube
+			isChecked = false;
+			//reset the light
+			resetFeedback();
+		}
+	}	
+		
 }
 
 public function TestCube()
