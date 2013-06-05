@@ -42,6 +42,6 @@ function getCheckRow()
 
 function updateHalo()
 {
-	if(checkRow == true) this.gameObject.transform.FindChild("White").GetComponent("Halo").active = false;
-	else this.gameObject.transform.FindChild("White").GetComponent("Halo").active = true;
+	if(checkRow == true) this.gameObject.transform.FindChild("White").GetComponent("Halo").active = true;
+	else this.gameObject.transform.FindChild("White").GetComponent("Halo").active = false;
 }
