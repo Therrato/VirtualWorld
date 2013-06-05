@@ -80,6 +80,9 @@ function setBPM(bpm:float){
 BPM = bpm;
 }
 
+function getBPM():float{
+return BPM;
+}
 function getCubeList()
 {
 	return CubeList;
@@ -112,6 +115,7 @@ function unLoad():void
 		CubeList.splice(CubeList.length-1,1);
 		cube.GetComponent(SoundCubeScript).DestroyMe();
 	}
+	clearRowCubeArray();
 		
 }
 
@@ -121,6 +125,16 @@ function clearRowArray()
 	var songArray:Array = new Array();
 	rowArray.Push(songArray);
 	rowCount = 0;
+}
+
+function clearRowCubeArray()
+{
+	for(var i=0; i<rowCubeArray.length; i++)
+	{
+		var rowCube = rowCubeArray[i];
+		Destroy(rowCube);
+	}
+	rowCubeArray.clear();
 }
 
 function checkWin():boolean
@@ -136,6 +150,7 @@ function checkWin():boolean
 	}
 	return true;
 }
+
 
 
 

@@ -47,8 +47,7 @@ public function playSequence()
 	}
 	playFirstTime = false;
 	
-	yield WaitForSeconds(7);
-	
+	yield WaitForSeconds((60/GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getBPM())*9);
 	if(GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).checkWin() == true)
 	{
 		nextLevel();
