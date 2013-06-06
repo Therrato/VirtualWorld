@@ -1,6 +1,8 @@
 #pragma strict
 
 private var crowdArray:Array = new Array();
+private var crowdXAmount:float = 5;
+private var crowdYAmount:float = 2;
 
 
 function Start ()
@@ -15,7 +17,7 @@ function Update ()
 
 function Awake()
 {
-	createCrowd(5, 2);
+	createCrowd(crowdXAmount, crowdYAmount);
 	this.gameObject.transform.position.x = -2.5;
 	this.gameObject.transform.position.z = 3.5;
 }
@@ -24,6 +26,7 @@ function createCrowd(x:float, z:float)
 {
 	var previousX:float = 0;
 	var previousZ:float = 0;
+	
 	for(var i=0; i<x; i++)
 	{
 		for(var j=0; j<z; j++)
@@ -47,4 +50,15 @@ function createCrowd(x:float, z:float)
 function getCrowdArray()
 {
 	return crowdArray;
+}
+
+function playCrowdWave()
+{
+	for(var i=0; i<crowdArray.length; i++)
+	{
+		//get the crowd
+		var crowd:GameObject = crowdArray[i];
+		//play the animation with the given delay
+		crowd.GetComponent(CrowIndScript).playAnimationDelayed(i%crowdXAmount, "FullCycle");
+	}
 }

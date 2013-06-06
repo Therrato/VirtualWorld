@@ -1,9 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Menu\Scripts\Menu.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Scripts\CrowIndScript.js">
     <Files>
-      <File FileName="Assets\Menu\Scripts\Menu.js" Line="98" Column="74" />
-      <File FileName="Assets\ScaleGUITexture.js" Line="20" Column="67" />
+      <File FileName="Assets\Game\Scripts\CrowIndScript.js" Line="21" Column="54" />
+      <File FileName="Assets\Game\Scripts\CrowdScript.js" Line="58" Column="8" />
+      <File FileName="Assets\Menu\Scripts\Menu.js" Line="98" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
