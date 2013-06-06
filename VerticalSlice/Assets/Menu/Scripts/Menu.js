@@ -36,14 +36,31 @@ private var AboutText:String = "Made By: \n \nTechnical \nRoy Schröder \nKevin 
 //overall menu state
 private var State:String = "MainMenu";
 
+public var texturesArray:Texture[];
+public var mainMenuTexture:Texture2D;
+public var creditsTexture:Texture2D;
+private var style:GUIStyle;
+
+//button rects
+private var playRect:Rect;
+private var helpRect:Rect;
+private var creditsRect:Rect;
+private var exitRect:Rect;
+private var backRect:Rect;
+
 function Awake()
 {
 	DontDestroyOnLoad (transform.gameObject);
+	playRect 	= new Rect(145, 300, texturesArray[0].width, texturesArray[0].height);
+	helpRect 	= new Rect(145, 430, texturesArray[1].width, texturesArray[1].height);
+	creditsRect = new Rect(145, 560, texturesArray[2].width, texturesArray[2].height);
+	exitRect 	= new Rect(145, 700, texturesArray[3].width, texturesArray[3].height);
+	backRect	= new Rect(Screen.width / 2 - texturesArray[8].width / 2, Screen.height - texturesArray[8].height - 50 , texturesArray[8].width, texturesArray[8].height);
 }
 
 function Start ()
 {
-	
+
 }
 
 function Update ()
@@ -53,67 +70,139 @@ function Update ()
 		interval++;
 		loadLevel(level);
 	}
+	//Debug.Log(Input.mousePosition.y);
+}
+
+function hoverBoolean(rect:Rect):boolean
+{
+	var leftBorder = rect.x;
+	var rightBorder = rect.x + rect.width;
+	var topBorder = rect.y;
+	var botBorder = rect.y + rect.height;
+	var msY = Screen.height - Input.mousePosition.y;
+
+	if(Input.mousePosition.x > leftBorder && Input.mousePosition.x < rightBorder && msY > topBorder && msY < botBorder)
+	{
+		return true;
+	}
+	else return false;
 
 }
 
+
 function OnGUI()
 {
+	
 	//
 	//		Main Menu
 	//
 	
+	
 	if(State == "MainMenu")
 	{
+		GUI.DrawTexture(Rect(0, 0, Screen.width, Screen.height), mainMenuTexture);
 		//Start game
-		if(GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, Screen.height / 2 - 150, buttonWidth, buttonHeight), StartGame))
+		
+		if(hoverBoolean(playRect) == true)
+		{
+			if(GUI.Button(playRect, texturesArray[4], "label"))
+			{
+				State = "Level Select";
+			}
+		}
+		
+		else if(GUI.Button(playRect, texturesArray[0], "label"))
 		{
 			State = "Level Select";
 		}
 		
-		//Options
-		if(GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, Screen.height / 2 - 50, buttonWidth, buttonHeight), Options))
+		//Help
+		
+		if(hoverBoolean(helpRect) == true)
 		{
-			Debug.Log("Options");
-			State = "Options";
+			if(GUI.Button(helpRect, texturesArray[5], "label"))
+			{
+				State = "Help";
+			}
+		}
+		else if(GUI.Button(helpRect, texturesArray[1], "label"))
+		{
+			State = "Help";
 		}
 		
-		//About
-		if(GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, Screen.height / 2 - -50, buttonWidth, buttonHeight), About))
+		
+		//Credits
+		if(hoverBoolean(creditsRect) == true)
 		{
-			State = "About";
+			if(GUI.Button(creditsRect, texturesArray[6], "label"))
+			{
+				State = "Credits";
+			}
+		}
+		else if(GUI.Button(creditsRect, texturesArray[2], "label"))
+		{
+				this.guiTexture.texture = creditsTexture;
+				State = "Credits";
 		}
 		
+		//exit
+		if(hoverBoolean(exitRect) == true)
+		{
+			if(GUI.Button(exitRect, texturesArray[7], "label"))
+			{
+				//exit game
+				Application.Quit();
+			}
+		}
+		else if(GUI.Button(exitRect, texturesArray[3], "label"))
+		{
+				//exit game
+				Application.Quit();
+		}
+
 	}
 	
 	//
-	// 		Options
+	//		Help
 	//
 	
-	if(State == "Options")
-	{
-		//change button
-		if(GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, Screen.height / 2 - 150, buttonWidth, buttonHeight), Options))
+	if(State == "Help")
+	{	
+		//red
+		if(hoverBoolean(backRect) == true)
 		{
-			Debug.Log("changing settings");
+			if(GUI.Button(backRect, texturesArray[9], "label"))
+			{
+				State = "MainMenu";
+			}
 		}
-		
-		//save and go back
-		if(GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, Screen.height / 2 - -50, buttonWidth, buttonHeight), SaveSettings))
+		else if(GUI.Button(backRect, texturesArray[8], "label"))
 		{
-			Debug.Log("saving settings");
 			State = "MainMenu";
 		}
 	}
 	
 	//
-	//		About
+	//		Credits
 	//
 	
-	if(State == "About")
-	{
-		GUI.Label(new Rect(Screen.width / 2 - aboutWidth / 2, Screen.height / 2 - 150, aboutWidth, aboutHeight), AboutText);
+	if(State == "Credits")
+	{	
+		//credits texture background
+		GUI.DrawTexture(Rect(0, 0, Screen.width, Screen.height), creditsTexture);
 		
-		if(GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, Screen.height / 2 - -50, buttonWidth, buttonHeight), Back))
+		
+		
+		//red
+		if(hoverBoolean(backRect) == true)
+		{
+			if(GUI.Button(backRect, texturesArray[9], "label"))
+			{
+				State = "MainMenu";
+			}
+		}
+		//blue
+		else if(GUI.Button(backRect, texturesArray[8], "label"))
 		{
 			State = "MainMenu";
 		}
@@ -154,6 +243,7 @@ function OnGUI()
 					level = "Level"+levelCount+".sbs"; //level is a string that the level loader needs
 					currentLevel = levelCount;	//set current level to the level you've chosen.
 
+					//get rid of texture
 					State = "ingame";	//set state to "ingame" so the menu disappears but the functionality can still be accessed
 					Application.LoadLevel("MainGame");	//load the MainGame scene which loads the rest
 					
