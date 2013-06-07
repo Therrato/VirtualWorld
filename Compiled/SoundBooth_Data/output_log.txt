@@ -11,25 +11,9 @@ Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled\SoundBooth
 Loading C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled\SoundBooth_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled\SoundBooth_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
 Loading C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled\SoundBooth_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-- Completed reload, in  0.049 seconds
+- Completed reload, in  0.118 seconds
 desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled\SoundBooth_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled\SoundBooth_Data\Managed\Boo.Lang.dll (this message is harmless)
-starting game
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 128. Operation took 4.159422 ms.
-Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled\SoundBooth_Data\Managed\System.Xml.dll (this message is harmless)
-Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled\SoundBooth_Data\Managed\System.dll (this message is harmless)
-XML file not found
- 
-(Filename: C:/BuildAgent/work/812c4f5049264fad/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 43)
-
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 95. Operation took 4.139212 ms.
