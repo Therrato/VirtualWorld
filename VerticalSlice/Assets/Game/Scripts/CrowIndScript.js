@@ -17,7 +17,7 @@ function wave()
 
 function playAnimation(string:String)
 {
-	Debug.Log(string);
+	//Debug.Log(string);
 	if(string != "RaiseArms" && string != "LowerArms" && string != "FullCycle")
 	{
 		Debug.Log("The Animation you want to play doesn't exist");
