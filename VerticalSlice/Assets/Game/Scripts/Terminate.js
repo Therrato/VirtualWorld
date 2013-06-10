@@ -84,6 +84,11 @@ function Update ()
 		playOnStart();
 	}
 	
+	if(Input.GetKeyUp("w"))
+	{
+		GameObject.Find("Crowd").GetComponent(CrowdScript).playCrowdWave();
+	}
+	
 	
 	if(Input.GetKeyUp("f"))
 	{

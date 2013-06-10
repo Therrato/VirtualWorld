@@ -7,18 +7,18 @@ Direct3D:
     VRAM:     1488 MB (via DXGI)
     Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 DF24=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\MaskedMouse\Desktop\compiled\SpinBooth_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\MaskedMouse\Desktop\compiled\SpinBooth_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\MaskedMouse\Desktop\compiled\SpinBooth_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\MaskedMouse\Desktop\compiled\SpinBooth_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-- Completed reload, in  0.060 seconds
+Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled GreyBox\SpinBooth_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled GreyBox\SpinBooth_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled GreyBox\SpinBooth_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled GreyBox\SpinBooth_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+- Completed reload, in  0.104 seconds
 desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-Platform assembly: C:\Users\MaskedMouse\Desktop\compiled\SpinBooth_Data\Managed\UnityScript.Lang.dll (this message is harmless)
-Platform assembly: C:\Users\MaskedMouse\Desktop\compiled\SpinBooth_Data\Managed\Boo.Lang.dll (this message is harmless)
-Platform assembly: C:\Users\MaskedMouse\Desktop\compiled\SpinBooth_Data\Managed\System.Xml.dll (this message is harmless)
-Platform assembly: C:\Users\MaskedMouse\Desktop\compiled\SpinBooth_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled GreyBox\SpinBooth_Data\Managed\UnityScript.Lang.dll (this message is harmless)
+Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled GreyBox\SpinBooth_Data\Managed\Boo.Lang.dll (this message is harmless)
+Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled GreyBox\SpinBooth_Data\Managed\System.Xml.dll (this message is harmless)
+Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Compiled GreyBox\SpinBooth_Data\Managed\System.dll (this message is harmless)
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 928. Operation took 5.538919 ms.
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 928. Operation took 4.343075 ms.
