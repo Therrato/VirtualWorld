@@ -15,6 +15,13 @@ function Update ()
 
 }
 
+public function sortArray(){
+	
+	for (var i = 0; i<crowdArray.length; i++){
+		
+	}
+}
+
 function Awake()
 {
 	createCrowd(crowdXAmount, crowdYAmount);
@@ -42,7 +49,7 @@ function createCrowd(x:float, z:float)
 			previousX = crowd.transform.position.x;
 			
 			//add crowd to the array
-			crowdArray.push(crowd);
+			indexCrowd(crowd);
 		}
 	}
 }
@@ -61,4 +68,30 @@ function playCrowdWave()
 		//play the animation with the given delay
 		crowd.GetComponent(CrowIndScript).playAnimationDelayed(i%crowdXAmount, "FullCycle");
 	}
+}
+
+function indexCrowd(CObj:GameObject){
+if (crowdArray.length == 0){
+ crowdArray.push(CObj);
+ return;
+ }
+else{
+	var newCrowdArray:Array = new Array();
+	for (var i = 0; i<crowdArray.length; i++)
+		var checkAgainstObj:GameObject = crowdArray[i];
+	
+		if (checkAgainstObj.transform.position.z > CObj.transform.position.z){
+			
+			newCrowdArray.Push(CObj);
+			crowdArray = newCrowdArray.Concat(crowdArray);
+			return;
+			}
+		newCrowdArray.push(checkAgainstObj);
+			
+	
+	}
+	crowdArray.push(CObj);
+
+
+
 }
