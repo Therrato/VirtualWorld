@@ -19,7 +19,7 @@ function loadXML(level:String):void
 	//unity
 	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\Levels\\" + level;
 	//compiled
-	//var filePath:String = Application.dataPath + "XMLdocument.xml";
+	//var filePath:String = Application.dataPath + "/Levels/" + level;
 	
 	//if the file exists then execute
 	if(File.Exists(filePath))
@@ -46,7 +46,6 @@ function loadXML(level:String):void
 				if(nodeItem.Name == "bpm")
 				{
 					bpm = float.Parse(node.InnerText);
-					print(bpm);
 					GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).setBPM(bpm);
 					//tbi
 				}

@@ -25,7 +25,7 @@ function checkCount():float
 	//unity
 	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Progress.xml";
 	//compiled
-	//var filePath:String = Application.dataPath + "\\Levels\\" + "Progress.xml";
+	//var filePath:String = Application.dataPath + "/Levels/" + "Progress.xml";
 	
 	//if the file exists then execute
 	if(File.Exists(filePath))
@@ -70,7 +70,7 @@ function saveGameProgress(level:float)
 	//unity
 	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Progress.xml";
 	//compiled
-	//var filePath:String = Application.dataPath + "\\Levels\\" + "Progress.xml";
+	//var filePath:String = Application.dataPath + "/Levels/" + "Progress.xml";
 	
 
 	if(File.Exists(filePath))
@@ -105,7 +105,7 @@ function CreateSaveGame()
 		//unity
 		var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Progress.xml";
 		//compiled
-		//var filePath:String = Application.dataPath + "\\Levels\\" + "Progress.xml";
+		//var filePath:String = Application.dataPath + "/Levels/" + "Progress.xml";
 
 
 	//if there is no progress/save file yet, create start lvl 1

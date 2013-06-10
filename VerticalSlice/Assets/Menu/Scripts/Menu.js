@@ -92,7 +92,6 @@ function hoverBoolean(rect:Rect):boolean
 
 function OnGUI()
 {
-	
 	//
 	//		Main Menu
 	//
@@ -260,7 +259,7 @@ function fileCount()
 	//unity
 	levelPath = Application.dataPath + "\\Menu\\Scripts\\Levels";
 	//compiled
-	//levelPath = Application.dataPath + "\\Levels";
+	//levelPath = Application.dataPath + "/Levels";
 	
 	//get the directory where the levels are stored
 	var dir:DirectoryInfo = new DirectoryInfo(levelPath);
