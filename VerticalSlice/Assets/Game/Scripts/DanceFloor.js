@@ -69,7 +69,7 @@ function Update ()
 		}
 	if(!Animate){
 		cc++;
-		if (cc == 9){
+		if (cc == 8){
 			stepTrough();
 			cc= 0;
 			}

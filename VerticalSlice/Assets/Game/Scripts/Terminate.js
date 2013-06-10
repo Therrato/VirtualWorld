@@ -56,7 +56,7 @@ public function playSequence()
 }
 
 public function resetFirstTime(){
-	timer = 250;
+	timer = 300;
 	playFirstTime = true;
 }
 
@@ -77,9 +77,12 @@ function Update ()
 		if(timer == 160) countDown = "2";
 		if(timer == 80) countDown = "1";
 		*/
+		if(timer == 299)GameObject.Find("Dancefloor").GetComponent(DanceFloor).stopAnimateFloor();
 		if(timer == 240) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play3();
 		if(timer == 160) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play2();
 		if(timer == 80) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play1();
+		
+		if(timer == 10)GameObject.Find("Dancefloor").GetComponent(DanceFloor).play0();
 		//if time is up
 		playOnStart();
 	}
@@ -159,7 +162,6 @@ function playOnStart() {
 	playingRow = true;
 	if(timer == 0)
 		{	
-			GameObject.Find("Dancefloor").GetComponent(DanceFloor).play0();
 			//show nothing in the countdown
 			countDown = "";
 			//play the sequence
