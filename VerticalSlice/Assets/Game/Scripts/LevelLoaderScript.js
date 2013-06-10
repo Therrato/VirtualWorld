@@ -139,6 +139,7 @@ function clearRowCubeArray()
 
 function checkWin():boolean
 {
+	GatherScore();
 	//go through the array
 	for(var i=0; i<CubeList.length; i++)
 	{
@@ -149,8 +150,22 @@ function checkWin():boolean
 		}
 	}
 	return true;
+	
 }
 
+function GatherScore(){
+	var needCount = CubeList.length;
+	var ammountCorrect:int = 0;
+	for (var i=0; i<CubeList.length; i++){
+	var cube:GameObject = CubeList[i];
+	if (cube.GetComponent(SoundCubeScript).checkIfCorrect()){
+			ammountCorrect++;
+		}
+	
+	}
+	GameObject.Find("Score").GetComponent(ScoreScript).setScore(needCount,ammountCorrect);
+	GameObject.Find("Score").GetComponent(ScoreScript).displayScore();
+}
 
 
 
