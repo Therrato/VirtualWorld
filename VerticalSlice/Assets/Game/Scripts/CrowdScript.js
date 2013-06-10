@@ -1,8 +1,8 @@
 #pragma strict
 
 private var crowdArray:Array = new Array();
-private var crowdXAmount:float = 5;
-private var crowdYAmount:float = 2;
+private var crowdXAmount:float = 10;
+private var crowdYAmount:float = 5;
 
 
 function Start ()
@@ -66,7 +66,7 @@ function playCrowdWave()
 		//get the crowd
 		var crowd:GameObject = crowdArray[i];
 		//play the animation with the given delay
-		crowd.GetComponent(CrowIndScript).playAnimationDelayed(i%crowdXAmount, "FullCycle");
+		crowd.GetComponent(CrowIndScript).playAnimationDelayed(i/2, "FullCycle");
 	}
 }
 
@@ -80,7 +80,7 @@ else{
 	for (var i = 0; i<crowdArray.length; i++)
 		var checkAgainstObj:GameObject = crowdArray[i];
 	
-		if (checkAgainstObj.transform.position.z > CObj.transform.position.z){
+		if (checkAgainstObj.transform.position.x > CObj.transform.position.x){
 			
 			newCrowdArray.Push(CObj);
 			crowdArray = newCrowdArray.Concat(crowdArray);
