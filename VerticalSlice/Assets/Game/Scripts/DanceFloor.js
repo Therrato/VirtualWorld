@@ -7,6 +7,7 @@ private var floorTimer:int = 0;
 private var Animate = false;
 private var refreshRate:float = 0;
 
+var cc:int = 0;
 // letter arrays.
 
 
@@ -65,7 +66,14 @@ function Update ()
 {
 	if(Animate){
 		moduloByTimer();
-	}
+		}
+	if(!Animate){
+		cc++;
+		if (cc == 9){
+			stepTrough();
+			cc= 0;
+			}
+		}
 
 
 }
@@ -115,6 +123,18 @@ public function colourByArray(array:Array)
 		var Tile:GameObject = TileList[i];	
 		//assign the colour
 		Tile.gameObject.GetComponent(FloorScript).colour(array[i]);
+	}
+}
+
+public function stepTrough(){
+var modValue :int = Mathf.Sqrt(TileList.length);
+	for (var i = 0 ; i < TileList.length; i++){
+		if( i + modValue < TileList.length){
+			var tile1:GameObject = TileList[i];
+			var tile2:GameObject = TileList[i+modValue];
+			tile1.gameObject.GetComponent(FloorScript).colour(tile2.gameObject.GetComponent(FloorScript).getCurrentColour());
+		}
+	
 	}
 }
 

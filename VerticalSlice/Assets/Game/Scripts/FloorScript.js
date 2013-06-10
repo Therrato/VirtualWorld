@@ -4,6 +4,7 @@ import System.IO;
 
 var randomNumber:float = 0; 	//starts inactive
 public var texture:Texture[];	//array of textures
+private var currentColor:int = 0;
 
 function Start ()
 {
@@ -42,8 +43,13 @@ private function colour()
 public function colour(colour:int)
 {
 		renderer.material.mainTexture = texture[colour];	//assigns the texture from the array
+		currentColor = colour;
 }
 
 public function nextStep(){
 	randomize();
+}
+
+public function getCurrentColour():int{
+return currentColor;
 }
