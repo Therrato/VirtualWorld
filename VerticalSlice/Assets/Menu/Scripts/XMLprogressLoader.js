@@ -249,9 +249,9 @@ private function CreateScoreXML(level:float)
 		if(File.Exists(path) == false)
 		{
 			//create new Progress.xml file and put root element in it
-			File.WriteAllText("Score.xml", "<levelProgress></levelProgress>");
+			File.WriteAllText(path, "<levelProgress></levelProgress>");
 			//load the document
-			xmlDoc.Load("Score.xml");
+			xmlDoc.Load(path);
 			//get root element of the document
 			var levelProgress:XmlElement = xmlDoc.DocumentElement;
 			//save the document
@@ -278,9 +278,9 @@ function CreateSaveGame()
 	if(File.Exists(filePath) == false)
 	{
 		//create new Progress.xml file and put root element in it
-		File.WriteAllText("Progress.xml", "<levelProgress></levelProgress>");
+		File.WriteAllText(filePath, "<levelProgress></levelProgress>");
 		//load the document
-		xmlDoc.Load("Progress.xml");
+		xmlDoc.Load(filePath);
 		//get root element of the document
 		var levelProgress:XmlElement = xmlDoc.DocumentElement;
 		//create XML element "check"
