@@ -52,3 +52,8 @@ public function setScore(n:int,c:int){
 	needCount = n;
 	foundCount = c;
 }
+
+public function getScore():int
+{
+	return Tries;
+}

@@ -99,6 +99,147 @@ function saveGameProgress(level:float)
 	}
 }
 
+function saveGameScore(level:float)
+{
+	var xmlDoc:XmlDocument = new XmlDocument();
+	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Score.xml";
+	
+	if(File.Exists(filePath))
+	{
+		xmlDoc.Load(filePath);
+		
+		var myScore = GameObject.Find("Score").GetComponent(ScoreScript).getScore();
+		var oldScore = this.getScore(level, xmlDoc, filePath);
+		
+		//
+		Debug.Log("My Score: " + myScore);
+		Debug.Log("Old Score: " + oldScore);
+		if(myScore < oldScore || oldScore == 0)
+		{
+			
+			Debug.Log("this is a higher score!");
+			var count:int;
+			//save new score
+			//get levelProgress as root node
+			var progress:XmlNodeList = xmlDoc.GetElementsByTagName("levelProgress");
+			
+			//get child node of levelProgress
+			for each(var levelNode:XmlNode in progress)
+			{
+				//child nodes of levelProgress in a list (level)
+				var levelList:XmlNodeList = levelNode.ChildNodes;
+				
+				for each(var levels:XmlNode in levelList)
+				{
+					var propertyOfLevel:XmlNodeList = levels.ChildNodes;
+					
+					for each(var levelNode:XmlNode in propertyOfLevel)
+					{
+						if(levelNode.Name == "levelNumber")
+						{
+							//store the level
+							var levelIs:float = float.Parse(levelNode.InnerText);
+							//count array
+							count++;
+						}
+						if(levelNode.Name == "score")
+						{
+							if(levelIs == level)
+							{
+								//store the 
+								Debug.Log("storing new value!");
+								levelNode.InnerText = myScore.ToString();
+								Debug.Log("stored new value!");
+							}
+						}
+					}
+					
+
+				}
+				//if the count < level
+				if(count < level)
+				{
+					//push new level into the array
+					count++;
+					//create new level in document
+					Debug.Log("This level is not listed yet!");
+					createLevelScore(xmlDoc, filePath, level, myScore);
+					break;
+				}
+			}
+			xmlDoc.Save(filePath);
+			Debug.Log("finished writing to document!");
+		}
+	}
+}
+
+//reads out the old score
+function getScore(level:float, document:XmlDocument, filePath:String):float
+{
+	var doc:XmlDocument = document;
+	var path:String = filePath;
+	//get the old score
+	
+		//get levelProgress as root node
+		var progress:XmlNodeList = doc.GetElementsByTagName("levelProgress");
+		
+		//get child node of levelProgress
+		for each(var levelNode:XmlNode in progress)
+		{
+			//child nodes of levelProgress in a list (level)
+			var levelList:XmlNodeList = levelNode.ChildNodes;
+			
+			for each(var levels:XmlNode in levelList)
+			{
+				var propertyOfLevel:XmlNodeList = levels.ChildNodes;
+				
+				for each(var levelNode:XmlNode in propertyOfLevel)
+				{
+					if(levelNode.Name == "levelNumber")
+					{
+						//store the level
+						var levelIs:float = float.Parse(levelNode.InnerText);
+					}
+					if(levelNode.Name == "score")
+					{
+						if(levelIs == level)
+						{
+							var thisScore:int = int.Parse(levelNode.InnerText);
+							return thisScore;
+						}
+					}
+				}
+			}
+		} 
+	
+}
+
+function createLevelScore(xmlDoc:XmlDocument, filePath:String, level:float, myScore:int)
+{
+	Debug.Log("creatingLevelScore");
+	
+	//get root element
+	var rootElement:XmlElement = xmlDoc.DocumentElement;
+	
+	//create new level element
+	var newLevelElement:XmlElement = xmlDoc.CreateElement("level");
+	//child the new level element to root element
+	rootElement.AppendChild(newLevelElement);
+	//create new levelNumber element
+	var newLevelNumber:XmlElement = xmlDoc.CreateElement("levelNumber");
+	//create new score element
+	var newLevelScore:XmlElement = xmlDoc.CreateElement("score");
+	//child new levelNumber to new levelElement
+	newLevelElement.AppendChild(newLevelNumber);
+	newLevelElement.AppendChild(newLevelScore);
+	newLevelNumber.InnerText = level.ToString();
+	newLevelScore.InnerText = myScore.ToString();
+	//save changes
+	xmlDoc.Save(filePath);
+	Debug.Log("new level written in xml document!");
+	
+	return;
+}
 function CreateSaveGame()
 {
 		var xmlDoc:XmlDocument = new XmlDocument();
