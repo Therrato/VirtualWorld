@@ -60,40 +60,42 @@ function checkCount():float
 }
 
 
-//save the game progress (calling function)
+//saves the game progress (calling function)
 //parameter = current level
 function saveGameProgress(level:float)
 {
 
-	var xmlDoc:XmlDocument = new XmlDocument();
+	var xmlDoc:XmlDocument = new XmlDocument();	//new xml Document
 	
 	//unity
 	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Progress.xml";
 	//compiled
 	//var filePath:String = Application.dataPath + "/Levels/" + "Progress.xml";
 	
-
+	//executes the next code if the file exists at the given filePath
 	if(File.Exists(filePath))
 	{
-		//load the xml
+		//load the xml document
 		xmlDoc.Load(filePath);
+		
 		//store nextLevel as float
-		var nextLevel:float = level + 1;
-		//if nextLevel > check continue script
+		var nextLevel:float = level + 1;	//next level would be level + 1
+		
+		//if nextLevel > check continue script else it means its a redo of the level
 		if(nextLevel > checkCount())
 		{
 			//get root element
 			var levelProgressNew:XmlElement = xmlDoc.DocumentElement;
 			
-			//remove every child of the root element
-			levelProgressNew.RemoveAll();
 			
-			//create new check
-			var checkNew:XmlElement = xmlDoc.CreateElement("check");
-			levelProgressNew.AppendChild(checkNew);
-			checkNew.InnerText = nextLevel.ToString();
-			xmlDoc.Save(filePath);
-			Debug.Log("Progress has been saved!");
+			levelProgressNew.RemoveAll();	//remove every child of the root element (removes anomolies if any)
+			
+			
+			var checkNew:XmlElement = xmlDoc.CreateElement("check");	//create new element called check
+			levelProgressNew.AppendChild(checkNew);						//child it to the root element
+			checkNew.InnerText = nextLevel.ToString();					//fill in the check element
+			xmlDoc.Save(filePath);										//save the xml document
+			//Debug.Log("Progress has been saved!");
 		}
 		else Debug.Log("This is a redo of a previous level, no progress has been saved");
 	}
@@ -101,145 +103,168 @@ function saveGameProgress(level:float)
 
 function saveGameScore(level:float)
 {
-	var xmlDoc:XmlDocument = new XmlDocument();
-	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Score.xml";
+	var xmlDoc:XmlDocument = new XmlDocument();											//xml document
+	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Score.xml";		//filepath of the document
 	
 	if(File.Exists(filePath))
 	{
-		xmlDoc.Load(filePath);
+		xmlDoc.Load(filePath);															//if it exists load it
 		
-		var myScore = GameObject.Find("Score").GetComponent(ScoreScript).getScore();
-		var oldScore = this.getScore(level, xmlDoc, filePath);
+		var myScore = GameObject.Find("Score").GetComponent(ScoreScript).getScore();	//get the score you have now
+		var oldScore = this.getScore(level, xmlDoc, filePath);							//get the old score you had (if you had any) if its not it's 0
 		
-		//
-		Debug.Log("My Score: " + myScore);
-		Debug.Log("Old Score: " + oldScore);
-		if(myScore < oldScore || oldScore == 0)
+		//Debug.Log("My Score: " + myScore);
+		//Debug.Log("Old Score: " + oldScore);
+		
+		//this will search up the old score and replaces it with the new score since it is a better score
+		if(myScore < oldScore || oldScore == 0)											//if the score you are having(amount of tries) < than your old score OR when it is 0 (nonexisting) {execute}
 		{
+			var count:int;	//create a counter for later
 			
-			Debug.Log("this is a higher score!");
-			var count:int;
-			//save new score
-			//get levelProgress as root node
-			var progress:XmlNodeList = xmlDoc.GetElementsByTagName("levelProgress");
+			var progress:XmlNodeList = xmlDoc.GetElementsByTagName("levelProgress");	//get levelProgress as root node
 			
-			//get child node of levelProgress
-			for each(var levelNode:XmlNode in progress)
+			
+			for each(var levelNode:XmlNode in progress)									//for every node of the root node
 			{
-				//child nodes of levelProgress in a list (level)
-				var levelList:XmlNodeList = levelNode.ChildNodes;
 				
-				for each(var levels:XmlNode in levelList)
+				var levelList:XmlNodeList = levelNode.ChildNodes;	//child nodes of levelProgress in a list (level)
+				
+				for each(var levels:XmlNode in levelList)								//for child node in that list
 				{
-					var propertyOfLevel:XmlNodeList = levels.ChildNodes;
+					var propertyOfLevel:XmlNodeList = levels.ChildNodes;				//get the property nodes of the levels (aka levelNumber and Score)
 					
 					for each(var levelNode:XmlNode in propertyOfLevel)
 					{
-						if(levelNode.Name == "levelNumber")
+						if(levelNode.Name == "levelNumber")								//if the node's name is equal to levelNumber {execute}
 						{
 							//store the level
-							var levelIs:float = float.Parse(levelNode.InnerText);
+							var levelIs:float = float.Parse(levelNode.InnerText);		//store the level as a float
 							//count array
-							count++;
+							count++;													//count 1 up
 						}
-						if(levelNode.Name == "score")
+						if(levelNode.Name == "score")									//if the node's name is equal to score {execute}
 						{
-							if(levelIs == level)
+							if(levelIs == level)										//if levelIs is equal to the level you are searching for {execute}
 							{
-								//store the 
-								Debug.Log("storing new value!");
-								levelNode.InnerText = myScore.ToString();
-								Debug.Log("stored new value!");
+								levelNode.InnerText = myScore.ToString();				//save the score
 							}
 						}
 					}
 					
 
 				}
-				//if the count < level
-				if(count < level)
+				
+				if(count < level)														//if the count < level it means the level is not in the xml document yet
 				{
-					//push new level into the array
-					count++;
-					//create new level in document
-					Debug.Log("This level is not listed yet!");
-					createLevelScore(xmlDoc, filePath, level, myScore);
-					break;
+					count++;															//count 1 up cause we are going to add it
+					//Debug.Log("This level is not listed yet!");
+					createLevelScore(xmlDoc, filePath, level, myScore);					//create new level in document
+					break;																//break it cause it is already saved
 				}
 			}
-			xmlDoc.Save(filePath);
-			Debug.Log("finished writing to document!");
+			xmlDoc.Save(filePath);														//save the xml document
+			//Debug.Log("finished writing to document!");
 		}
 	}
+	else CreateScoreXML(level);
 }
 
-//reads out the old score
+
+//reads out the old score from the xml document returns a float
 function getScore(level:float, document:XmlDocument, filePath:String):float
 {
-	var doc:XmlDocument = document;
-	var path:String = filePath;
-	//get the old score
+	var doc:XmlDocument = document;	//store the xml doc
+	var path:String = filePath;		//store the filepath
 	
-		//get levelProgress as root node
-		var progress:XmlNodeList = doc.GetElementsByTagName("levelProgress");
+	var progress:XmlNodeList = doc.GetElementsByTagName("levelProgress"); //get levelProgress as root node
+	
+	//for every node in levelProgress
+	for each(var levelNode:XmlNode in progress)
+	{
+		var levelList:XmlNodeList = levelNode.ChildNodes; //child nodes of levelProgress in a list (level)
 		
-		//get child node of levelProgress
-		for each(var levelNode:XmlNode in progress)
+		for each(var levels:XmlNode in levelList)
 		{
-			//child nodes of levelProgress in a list (level)
-			var levelList:XmlNodeList = levelNode.ChildNodes;
+			var propertyOfLevel:XmlNodeList = levels.ChildNodes;	//child nodes of level (score / levelNumber)
 			
-			for each(var levels:XmlNode in levelList)
+			for each(var levelNode:XmlNode in propertyOfLevel)
 			{
-				var propertyOfLevel:XmlNodeList = levels.ChildNodes;
-				
-				for each(var levelNode:XmlNode in propertyOfLevel)
+				if(levelNode.Name == "levelNumber")					//if the name of the childnode is levelNumber {execute}
 				{
-					if(levelNode.Name == "levelNumber")
+					//store the level
+					var levelIs:float = float.Parse(levelNode.InnerText);	//save the level as a float
+				}
+				if(levelNode.Name == "score")						//if the name of the childnode is score {execute}
+				{
+					if(levelIs == level)							//if the levelNumber is equal to the current level you are searching for
 					{
-						//store the level
-						var levelIs:float = float.Parse(levelNode.InnerText);
-					}
-					if(levelNode.Name == "score")
-					{
-						if(levelIs == level)
-						{
-							var thisScore:int = int.Parse(levelNode.InnerText);
-							return thisScore;
-						}
+						var thisScore:int = int.Parse(levelNode.InnerText);	//save the score
+						return thisScore;									//return the score
 					}
 				}
 			}
-		} 
-	
+		}
+	} 
 }
 
+//this will create another <level> element in the xml document and fills in the level + score because it did not exist
 function createLevelScore(xmlDoc:XmlDocument, filePath:String, level:float, myScore:int)
 {
-	Debug.Log("creatingLevelScore");
+	//Debug.Log("creating new level score");
 	
-	//get root element
-	var rootElement:XmlElement = xmlDoc.DocumentElement;
+	var rootElement:XmlElement 		= xmlDoc.DocumentElement; //get root element to child levels to (levelProgress)
 	
-	//create new level element
-	var newLevelElement:XmlElement = xmlDoc.CreateElement("level");
-	//child the new level element to root element
-	rootElement.AppendChild(newLevelElement);
-	//create new levelNumber element
-	var newLevelNumber:XmlElement = xmlDoc.CreateElement("levelNumber");
-	//create new score element
-	var newLevelScore:XmlElement = xmlDoc.CreateElement("score");
-	//child new levelNumber to new levelElement
-	newLevelElement.AppendChild(newLevelNumber);
-	newLevelElement.AppendChild(newLevelScore);
-	newLevelNumber.InnerText = level.ToString();
-	newLevelScore.InnerText = myScore.ToString();
-	//save changes
-	xmlDoc.Save(filePath);
-	Debug.Log("new level written in xml document!");
+	var newLevelElement:XmlElement 	= xmlDoc.CreateElement("level"); //create new level element
+		rootElement.AppendChild(newLevelElement); //child the level element to the root element
+	
+	
+	var newLevelNumber:XmlElement 	= xmlDoc.CreateElement("levelNumber"); //create new levelNumber element
+	var newLevelScore:XmlElement 	= xmlDoc.CreateElement("score"); //create new score element
+	
+		newLevelElement.AppendChild(newLevelNumber); //child levelNumber to level element
+		newLevelElement.AppendChild(newLevelScore);	//child score to level element
+	
+		newLevelNumber.InnerText 	= level.ToString(); //fill in the levelNumber element
+		newLevelScore.InnerText 	= myScore.ToString();//fill in the score element
+	
+	
+	xmlDoc.Save(filePath); //save changes
+	
+	//Debug.Log("new level written in xml document!");
 	
 	return;
 }
+
+//creates a new Score.xml and fills with the needed node
+private function CreateScoreXML(level:float)
+{
+		var xmlDoc:XmlDocument = new XmlDocument();
+		//unity
+		var path:String = Application.dataPath + "\\Menu\\Scripts\\" + "Score.xml";
+		//compiled
+		//var filePath:String = Application.dataPath + "/Levels/" + "Score.xml";
+
+
+		//if there is no score file yet, create basic file
+		if(File.Exists(path) == false)
+		{
+			//create new Progress.xml file and put root element in it
+			File.WriteAllText("Score.xml", "<levelProgress></levelProgress>");
+			//load the document
+			xmlDoc.Load("Score.xml");
+			//get root element of the document
+			var levelProgress:XmlElement = xmlDoc.DocumentElement;
+			//save the document
+			xmlDoc.Save(path);
+			
+			//Debug.Log("created XML document");
+			
+			var myScore = GameObject.Find("Score").GetComponent(ScoreScript).getScore();		//get the score
+			createLevelScore(xmlDoc, path, level, myScore);										//saves it into the xml document
+		}
+}
+
+//funtion call from the menu to create a new save game
 function CreateSaveGame()
 {
 		var xmlDoc:XmlDocument = new XmlDocument();
@@ -268,9 +293,4 @@ function CreateSaveGame()
 		xmlDoc.Save(filePath);
 	}
 	
-}
-
-function destroyXMLprogressLoader()
-{
-	Destroy(GameObject.Find("XMLprogressLoader"));
 }

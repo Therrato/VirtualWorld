@@ -3,16 +3,4 @@
     <levelNumber>1</levelNumber>
     <score>1</score>
   </level>
-  <level>
-    <levelNumber>2</levelNumber>
-    <score>1</score>
-  </level>
-  <level>
-    <levelNumber>3</levelNumber>
-    <score>1</score>
-  </level>
-  <level>
-    <levelNumber>4</levelNumber>
-    <score>1</score>
-  </level>
 </levelProgress>
