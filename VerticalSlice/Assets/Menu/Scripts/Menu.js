@@ -214,9 +214,10 @@ function OnGUI()
 	if(State == "Level Select")
 	{
 		State = "level Select V2";	//set state to other state so it won't update
+		
 		//count files in the directory
 		fileCount();
-		makeButtons();
+		
 		
 		//check if progress file isn't there
 		if(File.Exists(levelPath) == false)
@@ -224,6 +225,9 @@ function OnGUI()
 			//find the MainMenu object, access the script XMLprogressLoader and execute createsavegame to create a progress.xml
 			GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).CreateSaveGame();
 		}
+		
+		//create level cubes
+		makeButtons();
 		
 		//for every LevelX.xml create a button
 //		for(var i:float; i<count; i++)
