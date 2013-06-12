@@ -25,7 +25,7 @@ function playAnimation(string:String)
 	else animation.Play(string);
 }
 
-function playAnimationDelayed(delay:int, string:String)
+function playAnimationDelayed(delay:float, string:String)
 {
 	yield WaitForSeconds(delay);
 	playAnimation(string);

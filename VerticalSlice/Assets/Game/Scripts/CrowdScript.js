@@ -1,7 +1,7 @@
 #pragma strict
 
 private var crowdArray:Array = new Array();
-private var crowdXAmount:float = 5;
+private var crowdXAmount:float = 10;
 private var crowdYAmount:float = 4;
 
 
@@ -63,7 +63,8 @@ function getCrowdArray()
 function playCrowdWave()
 {
 	var counter:int = 0;	//counter for the delay
-	var delay:int = 0;		//delay amount
+	var delay:float = 0;		//delay amount
+	var multiplyer:float = 0;
 	for(var i=0; i<crowdArray.length; i++)
 	{
 		//get the crowd
@@ -74,8 +75,11 @@ function playCrowdWave()
 			delay += 1;
 			counter = 0;
 		}
+		
+		if(crowdXAmount <= 5) multiplyer = 0.5;
+		if(crowdXAmount >= 8) multiplyer = 0.3;
 		//play the animation with the given delay
-		crowd.GetComponent(CrowIndScript).playAnimationDelayed(delay, "FullCycle");
+		crowd.GetComponent(CrowIndScript).playAnimationDelayed(delay * multiplyer, "FullCycle");
 		counter ++;
 	}
 }

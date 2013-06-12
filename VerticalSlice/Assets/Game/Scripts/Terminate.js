@@ -50,6 +50,7 @@ public function playSequence()
 	yield WaitForSeconds((60/GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).getBPM())*9);
 	if(GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).checkWin() == true)
 	{
+		GameObject.Find("Crowd").GetComponent(CrowdScript).playCrowdWave();
 		nextLevel();
 	}
 	
