@@ -315,20 +315,22 @@ function makeButtons()
 {
 	for(var i:float; i<count; i++)
 	{
-		var levelCount:float = i+1;
-
-		var LevelButton:GameObject = Instantiate(Resources.Load("LevelButton"),Vector3(-0.15*i ,0, 0 ), Quaternion.identity);
-		//set level properties
-		var check:float = GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).checkCount();
-		var open:boolean = true;
-		if(check<levelCount)open = false;
-		LevelButton.GetComponent(LevelButtonScript).SetLevel(levelCount,open);
+		var levelCount:float = i+1;	//counts which level to instantiate
+		var LevelButton:GameObject = Instantiate(Resources.Load("LevelButton"),Vector3(-0.14*i ,0, 0 ), Quaternion.identity); //level button instantiate
 		
-		LevelButton.transform.parent = GameObject.Find("LevelContainer").transform;
+		//level properties
+		var check:float = GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).checkCount();
+		var open:boolean = true;			//standard on true, if the check says otherwise its false
+		if(check<levelCount) open = false;	//if the check is lower than levelCount then you can't play this level
+		
+		LevelButton.GetComponent(LevelButtonScript).SetLevel(levelCount,open);	//set levelbutton properties
+		LevelButton.transform.parent = GameObject.Find("LevelContainer").transform;	//make it a parent of levelcontainer
 	}
+	
+	//putting the container at the right position
 	var container:GameObject=GameObject.Find("LevelContainer");
-	container.transform.eulerAngles.y = 180;
-	container.transform.position.x =-0.45;
+	container.transform.eulerAngles.y = 180;		//so its faced the correct direction
+	container.transform.position.x =-0.42;			//get it in screen
 	container.transform.position.z =0.6;
 	container.transform.position.y =0.2;
 	
@@ -340,10 +342,11 @@ function destroyMainMenu()
 	Destroy(GameObject.Find("MainMenu"));
 }
 
-function setLevel(lvl:String, number:int){
-level = lvl;
-currentLevel = number;
-State = "ingame";
-Application.LoadLevel("MainGame");	//load the MainGame scene which loads the rest
-
+function setLevel(lvl:String, number:int)
+{
+	level = lvl;			//level string that is needed in levelLoader
+	currentLevel = number;	//current level
+	
+	State = "ingame"; //sets the state inGame (loading game)
+	Application.LoadLevel("MainGame");	//load the MainGame scene which loads the rest
 }

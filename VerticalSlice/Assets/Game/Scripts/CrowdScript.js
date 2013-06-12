@@ -25,7 +25,7 @@ public function sortArray(){
 function Awake()
 {
 	createCrowd(crowdXAmount, crowdYAmount);
-	this.gameObject.transform.position.x = -2.5;
+	this.gameObject.transform.position.x = -3.3;
 	this.gameObject.transform.position.z = 3.5;
 }
 
