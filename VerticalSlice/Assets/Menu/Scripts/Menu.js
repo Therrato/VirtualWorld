@@ -213,8 +213,10 @@ function OnGUI()
 	
 	if(State == "Level Select")
 	{
+		State = "level Select V2";	//set state to other state so it won't update
 		//count files in the directory
 		fileCount();
+		makeButtons();
 		
 		//check if progress file isn't there
 		if(File.Exists(levelPath) == false)
@@ -222,33 +224,35 @@ function OnGUI()
 			//find the MainMenu object, access the script XMLprogressLoader and execute createsavegame to create a progress.xml
 			GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).CreateSaveGame();
 		}
+		
 		//for every LevelX.xml create a button
-		for(var i:float; i<count; i++)
-		{
-			var levelCount:float = i+1;
-			//create buttons	   |						X					|					Y						|	  Width	   |		Height		|		Name			|
-			if(GUI.Button(new Rect(Screen.width / 10 - levelButtonWidth / 2 + i*65,	 Screen.height / 2 - levelButtonHeight, levelButtonWidth, levelButtonHeight), 	levelCount.ToString()))
-			{
-				//check the current level you can play
-				var check:float = GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).checkCount(); //check if the level is playable by looking at the progress.xml
-				if(check < levelCount)
-				{
-					Debug.Log("Error, can't do this level yet"); //show in console that the level is not playable yet
-					//visual blocking of levels TBI
-				}
-				//if you can play it then execute else
-				else
-				{
-					level = "Level"+levelCount+".sbs"; //level is a string that the level loader needs
-					currentLevel = levelCount;	//set current level to the level you've chosen.
-
-					//get rid of texture
-					State = "ingame";	//set state to "ingame" so the menu disappears but the functionality can still be accessed
-					Application.LoadLevel("MainGame");	//load the MainGame scene which loads the rest
-					
-				}
-			}
-		}
+//		for(var i:float; i<count; i++)
+//		{
+//			var levelCount:float = i+1;
+//
+//			//create buttons	   |						X					|					Y						|	  Width	   |		Height		|		Name			|
+//			if(GUI.Button(new Rect(Screen.width / 10 - levelButtonWidth / 2 + i*65,	 Screen.height / 2 - levelButtonHeight, levelButtonWidth, levelButtonHeight), 	levelCount.ToString()))
+//			{
+//				//check the current level you can play
+//				var check:float = GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).checkCount(); //check if the level is playable by looking at the progress.xml
+//				if(check < levelCount)
+//				{
+//					Debug.Log("Error, can't do this level yet"); //show in console that the level is not playable yet
+//					//visual blocking of levels TBI
+//				}
+//				//if you can play it then execute else
+//				else
+//				{
+//					level = "Level"+levelCount+".sbs"; //level is a string that the level loader needs
+//					currentLevel = levelCount;	//set current level to the level you've chosen.
+//
+//					//get rid of texture
+//					State = "ingame";	//set state to "ingame" so the menu disappears but the functionality can still be accessed
+//					Application.LoadLevel("MainGame");	//load the MainGame scene which loads the rest
+//					
+//				}
+//			}
+//		}
 	}
 }
 
@@ -272,7 +276,7 @@ function fileCount()
     maxLevel = count;
 }
 
-function loadLevel(level)
+public function loadLevel(level)
 {
 	//wait atleast for 1 frame to load game (else LevelLoader doesn't exist)
 	if(interval > 1 && State == "ingame")
@@ -303,7 +307,39 @@ function nextLevel():String
 	}
 }
 
+function makeButtons()
+{
+	for(var i:float; i<count; i++)
+	{
+		var levelCount:float = i+1;
+
+		var LevelButton:GameObject = Instantiate(Resources.Load("LevelButton"),Vector3(-0.15*i ,0, 0 ), Quaternion.identity);
+		//set level properties
+		var check:float = GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).checkCount();
+		var open:boolean = true;
+		if(check<levelCount)open = false;
+		LevelButton.GetComponent(LevelButtonScript).SetLevel(levelCount,open);
+		
+		LevelButton.transform.parent = GameObject.Find("LevelContainer").transform;
+	}
+	var container:GameObject=GameObject.Find("LevelContainer");
+	container.transform.eulerAngles.y = 180;
+	container.transform.position.x =-0.45;
+	container.transform.position.z =0.6;
+	container.transform.position.y =0.2;
+	
+	
+}
+
 function destroyMainMenu()
 {
 	Destroy(GameObject.Find("MainMenu"));
+}
+
+function setLevel(lvl:String, number:int){
+level = lvl;
+currentLevel = number;
+State = "ingame";
+Application.LoadLevel("MainGame");	//load the MainGame scene which loads the rest
+
 }

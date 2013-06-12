@@ -1,10 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Scripts\CrowdScript.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Menu\Scripts\Menu.js">
     <Files>
+      <File FileName="Assets\Menu\Scripts\Menu.js" Line="1" Column="1" />
       <File FileName="Assets\Game\Scripts\CrowIndScript.js" Line="1" Column="1" />
       <File FileName="Assets\Game\Scripts\CrowdScript.js" Line="4" Column="36" />
-      <File FileName="Assets\Menu\Scripts\Menu.js" Line="1" Column="1" />
       <File FileName="Assets\Game\Scripts\DanceFloor.js" Line="1" Column="1" />
       <File FileName="Assets\Game\Scripts\Terminate.js" Line="1" Column="1" />
     </Files>

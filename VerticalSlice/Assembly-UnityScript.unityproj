@@ -50,15 +50,18 @@
      <Compile Include="Assets\Game\Scripts\FloorScript.js" />
      <Compile Include="Assets\Game\Scripts\LevelLoaderScript.js" />
      <Compile Include="Assets\Game\Scripts\MenuScript.js" />
+     <Compile Include="Assets\Game\Scripts\ObjectLabel.js" />
      <Compile Include="Assets\Game\Scripts\RowCheckScript.js" />
      <Compile Include="Assets\Game\Scripts\ScoreScript.js" />
      <Compile Include="Assets\Game\Scripts\SoundCubeScript.js" />
      <Compile Include="Assets\Game\Scripts\SoundProcessor.js" />
      <Compile Include="Assets\Game\Scripts\Terminate.js" />
+     <Compile Include="Assets\Menu\Scripts\LevelButtonScript.js" />
      <Compile Include="Assets\Menu\Scripts\Menu.js" />
      <Compile Include="Assets\Menu\Scripts\XMLloader.js" />
      <Compile Include="Assets\Menu\Scripts\XMLprogressLoader.js" />
      <None Include="Assets\Menu\Scripts\Progress.xml" />
+     <None Include="Assets\Menu\Scripts\Score.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
