@@ -4,9 +4,9 @@ var levelNumber:float;
 var canPlay:boolean = false;
 var texturesArray:Texture[];
 var score:float;
+var starScoreList:Array = null;
 
 function Start () {
-
 }
 
 function Update () {
@@ -22,7 +22,7 @@ function SetLevel(number:float,opened:boolean){
 	{
 		renderer.material.mainTexture = texturesArray[number-1];
 	}
-	
+	getStarScores();
 }
 
 function OnMouseUp()
@@ -34,4 +34,25 @@ function OnMouseUp()
 	}
 	else	Debug.Log("cant Play Level");
 
+}
+
+function getStarScores(){
+	starScoreList = GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).getStars(levelNumber);
+	setStars();
+}
+
+function setStars(){
+   // if (score != -1){
+    for (var i = 0; i<=starScoreList.length-1; i++){
+  		 var obj = starScoreList[i];
+  			var neededScore = int.Parse(obj.ToString());
+    	if(neededScore<= score){
+    		var i1 = i+1;
+    		this.gameObject.transform.FindChild("ScoreDisplay").gameObject.transform.FindChild("Star"+i1).GetComponent(MeshRenderer).active = false;
+			
+		}
+		
+		
+		}
+	//}
 }
