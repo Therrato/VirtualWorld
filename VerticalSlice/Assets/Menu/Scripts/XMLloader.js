@@ -32,14 +32,12 @@ function loadXML(level:String):void
 		//read level info
 		//
 		
-		var levelInfo:XmlNodeList = xmlDoc.GetElementsByTagName("levelinfo");
+		var levelInfo:XmlNodeList = xmlDoc.GetElementsByTagName("root");
 		var bpm:float;
-		var stage:float;
-		
 		for each (var node:XmlNode in levelInfo)
 		{
 			//get nodes of info
-			var levelInfoList:XmlNodeList = node.ChildNodes;
+			if(node.Name == "levelInfo")	var levelInfoList:XmlNodeList = node.ChildNodes;
 
 			for each(var nodeItem:XmlNode in levelInfoList)
 			{
@@ -49,17 +47,7 @@ function loadXML(level:String):void
 					GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).setBPM(bpm);
 					//tbi
 				}
-				else if(nodeItem.Name == "stage")
-				{
-					stage = float.Parse(node.InnerText);
-					//send to function
-					//tbi
-				}
-				else if(nodeItem.Name == "baseline")
-				{
-					//send to function
-					//tbi
-				}
+				
 			}
 		}
 		

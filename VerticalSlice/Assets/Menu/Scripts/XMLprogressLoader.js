@@ -59,6 +59,62 @@ function checkCount():float
 	return count;
 }
 
+function getStars(level:float):Array
+{
+	var xmlDoc:XmlDocument = new XmlDocument();
+	//unity
+	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\Levels\\Level" + level + ".sbs";
+	//compiled
+	//var filePath:String = Application.dataPath + "/Levels/" + level;
+
+	//if the file exists then execute
+	if(File.Exists(filePath))
+	{
+		//load the xml document
+		xmlDoc.Load(filePath);
+		
+
+		//
+		//read level info
+		//
+		
+		var rootNode:XmlNodeList = xmlDoc.GetElementsByTagName("root");
+		
+		var result:Array = new Array();
+
+		for each (var node:XmlNode in rootNode)
+		{
+			//get nodes of info
+			var childNodesOfRoot:XmlNodeList = node.ChildNodes;
+			
+			for each(var childNodes:XmlNode in childNodesOfRoot)
+			{
+				if(childNodes.Name == "levelinfo")
+				{
+					var levelInfoList:XmlNodeList = childNodes.ChildNodes;
+					
+					for each(var nodeItem:XmlNode in levelInfoList)
+					{
+						if(nodeItem.Name == "star1")
+						{
+							result.push(float.Parse(nodeItem.InnerText.ToString()));
+						}
+						if(nodeItem.Name == "star2")
+						{
+							result.push(float.Parse(nodeItem.InnerText.ToString()));
+						}
+						if(nodeItem.Name == "star3")
+						{
+							result.push(float.Parse(nodeItem.InnerText.ToString()));
+						}
+					}
+				}	
+			}
+		}
+	}
+	return result;
+}
+
 
 //saves the game progress (calling function)
 //parameter = current level

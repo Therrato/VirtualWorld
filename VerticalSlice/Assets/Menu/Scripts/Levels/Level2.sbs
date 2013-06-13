@@ -1,8 +1,9 @@
 <root>
 	<levelinfo>
 		<bpm>120</bpm>
-		<!--<stage>1</stage>
-		<baseline>1</baseline>-->
+		<star1>3</star1>
+		<star2>2</star2>
+		<star3>1</star3>
 	</levelinfo>	
 	
 	<rows>
