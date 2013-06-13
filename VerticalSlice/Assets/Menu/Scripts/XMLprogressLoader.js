@@ -111,8 +111,7 @@ function saveGameScore(level:float)
 		xmlDoc.Load(filePath);															//if it exists load it
 		
 		var myScore = GameObject.Find("Score").GetComponent(ScoreScript).getScore();	//get the score you have now
-		var oldScore = this.getScore(level, xmlDoc, filePath);							//get the old score you had (if you had any) if its not it's 0
-		
+		var oldScore = this.getScore(level);							//get the old score you had (if you had any) if its not it's 0
 		//Debug.Log("My Score: " + myScore);
 		//Debug.Log("Old Score: " + oldScore);
 		
@@ -170,36 +169,43 @@ function saveGameScore(level:float)
 }
 
 
+
+
 //reads out the old score from the xml document returns a float
-function getScore(level:float, document:XmlDocument, filePath:String):float
+function getScore(level:float):float
 {
-	var doc:XmlDocument = document;	//store the xml doc
-	var path:String = filePath;		//store the filepath
+	var doc:XmlDocument = new XmlDocument();											//xml document
+	var path:String = Application.dataPath + "\\Menu\\Scripts\\" + "Score.xml";		//filepath of the document
 	
-	var progress:XmlNodeList = doc.GetElementsByTagName("levelProgress"); //get levelProgress as root node
-	
-	//for every node in levelProgress
-	for each(var levelNode:XmlNode in progress)
+	if(File.Exists(path))
 	{
-		var levelList:XmlNodeList = levelNode.ChildNodes; //child nodes of levelProgress in a list (level)
+		doc.Load(path);
 		
-		for each(var levels:XmlNode in levelList)
+		var progress:XmlNodeList = doc.GetElementsByTagName("levelProgress"); //get levelProgress as root node
+		
+		//for every node in levelProgress
+		for each(var levelNode:XmlNode in progress)
 		{
-			var propertyOfLevel:XmlNodeList = levels.ChildNodes;	//child nodes of level (score / levelNumber)
+			var levelList:XmlNodeList = levelNode.ChildNodes; //child nodes of levelProgress in a list (level)
 			
-			for each(var levelNode:XmlNode in propertyOfLevel)
+			for each(var levels:XmlNode in levelList)
 			{
-				if(levelNode.Name == "levelNumber")					//if the name of the childnode is levelNumber {execute}
+				var propertyOfLevel:XmlNodeList = levels.ChildNodes;	//child nodes of level (score / levelNumber)
+				
+				for each(var levelNode:XmlNode in propertyOfLevel)
 				{
-					//store the level
-					var levelIs:float = float.Parse(levelNode.InnerText);	//save the level as a float
-				}
-				if(levelNode.Name == "score")						//if the name of the childnode is score {execute}
-				{
-					if(levelIs == level)							//if the levelNumber is equal to the current level you are searching for
+					if(levelNode.Name == "levelNumber")					//if the name of the childnode is levelNumber {execute}
 					{
-						var thisScore:int = int.Parse(levelNode.InnerText);	//save the score
-						return thisScore;									//return the score
+						//store the level
+						var levelIs:float = float.Parse(levelNode.InnerText);	//save the level as a float
+					}
+					if(levelNode.Name == "score")						//if the name of the childnode is score {execute}
+					{
+						if(levelIs == level)							//if the levelNumber is equal to the current level you are searching for
+						{
+							var thisScore:int = int.Parse(levelNode.InnerText);	//save the score
+							return thisScore;									//return the score
+						}
 					}
 				}
 			}
