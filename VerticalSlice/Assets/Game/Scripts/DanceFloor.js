@@ -6,6 +6,7 @@ private var TileList:Array = new Array();
 private var floorTimer:int = 0;
 private var Animate = false;
 private var refreshRate:float = 0;
+private var maxTimer = 15;
 
 var cc:int = 0;
 // letter arrays.
@@ -69,7 +70,8 @@ function Update ()
 		}
 	if(!Animate){
 		cc++;
-		if (cc == 8){
+		if (cc == maxTimer){
+			if (maxTimer !=5) maxTimer = 5;
 			stepTrough();
 			cc= 0;
 			}
@@ -146,8 +148,12 @@ public function floorToColour(colourNumber:int)
 	 	Tile.gameObject.GetComponent(FloorScript).colour(colourNumber);
 	}
 }
+public function setShowDelay(){
+maxTimer = 24;
+}
 
 public function startAnimateFloor(){
+	setShowDelay();
 	Animate = true;
 }
 
@@ -183,20 +189,24 @@ public function floorToPurple()
 // call letters
 public function play3()
 {
+	setShowDelay();
 	colourByArray(n3);
 }
 
 public function play2()
 {
+	setShowDelay();
 	colourByArray(n2);
 }
 
 public function play1()
 {
+	setShowDelay();
 	colourByArray(n1);
 }
 public function play0()
 {
+	setShowDelay();
 	colourByArray(n0);
 }
 
