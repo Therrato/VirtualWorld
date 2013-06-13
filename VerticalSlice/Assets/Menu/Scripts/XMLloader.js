@@ -32,22 +32,29 @@ function loadXML(level:String):void
 		//read level info
 		//
 		
-		var levelInfo:XmlNodeList = xmlDoc.GetElementsByTagName("root");
+		var rootNode:XmlNodeList = xmlDoc.GetElementsByTagName("root");
 		var bpm:float;
-		for each (var node:XmlNode in levelInfo)
+
+		for each (var node:XmlNode in rootNode)
 		{
 			//get nodes of info
-			if(node.Name == "levelInfo")	var levelInfoList:XmlNodeList = node.ChildNodes;
-
-			for each(var nodeItem:XmlNode in levelInfoList)
+			var childNodesOfRoot:XmlNodeList = node.ChildNodes;
+			
+			for each(var childNodes:XmlNode in childNodesOfRoot)
 			{
-				if(nodeItem.Name == "bpm")
+				if(childNodes.Name == "levelinfo")
 				{
-					bpm = float.Parse(node.InnerText);
-					GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).setBPM(bpm);
-					//tbi
-				}
-				
+					var levelInfoList:XmlNodeList = childNodes.ChildNodes;
+					
+					for each(var nodeItem:XmlNode in levelInfoList)
+					{
+						if(nodeItem.Name == "bpm")
+						{
+							bpm = float.Parse(nodeItem.InnerText);
+							GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).setBPM(bpm);
+						}
+					}
+				}	
 			}
 		}
 		
