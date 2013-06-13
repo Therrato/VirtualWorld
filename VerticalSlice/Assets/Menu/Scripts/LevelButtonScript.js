@@ -42,17 +42,20 @@ function getStarScores(){
 }
 
 function setStars(){
-   // if (score != -1){
+   if(score != 0){
     for (var i = 0; i<=starScoreList.length-1; i++){
+    	
   		 var obj = starScoreList[i];
   			var neededScore = int.Parse(obj.ToString());
-    	if(neededScore<= score){
+  				Debug.Log(i+" "+score+levelString);
+
+    	if(neededScore >= score){
+    		Debug.Log("i may have max "+ neededScore + " and i have "+score);
     		var i1 = i+1;
-    		this.gameObject.transform.FindChild("ScoreDisplay").gameObject.transform.FindChild("Star"+i1).GetComponent(MeshRenderer).active = false;
-			
+    		this.gameObject.transform.FindChild("ScoreDisplay").gameObject.transform.FindChild("Star"+i1).GetComponent(MeshRenderer).renderer.enabled = true;
 		}
 		
 		
 		}
-	//}
+	}
 }
