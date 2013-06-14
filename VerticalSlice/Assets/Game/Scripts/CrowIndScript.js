@@ -10,11 +10,6 @@ function Update ()
 
 }
 
-function wave()
-{
-
-}
-
 function playAnimation(string:String)
 {
 	//Debug.Log(string);

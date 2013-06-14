@@ -44,7 +44,7 @@ function LoadCubes()
 	{
 		var songArray:Array = rowArray[i];
 		var rowCube:GameObject;
-		rowCube = Instantiate(Resources.Load("Cylinder"),Vector3((-2.4),0.5,0.6-(i*0.4)),Quaternion.identity);
+		rowCube = Instantiate(Resources.Load("Cylinder"),Vector3((-2.2),0.5,0.6-(i*0.4)),Quaternion.identity);
 		rowCube.GetComponent(RowCheckScript).setRow(i);
 		rowCubeArray.Push(rowCube);
 		
@@ -60,7 +60,7 @@ function LoadCubes()
 			//cube variable of the type gameobject
 			var cube:GameObject;
 			//put the cube(clone) on stage
-			cube = Instantiate(Resources.Load("Cube"),Vector3((count*0.4-2.5),0.5,0.6-(i*0.4)),Quaternion.identity);
+			cube = Instantiate(Resources.Load("Cube"),Vector3((count*0.35-2.2),0.5,0.6-(i*0.4)),Quaternion.identity);
 			
 			//assign Code active / inactive
 			cube.GetComponent(SoundCubeScript).checkOn(code, arrayCount);

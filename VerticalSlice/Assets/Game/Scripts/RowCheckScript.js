@@ -3,6 +3,11 @@
 private var row:float;
 private var checkRow:boolean = true;
 
+function Awake()
+{
+	this.gameObject.name = "RowCheck";
+}
+
 function Start ()
 {
 

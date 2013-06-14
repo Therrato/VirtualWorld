@@ -25,8 +25,16 @@ public function sortArray(){
 function Awake()
 {
 	createCrowd(crowdXAmount, crowdYAmount);
-	this.gameObject.transform.position.x = -3.3;
-	this.gameObject.transform.position.z = 3.5;
+	this.gameObject.transform.position.x = -4.5;
+	this.gameObject.transform.position.z = 5;
+	
+	
+	
+	this.transform.localScale.x = 1.5;
+	this.transform.localScale.y = 1.5;
+	this.transform.localScale.z = 1.5;
+	
+		
 }
 
 function createCrowd(x:float, z:float)
@@ -41,8 +49,13 @@ function createCrowd(x:float, z:float)
 			var spaceX:float = Random.Range(0.2, 0.4);
 			var spaceZ:float = Random.Range(0.3, 0.5);
 			
+			var prefix:String ="M";
+			if(Random.Range(0, 100)> 50) prefix = "Fem";
+			
+			
 			//Instantiate crowd												/		x   /	y	/		z   	/
-			var crowd:GameObject = Instantiate(Resources.Load("FemaleCrowd"),Vector3((i * 0.5) + spaceX , 	0	, (j * 0.3) + spaceZ),Quaternion.identity);
+			var crowd:GameObject = Instantiate(Resources.Load(prefix+"aleCrowd"),Vector3((i * 0.5) + spaceX , 	0	, (j * 0.3) + spaceZ),Quaternion.identity);
+			crowd.gameObject.transform.eulerAngles.y = 180;
 			//add child to crowd
 			crowd.transform.parent = GameObject.Find("Crowd").transform;
 			//if the J increased reset previous X

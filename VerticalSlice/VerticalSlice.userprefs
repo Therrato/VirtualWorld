@@ -1,9 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Menu\Scripts\LevelButtonScript.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Scripts\LevelLoaderScript.js">
     <Files>
-      <File FileName="Assets\Menu\Scripts\LevelButtonScript.js" Line="60" Column="2" />
+      <File FileName="Assets\Game\Scripts\LevelLoaderScript.js" Line="47" Column="65" />
+      <File FileName="Assets\Menu\Scripts\LevelButtonScript.js" Line="1" Column="1" />
       <File FileName="Assets\Menu\Scripts\Score.xml" Line="1" Column="1" />
+      <File FileName="Assets\Game\Scripts\CrowdScript.js" Line="1" Column="1" />
+      <File FileName="Assets\Game\Scripts\DanceFloor.js" Line="1" Column="1" />
+      <File FileName="Assets\Game\Scripts\RowCheckScript.js" Line="1" Column="1" />
+      <File FileName="Assets\Game\Scripts\CrowIndScript.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

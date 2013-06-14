@@ -59,8 +59,13 @@ private var n0:Array = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						 
 function Start ()
 {
-	this.transform.position.x = -3.5;
-	this.transform.position.z = 1.7;
+	this.transform.position.x = -24.96354;
+	this.transform.position.y = -8.745472;
+	this.transform.position.z = 10.02955;
+	
+	this.transform.localScale.x = 10;
+	this.transform.localScale.y = 10;
+	this.transform.localScale.z = 10;
 }
 
 function Update ()
