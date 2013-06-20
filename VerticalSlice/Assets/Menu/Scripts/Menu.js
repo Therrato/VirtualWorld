@@ -265,9 +265,9 @@ function fileCount()
 	//Path to the levels
 	
 	//unity
-	levelPath = Application.dataPath + "\\Menu\\Scripts\\Levels";
+	//levelPath = Application.dataPath + "\\Menu\\Scripts\\Levels";
 	//compiled
-	//levelPath = Application.dataPath + "/Levels";
+	levelPath = Application.dataPath + "/Levels";
 	
 	//get the directory where the levels are stored
 	var dir:DirectoryInfo = new DirectoryInfo(levelPath);

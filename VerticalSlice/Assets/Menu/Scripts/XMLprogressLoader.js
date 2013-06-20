@@ -8,13 +8,8 @@ function Awake()
 	DontDestroyOnLoad (transform.gameObject);
 }
 
-function Start ()
-{
-}
-
-function Update ()
-{
-}
+function Start(){}
+function Update(){}
 
 function checkCount():float
 {
@@ -23,9 +18,9 @@ function checkCount():float
 	//read out XML
 	var xmlDoc:XmlDocument = new XmlDocument();
 	//unity
-	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Progress.xml";
+	//var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Progress.xml";
 	//compiled
-	//var filePath:String = Application.dataPath + "/Levels/" + "Progress.xml";
+	var filePath:String = Application.dataPath + "/Levels/" + "Progress.xml";
 	
 	//if the file exists then execute
 	if(File.Exists(filePath))
@@ -63,9 +58,9 @@ function getStars(level:float):Array
 {
 	var xmlDoc:XmlDocument = new XmlDocument();
 	//unity
-	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\Levels\\Level" + level + ".sbs";
+	//var filePath:String = Application.dataPath + "\\Menu\\Scripts\\Levels\\Level" + level + ".sbs";
 	//compiled
-	//var filePath:String = Application.dataPath + "/Levels/" + level;
+	var filePath:String = Application.dataPath + "/Levels/Level" + level + ".sbs";
 
 	//if the file exists then execute
 	if(File.Exists(filePath))
@@ -124,9 +119,9 @@ function saveGameProgress(level:float)
 	var xmlDoc:XmlDocument = new XmlDocument();	//new xml Document
 	
 	//unity
-	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Progress.xml";
+	//var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Progress.xml";
 	//compiled
-	//var filePath:String = Application.dataPath + "/Levels/" + "Progress.xml";
+	var filePath:String = Application.dataPath + "/Levels/" + "Progress.xml";
 	
 	//executes the next code if the file exists at the given filePath
 	if(File.Exists(filePath))
@@ -160,8 +155,10 @@ function saveGameProgress(level:float)
 function saveGameScore(level:float)
 {
 	var xmlDoc:XmlDocument = new XmlDocument();											//xml document
-	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Score.xml";		//filepath of the document
-	
+	//unity
+	//var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Score.xml";		//filepath of the document
+	//compiled
+	var filePath:String = Application.dataPath + "/Levels/" + "Score.xml";	
 	if(File.Exists(filePath))
 	{
 		xmlDoc.Load(filePath);															//if it exists load it
@@ -231,7 +228,10 @@ function saveGameScore(level:float)
 function getScore(level:float):float
 {
 	var doc:XmlDocument = new XmlDocument();											//xml document
-	var path:String = Application.dataPath + "\\Menu\\Scripts\\" + "Score.xml";		//filepath of the document
+	//unity
+	//var path:String = Application.dataPath + "\\Menu\\Scripts\\" + "Score.xml";		//filepath of the document
+	//compiled
+	var path:String = Application.dataPath + "/Levels/Score.xml";
 	
 	if(File.Exists(path))
 	{
@@ -302,9 +302,9 @@ private function CreateScoreXML(level:float)
 {
 		var xmlDoc:XmlDocument = new XmlDocument();
 		//unity
-		var path:String = Application.dataPath + "\\Menu\\Scripts\\" + "Score.xml";
+		//var path:String = Application.dataPath + "\\Menu\\Scripts\\" + "Score.xml";
 		//compiled
-		//var filePath:String = Application.dataPath + "/Levels/" + "Score.xml";
+		var path:String = Application.dataPath + "/Levels/" + "Score.xml";
 
 
 		//if there is no score file yet, create basic file
@@ -331,9 +331,9 @@ function CreateSaveGame()
 {
 		var xmlDoc:XmlDocument = new XmlDocument();
 		//unity
-		var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Progress.xml";
+		//var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Progress.xml";
 		//compiled
-		//var filePath:String = Application.dataPath + "/Levels/" + "Progress.xml";
+		var filePath:String = Application.dataPath + "/Levels/" + "Progress.xml";
 
 
 	//if there is no progress/save file yet, create start lvl 1
