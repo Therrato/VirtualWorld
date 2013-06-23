@@ -39,6 +39,8 @@ private var State:String = "MainMenu";
 public var texturesArray:Texture[];
 public var mainMenuTexture:Texture2D;
 public var creditsTexture:Texture2D;
+public var helpScreenTexture:Texture2D;
+public var levelSelectTexture:Texture2D;
 private var style:GUIStyle;
 
 //button rects
@@ -55,7 +57,7 @@ function Awake()
 	helpRect 	= new Rect(145, 430, texturesArray[1].width, texturesArray[1].height);
 	creditsRect = new Rect(145, 560, texturesArray[2].width, texturesArray[2].height);
 	exitRect 	= new Rect(145, 700, texturesArray[3].width, texturesArray[3].height);
-	backRect	= new Rect(Screen.width / 2 - texturesArray[8].width / 2, Screen.height - texturesArray[8].height - 50 , texturesArray[8].width, texturesArray[8].height);
+	backRect	= new Rect(Screen.width / 2 - texturesArray[8].width / 2, Screen.height - texturesArray[8].height - 10 , texturesArray[8].width, texturesArray[8].height);
 }
 
 function Start ()
@@ -167,6 +169,9 @@ function OnGUI()
 	
 	if(State == "Help")
 	{	
+		//help screen texture
+		GUI.DrawTexture(Rect(0, 0, Screen.width, Screen.height), helpScreenTexture);
+		
 		//red
 		if(hoverBoolean(backRect) == true)
 		{
@@ -175,6 +180,7 @@ function OnGUI()
 				State = "MainMenu";
 			}
 		}
+		//blue
 		else if(GUI.Button(backRect, texturesArray[8], "label"))
 		{
 			State = "MainMenu";
@@ -228,35 +234,26 @@ function OnGUI()
 		
 		//create level cubes
 		makeButtons();
+	}
+	
+	if(State == "level Select V2")
+	{
+		//credits texture background
+		GUI.DrawTexture(Rect(0, 0, Screen.width, 270), levelSelectTexture, ScaleMode.ScaleAndCrop);
 		
-		//for every LevelX.xml create a button
-//		for(var i:float; i<count; i++)
-//		{
-//			var levelCount:float = i+1;
-//
-//			//create buttons	   |						X					|					Y						|	  Width	   |		Height		|		Name			|
-//			if(GUI.Button(new Rect(Screen.width / 10 - levelButtonWidth / 2 + i*65,	 Screen.height / 2 - levelButtonHeight, levelButtonWidth, levelButtonHeight), 	levelCount.ToString()))
-//			{
-//				//check the current level you can play
-//				var check:float = GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).checkCount(); //check if the level is playable by looking at the progress.xml
-//				if(check < levelCount)
-//				{
-//					Debug.Log("Error, can't do this level yet"); //show in console that the level is not playable yet
-//					//visual blocking of levels TBI
-//				}
-//				//if you can play it then execute else
-//				else
-//				{
-//					level = "Level"+levelCount+".sbs"; //level is a string that the level loader needs
-//					currentLevel = levelCount;	//set current level to the level you've chosen.
-//
-//					//get rid of texture
-//					State = "ingame";	//set state to "ingame" so the menu disappears but the functionality can still be accessed
-//					Application.LoadLevel("MainGame");	//load the MainGame scene which loads the rest
-//					
-//				}
-//			}
-//		}
+		//red
+		if(hoverBoolean(backRect) == true)
+		{
+			if(GUI.Button(backRect, texturesArray[9], "label"))
+			{
+				State = "MainMenu";
+			}
+		}
+		//blue
+		else if(GUI.Button(backRect, texturesArray[8], "label"))
+		{
+			State = "MainMenu";
+		}
 	}
 }
 
@@ -265,9 +262,9 @@ function fileCount()
 	//Path to the levels
 	
 	//unity
-	//levelPath = Application.dataPath + "\\Menu\\Scripts\\Levels";
+	levelPath = Application.dataPath + "\\Menu\\Scripts\\Levels";
 	//compiled
-	levelPath = Application.dataPath + "/Levels";
+	//levelPath = Application.dataPath + "/Levels";
 	
 	//get the directory where the levels are stored
 	var dir:DirectoryInfo = new DirectoryInfo(levelPath);
@@ -330,9 +327,9 @@ function makeButtons()
 	//putting the container at the right position
 	var container:GameObject=GameObject.Find("LevelContainer");
 	container.transform.eulerAngles.y = 180;		//so its faced the correct direction
-	container.transform.position.x =-0.42;			//get it in screen
-	container.transform.position.z =0.6;
-	container.transform.position.y =0.2;
+	container.transform.position.x = -0.42;			//get it in screen
+	container.transform.position.z = 0.6;
+	container.transform.position.y = 0;
 	
 	
 }

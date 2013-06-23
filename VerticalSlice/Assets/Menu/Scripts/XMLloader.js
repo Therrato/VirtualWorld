@@ -17,9 +17,9 @@ function loadXML(level:String):void
 {
 	var xmlDoc:XmlDocument = new XmlDocument();
 	//unity
-	//var filePath:String = Application.dataPath + "\\Menu\\Scripts\\Levels\\" + level;
+	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\Levels\\" + level;
 	//compiled
-	var filePath:String = Application.dataPath + "/Levels/" + level;
+	//var filePath:String = Application.dataPath + "/Levels/" + level;
 	
 	//if the file exists then execute
 	if(File.Exists(filePath))
