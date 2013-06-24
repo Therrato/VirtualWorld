@@ -3,8 +3,8 @@
 import System.Collections.Generic;
 
 public var rowArray:Array = new Array();
-private var rowCountArray = new Array();
-private var rowCubeArray = new Array();
+private var rowCountArray:Array = new Array();
+private var rowCubeArray:Array = new Array();
 private var arrayCount:int = 0;
 private var rowCount:int = 0;
 

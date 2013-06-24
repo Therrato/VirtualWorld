@@ -11,7 +11,8 @@ var tutorialHint:boolean = false ;
 var currentLevel1:int;
 var addDelayhint1:boolean =false;
 var addDelayhint2:boolean =false;
-
+var maxLevel:boolean = false;
+public var endScreenTexture:Texture2D;
 
 function Start ()
 {
@@ -33,6 +34,11 @@ function OnGUI()
 	if (tutorialHint)
 	{
 		GUI.Label(new Rect(Screen.width / 4-50, Screen.height-100, 30, 80), countDown, TextStyle);
+	}
+	
+	if(maxLevel == true)
+	{
+		GUI.DrawTexture(Rect(0, 0, (Screen.width)+50, Screen.height), endScreenTexture);
 	}
 }
 
@@ -106,7 +112,7 @@ function Update ()
 				}
 			}
 		}
-		Debug.Log(currentLevel1);
+		
 		if(timer == 299){GameObject.Find("Dancefloor").GetComponent(DanceFloor).stopAnimateFloor();
 		}
 		if(timer == 240) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play3();
@@ -172,8 +178,9 @@ function nextLevel()
 			Debug.Log("max level reached");
 			//destroy MainMenu and XMLProgressLoader
 			GameObject.Find("MainMenu").GetComponent(Menu).destroyMainMenu();
-		
+			maxLevel = true;
 			//load MainMenu scene (go back to main menu)
+			yield WaitForSeconds(8);
 			Application.LoadLevel("MainMenu");
 			
 		}
