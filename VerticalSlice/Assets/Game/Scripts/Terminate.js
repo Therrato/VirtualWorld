@@ -11,13 +11,14 @@ var tutorialHint:boolean = false ;
 var currentLevel1:int;
 var addDelayhint1:boolean =false;
 var addDelayhint2:boolean =false;
+var addDelayhint3:boolean =false;
 var maxLevel:boolean = false;
 public var endScreenTexture:Texture2D;
 
 function Start ()
 {
 	currentLevel1= GameObject.Find("MainMenu").GetComponent(Menu).GetLevel();
-		if (currentLevel1==1)timer = 650;
+		if (currentLevel1==1)timer = 850;
 		else timer = 300;
 }
 
@@ -33,7 +34,7 @@ function OnGUI()
 {
 	if (tutorialHint)
 	{
-		GUI.Label(new Rect(Screen.width / 4-50, Screen.height-100, 30, 80), countDown, TextStyle);
+		GUI.Label(new Rect(Screen.width / 4-45, Screen.height-120, 30, 80), countDown, TextStyle);
 	}
 	
 	if(maxLevel == true)
@@ -92,28 +93,40 @@ function Update ()
 		if(timer == 160) countDown = "2";
 		if(timer == 80) countDown = "1";
 		*/
-		if (timer> 450&&timer< 550){
+		if (timer> 601&&timer< 750){
 		
-		if (currentLevel1==1) { countDown = "These are your cubes. \r\nFirst listen to the sequence. \r\nThen click them to activate them. ";
+		if (currentLevel1==1) { countDown = "These are your Soundcubes. \r\nFirst listen to the sequence. \r\nAfterwards click them to activate them. ";
 				tutorialHint = true;
-				if (timer==460&&addDelayhint1==false){
-					timer+=100;
+				if (timer==611&&addDelayhint1==false){
+					timer+=99;
 					addDelayhint1 = true;
+				}
+			}
+		}
+		
+		if (timer> 450&&timer< 600){
+		
+		if (currentLevel1==1) { countDown = "If you think you have the sequence correct. \r\nPress space to check your sequence. ";
+				tutorialHint = true;
+				if (timer==460&&addDelayhint2==false){
+					timer+=89;
+					addDelayhint2 = true;
 				}
 			}
 		}
 		if (timer> 301&& timer<450){
 		
-		if (currentLevel1==1) { countDown = "If you think you have the sequence correct. \r\nPress space to check your sequence. ";
+		if (currentLevel1==1) { countDown = "Red Soundcubes are incorrect.\r\nGreen Soundcubes are correct\r\nBlue SoundCubes are neutral";
 				tutorialHint = true;
-				if (timer==310&&addDelayhint2==false){
+				if (timer==310&&addDelayhint3==false){
 					timer+=100;
-					addDelayhint2 = true;
+					addDelayhint3 = true;
 				}
 			}
 		}
 		
 		if(timer == 299){GameObject.Find("Dancefloor").GetComponent(DanceFloor).stopAnimateFloor();
+		countDown = "";
 		}
 		if(timer == 240) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play3();
 		if(timer == 160) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play2();
