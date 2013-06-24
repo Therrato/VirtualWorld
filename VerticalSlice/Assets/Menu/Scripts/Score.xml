@@ -21,6 +21,10 @@
   </level>
   <level>
     <levelNumber>6</levelNumber>
+    <score>1</score>
+  </level>
+  <level>
+    <levelNumber>7</levelNumber>
     <score>2</score>
   </level>
 </levelProgress>
