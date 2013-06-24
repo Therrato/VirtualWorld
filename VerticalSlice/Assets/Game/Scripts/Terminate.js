@@ -2,30 +2,37 @@
 
 private var playingRow:boolean = false;
 
+
 var playFirstTime:boolean = true;
 var timer:float = 250;
 var countDown:String;
 var TextStyle:GUIStyle;
+var tutorialHint:boolean = false ;
+var currentLevel1:int;
+var addDelayhint1:boolean =false;
+var addDelayhint2:boolean =false;
+
 
 function Start ()
 {
-	
+	currentLevel1= GameObject.Find("MainMenu").GetComponent(Menu).GetLevel();
+		if (currentLevel1==1)timer = 650;
+		else timer = 300;
 }
 
 function Awake()
 {
 	//change the font size to value
-	TextStyle.fontSize = 128;
+	TextStyle.fontSize = 24;
 	//change the colour of the font
 	TextStyle.normal.textColor = Color.white;
 }
 
 function OnGUI()
 {
-	//countdown display
-	if(playFirstTime == true)
+	if (tutorialHint)
 	{
-		GUI.Label(new Rect(Screen.width / 2, 0, 30, 80), countDown, TextStyle);
+		GUI.Label(new Rect(Screen.width / 4-50, Screen.height-100, 30, 80), countDown, TextStyle);
 	}
 }
 
@@ -79,12 +86,36 @@ function Update ()
 		if(timer == 160) countDown = "2";
 		if(timer == 80) countDown = "1";
 		*/
-		if(timer == 299)GameObject.Find("Dancefloor").GetComponent(DanceFloor).stopAnimateFloor();
+		if (timer> 450&&timer< 550){
+		
+		if (currentLevel1==1) { countDown = "These are your cubes. \r\nFirst listen to the sequence. \r\nThen click them to activate them. ";
+				tutorialHint = true;
+				if (timer==460&&addDelayhint1==false){
+					timer+=100;
+					addDelayhint1 = true;
+				}
+			}
+		}
+		if (timer> 301&& timer<450){
+		
+		if (currentLevel1==1) { countDown = "If you think you have the sequence correct. \r\nPress space to check your sequence. ";
+				tutorialHint = true;
+				if (timer==310&&addDelayhint2==false){
+					timer+=100;
+					addDelayhint2 = true;
+				}
+			}
+		}
+		Debug.Log(currentLevel1);
+		if(timer == 299){GameObject.Find("Dancefloor").GetComponent(DanceFloor).stopAnimateFloor();
+		}
 		if(timer == 240) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play3();
 		if(timer == 160) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play2();
 		if(timer == 80) GameObject.Find("Dancefloor").GetComponent(DanceFloor).play1();
 		
-		if(timer == 10)GameObject.Find("Dancefloor").GetComponent(DanceFloor).play0();
+		if(timer == 10){
+			GameObject.Find("Dancefloor").GetComponent(DanceFloor).play0();
+		}
 		//if time is up
 		playOnStart();
 	}
@@ -97,10 +128,8 @@ function Update ()
 	
 	if(Input.GetKeyUp("f"))
 	{
-		//get current level
-		var currentLevel = GameObject.Find("MainMenu").GetComponent(Menu).GetLevel();
 		//save progress(next level)
-		GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).saveGameProgress(currentLevel);
+		GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).saveGameProgress(currentLevel1);
 		
 		//destroy MainMenu and XMLProgressLoader
 		GameObject.Find("MainMenu").GetComponent(Menu).destroyMainMenu();
@@ -130,7 +159,7 @@ function Update ()
 function nextLevel()
 {
 		//get current level
-		var currentLevel1 = GameObject.Find("MainMenu").GetComponent(Menu).GetLevel();
+		currentLevel1 = GameObject.Find("MainMenu").GetComponent(Menu).GetLevel();
 		//save progress(next level)
 		GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).saveGameProgress(currentLevel1);
 		GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).saveGameScore(currentLevel1);
