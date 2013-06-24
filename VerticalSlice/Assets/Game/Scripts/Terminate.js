@@ -33,6 +33,7 @@ public function playSequence()
 {
 	
 	GameObject.Find("Score").GetComponent(ScoreScript).addTry();
+	GameObject.Find("DJ Booth").GetComponent(BoothScript).playAnimation();
 	//set the boolean on false
 	
 	//get the array of cubes	
