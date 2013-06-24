@@ -1,10 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Scripts\Terminate.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Scripts\BoothScript.js">
     <Files>
-      <File FileName="Assets\Game\Scripts\BoothScript.js" Line="1" Column="15" />
-      <File FileName="Assets\Game\Scripts\CrowdScript.js" Line="35" Column="35" />
-      <File FileName="Assets\Game\Scripts\Terminate.js" Line="36" Column="72" />
+      <File FileName="Assets\Game\Scripts\BoothScript.js" Line="6" Column="26" />
+      <File FileName="Assets\Menu\Scripts\Menu.js" Line="1" Column="1" />
+      <File FileName="Assets\Game\Scripts\CrowdScript.js" Line="1" Column="1" />
+      <File FileName="Assets\Game\Scripts\Terminate.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

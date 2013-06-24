@@ -53,10 +53,10 @@ private var backRect:Rect;
 function Awake()
 {
 	DontDestroyOnLoad (transform.gameObject);
-	playRect 	= new Rect(145, 300, texturesArray[0].width, texturesArray[0].height);
-	helpRect 	= new Rect(145, 430, texturesArray[1].width, texturesArray[1].height);
-	creditsRect = new Rect(145, 560, texturesArray[2].width, texturesArray[2].height);
-	exitRect 	= new Rect(145, 700, texturesArray[3].width, texturesArray[3].height);
+	playRect 	= new Rect(Screen.width / 2 - texturesArray[0].width / 2 , 300, texturesArray[0].width, texturesArray[0].height);
+	helpRect 	= new Rect(Screen.width / 2 - texturesArray[1].width / 2, 430, texturesArray[1].width, texturesArray[1].height);
+	creditsRect = new Rect(Screen.width / 2 - texturesArray[2].width / 2, 560, texturesArray[2].width, texturesArray[2].height);
+	exitRect 	= new Rect(Screen.width / 2 - texturesArray[3].width / 2, 700, texturesArray[3].width, texturesArray[3].height);
 	backRect	= new Rect(Screen.width / 2 - texturesArray[8].width / 2, Screen.height - texturesArray[8].height - 10 , texturesArray[8].width, texturesArray[8].height);
 }
 
