@@ -1,30 +1,20 @@
 Initialize engine version: 4.0.0f7
 GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.1422]
+    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.2049]
     Renderer: NVIDIA GeForce GTX 460M
     Vendor:   NVIDIA
     VRAM:     1488 MB (via DXGI)
     Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 DF24=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha\SpinBooth_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha\SpinBooth_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha\SpinBooth_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha\SpinBooth_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-- Completed reload, in  0.055 seconds
+Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha Windows\SpinBooth_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha Windows\SpinBooth_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha Windows\SpinBooth_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha Windows\SpinBooth_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+- Completed reload, in  0.092 seconds
 desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha\SpinBooth_Data\Managed\System.Xml.dll (this message is harmless)
-Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha\SpinBooth_Data\Managed\UnityScript.Lang.dll (this message is harmless)
-Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha\SpinBooth_Data\Managed\Boo.Lang.dll (this message is harmless)
-DirectoryNotFoundException: Directory 'C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha\SpinBooth_Data\Levels' not found.
-  at System.IO.Directory.GetFileSystemEntries (System.String path, System.String searchPattern, FileAttributes mask, FileAttributes attrs) [0x00000] in <filename unknown>:0 
-  at System.IO.Directory.GetFiles (System.String path, System.String searchPattern) [0x00000] in <filename unknown>:0 
-  at System.IO.DirectoryInfo.GetFiles (System.String searchPattern) [0x00000] in <filename unknown>:0 
-  at (wrapper remoting-invoke-with-check) System.IO.DirectoryInfo:GetFiles (string)
-  at Menu.fileCount () [0x00000] in <filename unknown>:0 
-  at Menu.OnGUI () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
+Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha Windows\SpinBooth_Data\Managed\System.Xml.dll (this message is harmless)
+Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha Windows\SpinBooth_Data\Managed\UnityScript.Lang.dll (this message is harmless)
+Platform assembly: C:\Users\MaskedMouse\Desktop\VirtualWorld\Final Build\Alpha Windows\SpinBooth_Data\Managed\Boo.Lang.dll (this message is harmless)
