@@ -1,17 +1,34 @@
 #pragma strict
-public var Tries:int;
+public var Tries:int = -1;
 public var needCount:float;
 public var foundCount:float;
 public var percentage:float;
+public var hudTexture:Texture2D;
 
+private var textStyle:GUIStyle = new GUIStyle();
 
-function Awake(){
-Tries = -1;
-
+function Awake()
+{
+	//set textStyle
+	textStyle.fontSize = 30;
+	textStyle.normal.textColor = Color.white;
 }
 
-function Start () {
-
+function OnGUI()
+{
+	//hud texture
+	GUI.DrawTexture(Rect(Screen.width - 512, 0, 512, 128/2), hudTexture);
+	
+	
+	
+	//level
+	GUI.Label(Rect(Screen.width - 512 + 100, 17, 50,50), getLevel().ToString(), textStyle);
+	
+	//tries
+	GUI.Label(Rect(Screen.width - 512 + 245, 17, 50,50), showScore(), textStyle);
+	
+	//percentage
+	GUI.Label(Rect(Screen.width - 512 + 465, 17, 50,50), percentage.ToString(), textStyle);
 }
 
 function Update () {
@@ -56,4 +73,21 @@ public function setScore(n:int,c:int){
 public function getScore():int
 {
 	return Tries;
+}
+
+private function showScore():String
+{
+	if(Tries == -1) return "0";
+	else return Tries.ToString();
+}
+
+private function getLevel():int
+{
+	return GameObject.Find("MainMenu").GetComponent(Menu).GetLevel();
+}
+
+public function resetPercentage()
+{
+	yield WaitForSeconds(4);
+	percentage = 0;
 }

@@ -1,12 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Scripts\CrowdScript.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Scripts\ScoreScript.js">
     <Files>
       <File FileName="Assets\Game\Scripts\CrowdScript.js" Line="82" Column="29" />
-      <File FileName="Assets\Game\Scripts\CrowIndScript.js" Line="11" Column="67" />
-      <File FileName="Assets\Game\Scripts\SoundCubeScript.js" Line="12" Column="1" />
-      <File FileName="Assets\Game\Scripts\Terminate.js" Line="1" Column="1" />
-      <File FileName="Assets\Game\Scripts\SoundProcessor.js" Line="24" Column="33" />
+      <File FileName="Assets\Game\Scripts\CrowIndScript.js" Line="1" Column="1" />
+      <File FileName="Assets\Game\Scripts\SoundCubeScript.js" Line="1" Column="1" />
+      <File FileName="Assets\Game\Scripts\Terminate.js" Line="187" Column="3" />
+      <File FileName="Assets\Game\Scripts\SoundProcessor.js" Line="1" Column="1" />
+      <File FileName="Assets\Game\Scripts\ScoreScript.js" Line="56" Column="2" />
+      <File FileName="Assets\Game\Scripts\DanceFloor.js" Line="130" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

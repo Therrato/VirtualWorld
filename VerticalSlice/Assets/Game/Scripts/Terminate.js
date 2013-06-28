@@ -183,8 +183,13 @@ function nextLevel()
 		GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).saveGameProgress(currentLevel1);
 		GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).saveGameScore(currentLevel1);
 		
+		//reset percentage
+		GameObject.Find("Score").GetComponent(ScoreScript).resetPercentage();
+		
 		//get next level string
 		var nextLevel:String = GameObject.Find("MainMenu").GetComponent(Menu).nextLevel();
+		
+		
 		
 		if(nextLevel == null)
 		{
@@ -202,9 +207,6 @@ function nextLevel()
 			//tell level loader to unload the level.
 			GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).clearRowArray();
 			GameObject.Find("LevelLoader").GetComponent(LevelLoaderScript).unLoad();
-			
-			//load the new level
-			//get string for next level
 			
 			//load with xml loader
 			GameObject.Find("MainMenu").GetComponent(XMLloader).loadXML(nextLevel);
