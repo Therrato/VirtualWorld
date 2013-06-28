@@ -3,6 +3,7 @@
 private var crowdArray:Array = new Array();
 private var crowdXAmount:float = 10;
 private var crowdYAmount:float = 4;
+public var WaveAudio:AudioClip;
 
 
 function Start ()
@@ -78,6 +79,8 @@ function playCrowdWave()
 	var counter:int = 0;	//counter for the delay
 	var delay:float = 0;		//delay amount
 	var multiplyer:float = 0;
+	audio.PlayOneShot(WaveAudio);
+	
 	for(var i=0; i<crowdArray.length; i++)
 	{
 		//get the crowd
