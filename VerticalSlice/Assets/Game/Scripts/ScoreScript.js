@@ -20,7 +20,6 @@ function OnGUI()
 	GUI.DrawTexture(Rect(Screen.width - 512, 0, 512, 128/2), hudTexture);
 	
 	
-	
 	//level
 	GUI.Label(Rect(Screen.width - 512 + 100, 17, 50,50), getLevel().ToString(), textStyle);
 	
@@ -28,7 +27,7 @@ function OnGUI()
 	GUI.Label(Rect(Screen.width - 512 + 245, 17, 50,50), showScore(), textStyle);
 	
 	//percentage
-	GUI.Label(Rect(Screen.width - 512 + 465, 17, 50,50), percentage.ToString(), textStyle);
+	GUI.Label(Rect(Screen.width - 512 + 455, 17, 50,50), percentage.ToString(), textStyle);
 }
 
 function Update () {

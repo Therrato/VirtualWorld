@@ -52,6 +52,7 @@ private var backRect:Rect;
 function Awake()
 {
 	DontDestroyOnLoad (transform.gameObject);
+	
 
 }
 
@@ -248,6 +249,8 @@ function OnGUI()
 			if(GUI.Button(backRect, texturesArray[9], "label"))
 			{
 				State = "MainMenu";
+				destroyLevels();
+				resetLevelContainer();
 			}
 		}
 		//blue
@@ -324,20 +327,36 @@ function makeButtons()
 		LevelButton.GetComponent(LevelButtonScript).SetLevel(levelCount,open);	//set levelbutton properties
 		LevelButton.transform.parent = GameObject.Find("LevelContainer").transform;	//make it a parent of levelcontainer
 	}
-	
+
 	//putting the container at the right position
 	var container:GameObject=GameObject.Find("LevelContainer");
 	container.transform.eulerAngles.y = 180;		//so its faced the correct direction
 	container.transform.position.x = -0.42;			//get it in screen
 	container.transform.position.z = 0.6;
 	container.transform.position.y = 0;
-	
-	
 }
 
 function destroyMainMenu()
 {
 	Destroy(GameObject.Find("MainMenu"));
+}
+
+function destroyLevels()
+{
+    var childs:int = GameObject.Find("LevelContainer").transform.childCount;
+    for (var i = 0; i<childs; i++)
+    {
+        GameObject.Destroy(GameObject.Find("LevelContainer").transform.GetChild(i).gameObject);
+    }
+}
+
+function resetLevelContainer()
+{
+	var container:GameObject=GameObject.Find("LevelContainer");
+	container.transform.eulerAngles.y = 0;		//so its faced the correct direction
+	container.transform.position.x = 0;			//get it in screen
+	container.transform.position.z = 0;
+	container.transform.position.y = 0;
 }
 
 function setLevel(lvl:String, number:int)

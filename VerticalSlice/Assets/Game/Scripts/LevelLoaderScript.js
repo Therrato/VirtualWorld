@@ -20,16 +20,6 @@ function Awake()
 	rowArray.Push(songArray);
 }
 
-function Start ()
-{
-
-}
-
-function Update ()
-{
-
-}
-
 function PushCube(code:int)
 {
 	 var pushToMe:Array = rowArray[rowCount];
