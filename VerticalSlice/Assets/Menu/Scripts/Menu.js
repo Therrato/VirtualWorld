@@ -68,7 +68,15 @@ function Update ()
 		interval++;
 		loadLevel(level);
 	}
-	//Debug.Log(Input.mousePosition.y);
+	
+	if(State == "MainMenu")
+	{
+		if(Input.GetKey("d") && Input.GetKeyUp("p"))
+		{
+			//delete progress
+			GameObject.Find("MainMenu").GetComponent(XMLprogressLoader).deleteProgress();
+		}
+	}
 }
 
 function hoverBoolean(rect:Rect):boolean
@@ -295,7 +303,10 @@ public function loadLevel(level)
 
 function GetLevel():float
 {
-	return currentLevel;
+	if(currentLevel != null)
+	{
+		return currentLevel;
+	}
 }
 
 function nextLevel():String

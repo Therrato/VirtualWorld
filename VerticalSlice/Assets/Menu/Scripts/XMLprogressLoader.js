@@ -356,3 +356,55 @@ function CreateSaveGame()
 	}
 	
 }
+
+function deleteProgress()
+{
+	var xmlDoc:XmlDocument = new XmlDocument();
+	//unity
+	var filePath:String = Application.dataPath + "\\Menu\\Scripts\\" + "Progress.xml";
+	//compiled
+	//var filePath:String = Application.dataPath + "/Levels/" + "Progress.xml";
+
+	if(File.Exists(filePath) == true)
+	{
+		//create new Progress.xml file and put root element in it
+		//load the document
+		xmlDoc.Load(filePath);
+		//get root element of the document
+		var levelProgress:XmlElement = xmlDoc.DocumentElement;
+		
+		levelProgress.RemoveAll();
+		//create XML element "check"
+		var check:XmlElement = xmlDoc.CreateElement("check");
+		//make check a child of levelProgress
+		levelProgress.AppendChild(check);
+		//start at lvl 1
+		check.InnerText = "1";
+		//save the document
+		xmlDoc.Save(filePath);
+	}
+	else CreateSaveGame();
+	
+	
+	var xmlDoc2:XmlDocument = new XmlDocument();
+	//unity
+	var path:String = Application.dataPath + "\\Menu\\Scripts\\" + "Score.xml";
+	//compiled
+	//var path:String = Application.dataPath + "/Levels/" + "Score.xml";
+
+
+	//if there is no score file yet, create basic file
+	if(File.Exists(path) == true)
+	{
+		//create new Progress.xml file and put root element in it
+		File.WriteAllText(path, "<levelProgress></levelProgress>");
+		//load the document
+		xmlDoc2.Load(path);
+		//get root element of the document
+		var levelProgress2:XmlElement = xmlDoc2.DocumentElement;
+		levelProgress2.RemoveAll();
+		//save the document
+		xmlDoc2.Save(path);
+	}
+	else return;
+}

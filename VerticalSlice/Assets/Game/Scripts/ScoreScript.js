@@ -4,6 +4,7 @@ public var needCount:float;
 public var foundCount:float;
 public var percentage:float;
 public var hudTexture:Texture2D;
+private var destroy:boolean = false;
 
 private var textStyle:GUIStyle = new GUIStyle();
 
@@ -16,18 +17,21 @@ function Awake()
 
 function OnGUI()
 {
-	//hud texture
-	GUI.DrawTexture(Rect(Screen.width - 512, 0, 512, 128/2), hudTexture);
-	
-	
-	//level
-	GUI.Label(Rect(Screen.width - 512 + 100, 17, 50,50), getLevel().ToString(), textStyle);
-	
-	//tries
-	GUI.Label(Rect(Screen.width - 512 + 245, 17, 50,50), showScore(), textStyle);
-	
-	//percentage
-	GUI.Label(Rect(Screen.width - 512 + 455, 17, 50,50), percentage.ToString(), textStyle);
+	if(destroy == false)
+	{
+		//hud texture
+		GUI.DrawTexture(Rect(Screen.width - 512, 0, 512, 128/2), hudTexture);
+		
+		
+		//level
+		GUI.Label(Rect(Screen.width - 512 + 100, 17, 50,50), getLevel().ToString(), textStyle);
+		
+		//tries
+		GUI.Label(Rect(Screen.width - 512 + 245, 17, 50,50), showScore(), textStyle);
+		
+		//percentage
+		GUI.Label(Rect(Screen.width - 512 + 455, 17, 50,50), percentage.ToString(), textStyle);
+	}
 }
 
 function Update () {
@@ -89,4 +93,9 @@ public function resetPercentage()
 {
 	yield WaitForSeconds(4);
 	percentage = 0;
+}
+
+public function setDestroy()
+{
+	destroy = true;
 }

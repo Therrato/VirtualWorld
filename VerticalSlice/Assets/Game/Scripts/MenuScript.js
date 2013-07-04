@@ -84,6 +84,7 @@ function OnGUI()
 		{
 			if(GUI.Button(quitRect, texturesArray[1], "label"))
 			{
+				GameObject.Find("Score").GetComponent(ScoreScript).setDestroy();
 				GameObject.Find("MainMenu").GetComponent(Menu).destroyMainMenu();
 				Application.LoadLevel("MainMenu");
 			}
