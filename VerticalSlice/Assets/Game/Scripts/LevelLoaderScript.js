@@ -50,8 +50,7 @@ function LoadCubes()
 			//cube variable of the type gameobject
 			var cube:GameObject;
 			//put the cube(clone) on stage
-			cube = Instantiate(Resources.Load("Cube"),Vector3((count*0.35-2.2),0.5,0.6-(i*0.4)),Quaternion.identity);
-			
+			cube = Instantiate(Resources.Load("InGameCube"),Vector3((count*0.35-2.2),0.5,0.6-(i*0.4)),Quaternion.identity);
 			//assign Code active / inactive
 			cube.GetComponent(SoundCubeScript).checkOn(code, arrayCount);
 			cube.GetComponent(SoundCubeScript).setBPM(BPM);

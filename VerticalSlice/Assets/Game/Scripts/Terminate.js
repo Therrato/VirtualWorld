@@ -262,4 +262,9 @@ function CheckSeq() {
 function getplayingRow():boolean
 {
 	return playingRow;	
-}		
+}
+
+function setPlayingRow(value:boolean)
+{
+	playingRow = value;
+}

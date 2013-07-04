@@ -15,11 +15,15 @@ private var SaveSettings:String = "Save Settings";
 //ingame state
 private var inGameState:String = "Game";
 
+public var texturesArray:Texture[];
+public var menuBackground:Texture2D;
+private var resumeRect:Rect;
+private var quitRect:Rect;
 
-
-function Start ()
+function Awake()
 {
-
+	resumeRect = new Rect(Screen.width / 2 - (texturesArray[0].width / 2) + 5, (Screen.height / 2) - 50, 164, 68);
+	quitRect = new Rect(Screen.width / 2 - (texturesArray[2].width / 2) + 5, (Screen.height / 2) + 35, 164, 68);
 }
 
 function Update ()
@@ -35,8 +39,13 @@ function onEscapeKey()
 		if(inGameState == "Game")
 		{
 			inGameState = "Menu";
+			//pauseGame();
 		}
-		else inGameState = "Game";
+		else
+		{
+			//unpauseGame();
+			inGameState = "Game";
+		}
 		//pause game true
 		//to be implemented
 	}
@@ -47,50 +56,69 @@ function OnGUI()
 	//
 	//		ingame menu
 	//
-
 	if(inGameState == "Menu")
 	{
+		GUI.DrawTexture(Rect(Screen.width / 2 - 169 / 2, Screen.height / 2 - menuBackground.height / 2, 169, 182), menuBackground);
 		//Resume game
-		if(GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, Screen.height / 2 - 150, buttonWidth, buttonHeight), ResumeGame))
+		//glow
+		if(hoverBoolean(resumeRect) == true)
+		{
+			if(GUI.Button(resumeRect, texturesArray[0], "label"))
+			{
+				//return to game
+				//unpauseGame();
+				inGameState = "Game";
+			}
+		}
+		//noglow
+		if(GUI.Button(resumeRect, texturesArray[2], "label"))
 		{
 			//return to game
+			//unpauseGame();
 			inGameState = "Game";
-			
-			//unpause game
-			//to be implemented
-		}
-		
-		//Options
-		if(GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, Screen.height / 2 - 50, buttonWidth, buttonHeight), Options))
-		{
-			inGameState = "Options";
 		}
 		
 		//Quit
-		if(GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, Screen.height / 2 - -50, buttonWidth, buttonHeight), QuitGame))
+		//glow
+		if(hoverBoolean(quitRect) == true)
+		{
+			if(GUI.Button(quitRect, texturesArray[1], "label"))
+			{
+				GameObject.Find("MainMenu").GetComponent(Menu).destroyMainMenu();
+				Application.LoadLevel("MainMenu");
+			}
+		}
+		//noglow
+		if(GUI.Button(quitRect, texturesArray[3], "label"))
 		{
 			GameObject.Find("MainMenu").GetComponent(Menu).destroyMainMenu();
 			Application.LoadLevel("MainMenu");
 		}
 	}
-	
-	//
-	//		ingame options
-	//
-	
-	if(inGameState == "Options")
+}
+
+function hoverBoolean(rect:Rect):boolean
+{
+	var leftBorder = rect.x;
+	var rightBorder = rect.x + rect.width;
+	var topBorder = rect.y;
+	var botBorder = rect.y + rect.height;
+	var msY = Screen.height - Input.mousePosition.y;
+
+	if(Input.mousePosition.x > leftBorder && Input.mousePosition.x < rightBorder && msY > topBorder && msY < botBorder)
 	{
-		//change button
-		if(GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, Screen.height / 2 - 150, buttonWidth, buttonHeight), Options))
-		{
-			Debug.Log("changing settings");
-		}
-		
-		//save and go back
-		if(GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, Screen.height / 2 - -50, buttonWidth, buttonHeight), SaveSettings))
-		{
-			Debug.Log("saving settings");
-			inGameState = "Menu";
-		}
+		return true;
 	}
+	else return false;
+
+}
+
+function pauseGame()
+{
+	GameObject.Find("TerminateGame").GetComponent(Terminate).setPlayingRow(true);
+}
+
+function unpauseGame()
+{
+	GameObject.Find("TerminateGame").GetComponent(Terminate).setPlayingRow(false);
 }
